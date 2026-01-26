@@ -5,6 +5,7 @@ const Button = ({
   icon,
   iconPosition = "right",
   size = "md",
+  fontWeight = "semibold",
   className = "",
   ...props
 }) => {
@@ -18,7 +19,7 @@ const Button = ({
     <button
       className={`
         inline-flex items-center justify-center
-        font-rajdhani font-semibold
+        font-rajdhani font-${fontWeight}
         bg-[#E85102] text-white
         rounded-[100px]
         cursor-pointer
@@ -32,11 +33,11 @@ const Button = ({
       {...props}
     >
       {icon && iconPosition === "left" && (
-        <span className="flex-shrink-0">{icon}</span>
+        <span className="shrink-0">{icon}</span>
       )}
       {children}
       {icon && iconPosition === "right" && (
-        <span className="flex-shrink-0">{icon}</span>
+        <span className="shrink-0">{icon}</span>
       )}
     </button>
   );
