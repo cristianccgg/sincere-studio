@@ -35,23 +35,39 @@ const Landing = () => {
               </span>
             </div>
           </div>
+          {/* SVG para definir el clipPath con esquinas redondeadas */}
+          <svg width="0" height="0" className="absolute">
+            <defs>
+              <clipPath id="heroClip" clipPathUnits="objectBoundingBox">
+                <path
+                  d={`
+                    M 0.22 0.02
+                    Q 0.22 0, 0.24 0
+                    L 0.98 0
+                    Q 1 0, 1 0.02
+                    L 1 0.98
+                    Q 1 1, 0.98 1
+                    L 0.24 1
+                    Q 0.22 1, 0.22 0.98
+                    L 0.22 0.70
+                    Q 0.22 0.68, 0.20 0.68
+                    L 0.02 0.68
+                    Q 0 0.68, 0 0.66
+                    L 0 0.34
+                    Q 0 0.32, 0.02 0.32
+                    L 0.20 0.32
+                    Q 0.22 0.32, 0.22 0.30
+                    Z
+                  `}
+                />
+              </clipPath>
+            </defs>
+          </svg>
           <div
             className="absolute -right-px w-[1020px] h-[840px] bg-cover bg-center"
             style={{
               backgroundImage: "url('/images/landing/hero2.png')",
-              clipPath: `
-      polygon(
-  22% 0%,     /* borde superior normal */
-  100% 0%,
-  100% 100%,
-  22% 100%,  /* borde inferior normal */
-
-  22% 62%,   /* baja hasta donde empieza el corte */
-  0% 62%,    /* sale hacia la izquierda */
-  0% 38%,    /* sube vertical */
-  22% 38%    /* vuelve al borde */
-      )
-    `,
+              clipPath: "url(#heroClip)",
             }}
           />
         </div>
