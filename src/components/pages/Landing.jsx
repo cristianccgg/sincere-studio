@@ -52,6 +52,78 @@ const useBreakpoint = () => {
   return breakpoint;
 };
 
+const workItems = [
+  { id: 0, src: "/images/landing/our work/nano.png", alt: "nano-project" },
+  { id: 1, src: "/images/landing/our work/Cover Thumbnail 2.png", alt: "project-2" },
+  { id: 2, src: "/images/landing/our work/Cover Thumbnail 3.png", alt: "project-3" },
+  { id: 3, src: "/images/landing/our work/Cover Thumbnail 4.png", alt: "project-4" },
+  { id: 4, src: "/images/landing/our work/Cover Thumbnail 5.png", alt: "project-5" },
+];
+
+const WorkAccordion = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const breakpoint = useBreakpoint();
+  const isMobile = breakpoint === "mobile";
+
+  // Sizes at 1728px: expanded = 530px, collapsed = 240px, height = 490px
+  // Using vw units with max values for responsive behavior
+  // 530/1728 ≈ 30.67vw, 240/1728 ≈ 13.89vw, 490/1728 ≈ 28.36vw
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col gap-4 mb-10">
+        {workItems.map((item) => (
+          <div
+            key={item.id}
+            className="rounded-[20px] overflow-hidden w-full"
+            style={{ height: "300px" }}
+          >
+            <img
+              src={item.src}
+              alt={item.alt}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex gap-2 xl:gap-3 2xl:gap-4 mb-10">
+      {workItems.map((item, index) => (
+        <motion.div
+          key={item.id}
+          className="rounded-[20px] overflow-hidden cursor-pointer"
+          onClick={() => setActiveIndex(index)}
+          animate={{
+            width: activeIndex === index
+              ? "min(30.67vw, 530px)"
+              : "min(13.89vw, 240px)",
+          }}
+          initial={{
+            width: index === 0 ? "min(30.67vw, 530px)" : "min(13.89vw, 240px)",
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 30,
+          }}
+          style={{
+            height: "min(28.36vw, 490px)",
+          }}
+        >
+          <img
+            src={item.src}
+            alt={item.alt}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
 const Landing = () => {
   const breakpoint = useBreakpoint();
   const sizes = cardSizes[breakpoint];
@@ -436,23 +508,7 @@ const Landing = () => {
           REAL PROJECTS, REAL RESULTS — <br />
           SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
         </h2>
-        <div className="flex">
-          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
-            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
-          </div>
-          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
-            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
-          </div>
-          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
-            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
-          </div>
-          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
-            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
-          </div>
-          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
-            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
-          </div>
-        </div>
+        <WorkAccordion />
       </section>
     </div>
   );
