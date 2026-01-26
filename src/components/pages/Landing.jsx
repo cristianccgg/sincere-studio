@@ -254,7 +254,7 @@ const Landing = () => {
         <h3 className="text-[36px] font-semibold text-[#403F3F] ">
           We make more then a design
         </h3>
-        <h2 className="md:text-[40px] text-4xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
+        <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
           EVERY SERVICE, EVERY SKILL - <br />
           ALIGNED FOR MAXIMUM IMPACT
         </h2>
@@ -424,6 +424,33 @@ const Landing = () => {
                 alt="Marketing-sales-img"
               />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-30">
+        <h3 className="text-[36px] font-semibold text-[#403F3F] ">
+          Explore Our Work
+        </h3>
+        <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
+          REAL PROJECTS, REAL RESULTS — <br />
+          SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
+        </h2>
+        <div className="flex">
+          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
+            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
+          </div>
+          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
+            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
+          </div>
+          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
+            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
+          </div>
+          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
+            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
+          </div>
+          <div className="rounded-[20px] overflow-hidden max-w-132.5 max-h-122.5 mb-10">
+            <img src="public/images/landing/our work/nano.png" alt="mano-img" />
           </div>
         </div>
       </section>
