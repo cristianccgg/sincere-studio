@@ -6,33 +6,95 @@ const Landing = () => {
   return (
     <div>
       <section className="w-full mt-4">
-        <div className="flex  mx-auto relative">
-          <div className="flex flex-col w-full xl:w-[1033px] h-auto xl:h-[270px] justify-center px-4 xl:px-0">
-            <div className="flex flex-wrap xl:flex-nowrap justify-between items-baseline leading-none gap-x-2">
-              <span className="font-nats text-[48px] sm:text-[72px] md:text-[96px] xl:text-[128px] font-normal tracking-[-0.02em]">
+        <div className="flex mx-auto relative">
+          {/* Mobile/Tablet text */}
+          <div className="flex flex-col w-full justify-center px-4 lg:hidden">
+            <div className="flex flex-wrap justify-between items-baseline leading-none gap-x-2">
+              <span className="font-nats text-[48px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
                 SINCERE
               </span>
-              <span className="font-nats text-[48px] sm:text-[72px] md:text-[96px] xl:text-[128px] font-normal tracking-[-0.02em]">
+              <span className="font-nats text-[48px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
                 STUDIO
               </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] md:text-[72px] xl:text-[96px] tracking-[-0.02em]">
+              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
                 IT'S
               </span>
             </div>
-            <div className="flex flex-wrap xl:flex-nowrap justify-between items-baseline leading-none gap-x-2">
-              <span className="font-rajdhani text-[36px] sm:text-[54px] md:text-[72px] xl:text-[96px] tracking-[-0.02em]">
+            <div className="flex flex-wrap justify-between items-baseline leading-none gap-x-2">
+              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
                 NOT
               </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] md:text-[72px] xl:text-[96px] tracking-[-0.02em]">
+              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
                 JUST
               </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] md:text-[72px] xl:text-[96px] tracking-[-0.02em]">
+              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
                 A
               </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] md:text-[72px] xl:text-[96px] tracking-[-0.02em]">
+              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
                 DESIGN
               </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] md:text-[72px] xl:text-[96px] tracking-[-0.02em]">
+              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+                STUDIO
+              </span>
+            </div>
+          </div>
+          {/* Desktop text - scales proportionally based on 1728px, max at design size */}
+          <div
+            className="hidden lg:flex flex-col justify-center"
+            style={{
+              width: "min(59.8vw, 1033px)",
+              height: "min(15.6vw, 270px)",
+            }}
+          >
+            <div className="flex justify-between items-baseline leading-none">
+              <span
+                className="font-nats font-normal tracking-[-0.02em]"
+                style={{ fontSize: "min(7.4vw, 128px)" }}
+              >
+                SINCERE
+              </span>
+              <span
+                className="font-nats font-normal tracking-[-0.02em]"
+                style={{ fontSize: "min(7.4vw, 128px)" }}
+              >
+                STUDIO
+              </span>
+              <span
+                className="font-rajdhani tracking-[-0.02em]"
+                style={{ fontSize: "min(5.56vw, 96px)" }}
+              >
+                IT'S
+              </span>
+            </div>
+            <div className="flex justify-between items-baseline leading-none">
+              <span
+                className="font-rajdhani tracking-[-0.02em]"
+                style={{ fontSize: "min(5.56vw, 96px)" }}
+              >
+                NOT
+              </span>
+              <span
+                className="font-rajdhani tracking-[-0.02em]"
+                style={{ fontSize: "min(5.56vw, 96px)" }}
+              >
+                JUST
+              </span>
+              <span
+                className="font-rajdhani tracking-[-0.02em]"
+                style={{ fontSize: "min(5.56vw, 96px)" }}
+              >
+                A
+              </span>
+              <span
+                className="font-rajdhani tracking-[-0.02em]"
+                style={{ fontSize: "min(5.56vw, 96px)" }}
+              >
+                DESIGN
+              </span>
+              <span
+                className="font-rajdhani tracking-[-0.02em]"
+                style={{ fontSize: "min(5.56vw, 96px)" }}
+              >
                 STUDIO
               </span>
             </div>
@@ -66,8 +128,10 @@ const Landing = () => {
             </defs>
           </svg>
           <div
-            className="absolute -right-px w-[1020px] h-[840px] bg-cover hidden xl:block"
+            className="absolute -right-px bg-cover hidden lg:block"
             style={{
+              width: "min(59vw, 1020px)",
+              height: "min(48.6vw, 840px)",
               backgroundImage: "url('/images/landing/hero2.png')",
               backgroundPosition: "15% center",
               clipPath: "url(#heroClip)",
@@ -75,18 +139,56 @@ const Landing = () => {
           />
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between max-w-[1043px]">
+        {/* Mobile/Tablet bottom section */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between max-w-[1043px] lg:hidden">
           <img
             src="/images/landing/hero1.png"
             alt="hero-img1"
-            className="md:max-w-143.5"
+            className="lg:max-w-143.5"
           />
           <div className="max-w-107">
-            <h2 className="font-medium text-[#444444] xl:text-[48px] text-[42px]">
+            <h2 className="font-medium text-[#444444] text-[42px]">
               We Creating Values & <br />
               Scaling with Honestly
             </h2>
             <Button fontWeight="medium" icon={<CircleChevronRight size={36} />}>
+              See our Solutions
+            </Button>
+          </div>
+        </div>
+        {/* Desktop bottom section - scales proportionally */}
+        <div
+          className="hidden lg:flex items-end justify-between"
+          style={{ maxWidth: "min(60.4vw, 1043px)" }}
+        >
+          <img
+            src="/images/landing/hero1.png"
+            alt="hero-img1"
+            style={{ maxWidth: "min(32vw, 574px)" }}
+          />
+          <div className="shrink-0 bg-white pr-4 xl:pr-0 flex flex-col items-end">
+            <h2
+              className="font-medium text-[#444444] leading-tight whitespace-nowrap"
+              style={{ fontSize: "min(2.78vw, 48px)" }}
+            >
+              We Creating Values & <br />
+              Scaling with Honestly
+            </h2>
+            <Button
+              fontWeight="medium"
+              icon={
+                <CircleChevronRight
+                  style={{
+                    width: "min(2.1vw, 36px)",
+                    height: "min(2.1vw, 36px)",
+                  }}
+                />
+              }
+              style={{
+                fontSize: "min(1.16vw, 20px)",
+                padding: "min(0.7vw, 12px) min(1.4vw, 24px)",
+              }}
+            >
               See our Solutions
             </Button>
           </div>
