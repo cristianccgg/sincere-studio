@@ -12,13 +12,13 @@ const cardSizes = {
   },
   xl: {
     container: { width: 380, height: 400 },
-    card: { width: 377, height: 365, padding: 20, gap: 20 },
-    hover: { width: 380, height: 400, padding: 32, gap: 24 },
+    card: { width: 377, height: 345, padding: 20, gap: 20 },
+    hover: { width: 380, height: 365, padding: 32, gap: 24 },
   },
   lg: {
     container: { width: 290, height: 340 },
-    card: { width: 287, height: 310, padding: 16, gap: 16 },
-    hover: { width: 290, height: 340, padding: 24, gap: 20 },
+    card: { width: 287, height: 280, padding: 16, gap: 16 },
+    hover: { width: 290, height: 300, padding: 24, gap: 20 },
   },
 };
 
@@ -295,7 +295,7 @@ const Landing = () => {
                     </h3>
                     <CircleChevronRight className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
                   </div>
-                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm leading-[100%] tracking-[-0.01em] text-justify text-[#101010]">
+                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm  tracking-[-1%]  text-justify text-[#101010]">
                     We design and develop apps, templates, and interactive tools
                     that deliver real value to your users.
                   </p>
@@ -345,9 +345,10 @@ const Landing = () => {
                     </h3>
                     <CircleChevronRight className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
                   </div>
-                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm leading-[100%] tracking-[-0.01em] text-justify text-[#101010]">
-                    Modern, responsive websites with clean aesthetics and a
-                    seamless user experience — tailored to your brand and goals.
+                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap  tracking-[-0.01em] text-justify text-[#101010]">
+                    Modern, responsive websites with clean <br /> aesthetics and
+                    a seamless user experience <br /> — tailored to your brand
+                    and goals.
                   </p>
                   <img
                     src="/images/landing/we make more/web-design.png"
@@ -395,7 +396,7 @@ const Landing = () => {
                     </h3>
                     <CircleChevronRight className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
                   </div>
-                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm leading-[100%] tracking-[-0.01em] text-justify text-[#101010]">
+                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm  tracking-[-0.01em] text-justify text-[#101010]">
                     From SEO and social media to funnels and optimization — we
                     help you attract, convert, and grow your business.
                   </p>
@@ -439,7 +440,9 @@ const Landing = () => {
               </div>
               <div className="w-full p-6 flex flex-col gap-6">
                 <div className="flex items-center justify-between text-[#101010]">
-                  <h3 className="text-2xl font-semibold">Marketing and Sales</h3>
+                  <h3 className="text-2xl font-semibold">
+                    Marketing and Sales
+                  </h3>
                   <CircleChevronRight size={32} />
                 </div>
                 <p className="text-xl leading-[-1%px] text-[#101010]">
