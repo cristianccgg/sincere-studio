@@ -20,6 +20,11 @@ const cardSizes = {
     card: { width: 287, height: 280, padding: 16, gap: 16 },
     hover: { width: 290, height: 300, padding: 24, gap: 20 },
   },
+  mobile: {
+    container: { width: "100%", height: "auto" },
+    card: { width: "100%", height: "auto", padding: 24, gap: 24 },
+    hover: { padding: 32, gap: 28 },
+  },
 };
 
 const useBreakpoint = () => {
@@ -49,7 +54,8 @@ const useBreakpoint = () => {
 
 const Landing = () => {
   const breakpoint = useBreakpoint();
-  const sizes = cardSizes[breakpoint] || null;
+  const sizes = cardSizes[breakpoint];
+  const isMobile = breakpoint === "mobile";
 
   return (
     <div>
@@ -248,214 +254,177 @@ const Landing = () => {
         <h3 className="text-[36px] font-semibold text-[#403F3F] ">
           We make more then a design
         </h3>
-        <h2 className="text-[40px] font-bold text-[#262424] mt-5 mb-22.5">
+        <h2 className="md:text-[40px] text-4xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
           EVERY SERVICE, EVERY SKILL - <br />
           ALIGNED FOR MAXIMUM IMPACT
         </h2>
         <div className="flex flex-col lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between">
-          {sizes ? (
-            <>
-              <div
-                style={{
-                  width: sizes.container.width,
-                  height: sizes.container.height,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <motion.div
-                  className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
-                  style={{
-                    width: sizes.card.width,
-                    height: sizes.card.height,
-                    padding: sizes.card.padding,
-                    gap: sizes.card.gap,
-                    boxShadow: "none",
-                  }}
-                  whileHover={{
-                    width: sizes.hover.width,
-                    height: sizes.hover.height,
-                    padding: sizes.hover.padding,
-                    gap: sizes.hover.gap,
-                    borderColor: "#FBFBFB",
-                    borderWidth: 1,
-                    boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
-                  }}
-                  transition={{
-                    type: "spring",
-                    mass: 1,
-                    stiffness: 300,
-                    damping: 20,
-                  }}
-                >
-                  <div className="flex items-center justify-between text-[#101010]">
-                    <h3 className="2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
-                      Digital Products
-                    </h3>
-                    <CircleChevronRight className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
-                  </div>
-                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm  tracking-[-1%]  text-justify text-[#101010]">
-                    We design and develop apps, templates, and interactive tools
-                    that deliver real value to your users.
-                  </p>
-                  <img
-                    src="/images/landing/we make more/digital-products.png"
-                    alt="digital-products-img"
-                  />
-                </motion.div>
+          <div
+            style={
+              isMobile
+                ? {}
+                : {
+                    width: sizes.container.width,
+                    height: sizes.container.height,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }
+            }
+            className={isMobile ? "w-full" : ""}
+          >
+            <motion.div
+              className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+              style={{
+                width: sizes.card.width,
+                height: sizes.card.height,
+                padding: sizes.card.padding,
+                gap: sizes.card.gap,
+                boxShadow: "none",
+              }}
+              whileHover={{
+                width: isMobile ? "100%" : sizes.hover.width,
+                height: isMobile ? "auto" : sizes.hover.height,
+                padding: sizes.hover.padding,
+                gap: sizes.hover.gap,
+                borderColor: "#FBFBFB",
+                borderWidth: 1,
+                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+              }}
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 300,
+                damping: 20,
+              }}
+            >
+              <div className="flex items-center justify-between text-[#101010]">
+                <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                  Digital Products
+                </h3>
+                <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
               </div>
-              <div
-                style={{
-                  width: sizes.container.width,
-                  height: sizes.container.height,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <motion.div
-                  className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
-                  style={{
-                    width: sizes.card.width,
-                    height: sizes.card.height,
-                    padding: sizes.card.padding,
-                    gap: sizes.card.gap,
-                    boxShadow: "none",
-                  }}
-                  whileHover={{
-                    width: sizes.hover.width,
-                    height: sizes.hover.height,
-                    padding: sizes.hover.padding,
-                    gap: sizes.hover.gap,
-                    borderColor: "#FBFBFB",
-                    borderWidth: 1,
-                    boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
-                  }}
-                  transition={{
-                    type: "spring",
-                    mass: 1,
-                    stiffness: 300,
-                    damping: 20,
-                  }}
-                >
-                  <div className="flex items-center justify-between text-[#101010]">
-                    <h3 className="2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
-                      Web Design
-                    </h3>
-                    <CircleChevronRight className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
-                  </div>
-                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap  tracking-[-0.01em] text-justify text-[#101010]">
-                    Modern, responsive websites with clean <br /> aesthetics and
-                    a seamless user experience <br /> — tailored to your brand
-                    and goals.
-                  </p>
-                  <img
-                    src="/images/landing/we make more/web-design.png"
-                    alt="Web-design-img"
-                  />
-                </motion.div>
+              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
+                We design and develop apps, templates, and interactive tools
+                that deliver real value to your users.
+              </p>
+              <img
+                src="/images/landing/we make more/digital-products.png"
+                alt="digital-products-img"
+              />
+            </motion.div>
+          </div>
+          <div
+            style={
+              isMobile
+                ? {}
+                : {
+                    width: sizes.container.width,
+                    height: sizes.container.height,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }
+            }
+            className={isMobile ? "w-full" : ""}
+          >
+            <motion.div
+              className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+              style={{
+                width: sizes.card.width,
+                height: sizes.card.height,
+                padding: sizes.card.padding,
+                gap: sizes.card.gap,
+                boxShadow: "none",
+              }}
+              whileHover={{
+                width: isMobile ? "100%" : sizes.hover.width,
+                height: isMobile ? "auto" : sizes.hover.height,
+                padding: sizes.hover.padding,
+                gap: sizes.hover.gap,
+                borderColor: "#FBFBFB",
+                borderWidth: 1,
+                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+              }}
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 300,
+                damping: 20,
+              }}
+            >
+              <div className="flex items-center justify-between text-[#101010]">
+                <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                  Web Design
+                </h3>
+                <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
               </div>
-              <div
-                style={{
-                  width: sizes.container.width,
-                  height: sizes.container.height,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <motion.div
-                  className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
-                  style={{
-                    width: sizes.card.width,
-                    height: sizes.card.height,
-                    padding: sizes.card.padding,
-                    gap: sizes.card.gap,
-                    boxShadow: "none",
-                  }}
-                  whileHover={{
-                    width: sizes.hover.width,
-                    height: sizes.hover.height,
-                    padding: sizes.hover.padding,
-                    gap: sizes.hover.gap,
-                    borderColor: "#FBFBFB",
-                    borderWidth: 1,
-                    boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
-                  }}
-                  transition={{
-                    type: "spring",
-                    mass: 1,
-                    stiffness: 300,
-                    damping: 20,
-                  }}
-                >
-                  <div className="flex items-center justify-between text-[#101010]">
-                    <h3 className="2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
-                      Marketing and Sales
-                    </h3>
-                    <CircleChevronRight className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
-                  </div>
-                  <p className="font-rajdhani font-normal 2xl:text-[24px] xl:text-lg lg:text-sm  tracking-[-0.01em] text-justify text-[#101010]">
-                    From SEO and social media to funnels and optimization — we
-                    help you attract, convert, and grow your business.
-                  </p>
-                  <img
-                    src="/images/landing/we make more/marketing-sales.png"
-                    alt="Marketing-sales-img"
-                  />
-                </motion.div>
+              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] text-justify text-[#101010]">
+                Modern, responsive websites with clean <br /> aesthetics and a
+                seamless user experience <br /> — tailored to your brand and
+                goals.
+              </p>
+              <img
+                src="/images/landing/we make more/web-design.png"
+                alt="Web-design-img"
+              />
+            </motion.div>
+          </div>
+          <div
+            style={
+              isMobile
+                ? {}
+                : {
+                    width: sizes.container.width,
+                    height: sizes.container.height,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }
+            }
+            className={isMobile ? "w-full" : ""}
+          >
+            <motion.div
+              className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+              style={{
+                width: sizes.card.width,
+                height: sizes.card.height,
+                padding: sizes.card.padding,
+                gap: sizes.card.gap,
+                boxShadow: "none",
+              }}
+              whileHover={{
+                width: isMobile ? "100%" : sizes.hover.width,
+                height: isMobile ? "auto" : sizes.hover.height,
+                padding: sizes.hover.padding,
+                gap: sizes.hover.gap,
+                borderColor: "#FBFBFB",
+                borderWidth: 1,
+                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+              }}
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 300,
+                damping: 20,
+              }}
+            >
+              <div className="flex items-center justify-between text-[#101010]">
+                <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
+                  Marketing and Sales
+                </h3>
+                <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
               </div>
-            </>
-          ) : (
-            <>
-              {/* Mobile */}
-              <div className="w-full p-6 flex flex-col gap-6">
-                <div className="flex items-center justify-between text-[#101010]">
-                  <h3 className="text-2xl font-semibold">Digital Products</h3>
-                  <CircleChevronRight size={32} />
-                </div>
-                <p className="text-xl leading-[-1%px] text-[#101010]">
-                  We design and develop apps, templates, and interactive tools
-                  that deliver real value to your users.
-                </p>
-                <img
-                  src="/images/landing/we make more/digital-products.png"
-                  alt="digital-products-img"
-                />
-              </div>
-              <div className="w-full p-6 flex flex-col gap-6">
-                <div className="flex items-center justify-between text-[#101010]">
-                  <h3 className="text-2xl font-semibold">Web Design</h3>
-                  <CircleChevronRight size={32} />
-                </div>
-                <p className="text-xl leading-[-1%px] text-[#101010]">
-                  Modern, responsive websites with clean aesthetics and a
-                  seamless user experience — tailored to your brand and goals.
-                </p>
-                <img
-                  src="/images/landing/we make more/web-design.png"
-                  alt="Web-design-img"
-                />
-              </div>
-              <div className="w-full p-6 flex flex-col gap-6">
-                <div className="flex items-center justify-between text-[#101010]">
-                  <h3 className="text-2xl font-semibold">
-                    Marketing and Sales
-                  </h3>
-                  <CircleChevronRight size={32} />
-                </div>
-                <p className="text-xl leading-[-1%px] text-[#101010]">
-                  From SEO and social media to funnels and optimization — we
-                  help you attract, convert, and grow your business.
-                </p>
-                <img
-                  src="/images/landing/we make more/marketing-sales.png"
-                  alt="Marketing-sales-img"
-                />
-              </div>
-            </>
-          )}
+              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
+                From SEO and social media to funnels and optimization — we help
+                you attract, convert, and grow your business.
+              </p>
+              <img
+                src="/images/landing/we make more/marketing-sales.png"
+                alt="Marketing-sales-img"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>
