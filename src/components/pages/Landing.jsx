@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../common/Button";
+import { motion } from "framer-motion";
 import { CircleChevronRight } from "lucide-react";
 
 const Landing = () => {
@@ -194,6 +195,46 @@ const Landing = () => {
           </div>
         </div>
         <div></div>
+      </section>
+
+      <section>
+        <h3>We make more then a design</h3>
+        <h2>EVERY SERVICE, EVERY SKILL - ALIGNED FOR MAXIMUM IMPACT</h2>
+        <motion.div
+          className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+          style={{
+            width: 477,
+            height: 415,
+            padding: 24,
+            gap: 24,
+            boxShadow: "none",
+          }}
+          whileHover={{
+            width: 480,
+            height: 455,
+            padding: 40,
+            gap: 28,
+            borderColor: "#FBFBFB",
+            borderWidth: 1,
+            boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+          }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 300,
+            damping: 20,
+          }}
+        >
+          <div className="flex items-center justify-between text-[#101010]">
+            <h3 className="text-[40px] font-semibold">Digital Products</h3>
+            <CircleChevronRight size={42} />
+          </div>
+          <p className="text-[24px] leading-[-1%px] text-[#101010]">
+            We design and develop apps, templates, and interactive tools that
+            deliver real value to your users.
+          </p>
+          <img src="/images/landing/we make more/digital-products.png" alt="" />
+        </motion.div>
       </section>
     </div>
   );
