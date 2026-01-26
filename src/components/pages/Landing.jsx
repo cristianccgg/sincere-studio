@@ -64,9 +64,10 @@ const Landing = () => {
             </defs>
           </svg>
           <div
-            className="absolute -right-px w-[1020px] h-[840px] bg-cover bg-center"
+            className="absolute -right-px w-[1020px] h-[840px] bg-cover"
             style={{
               backgroundImage: "url('/images/landing/hero2.png')",
+              backgroundPosition: "15% center",
               clipPath: "url(#heroClip)",
             }}
           />
