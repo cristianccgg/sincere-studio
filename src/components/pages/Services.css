@@ -1,0 +1,155 @@
+@property --angle1 {
+  syntax: "<angle>";
+  initial-value: 174.51deg;
+  inherits: false;
+}
+
+@property --x1 {
+  syntax: "<percentage>";
+  initial-value: 88.65%;
+  inherits: false;
+}
+
+@property --y1 {
+  syntax: "<percentage>";
+  initial-value: 1.56%;
+  inherits: false;
+}
+
+@property --angle2 {
+  syntax: "<angle>";
+  initial-value: 3.45deg;
+  inherits: false;
+}
+
+@property --x2 {
+  syntax: "<percentage>";
+  initial-value: 1.66%;
+  inherits: false;
+}
+
+@property --y2 {
+  syntax: "<percentage>";
+  initial-value: 86.82%;
+  inherits: false;
+}
+
+.services-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+
+  --angle1: 174.51deg;
+  --x1: 88.65%;
+  --y1: 1.56%;
+  --angle2: 3.45deg;
+  --x2: 1.66%;
+  --y2: 86.82%;
+
+  background:
+    conic-gradient(
+      from var(--angle1) at var(--x1) var(--y1),
+      rgba(138, 56, 245, 0.7) 0deg,
+      rgba(251, 251, 251, 0.66) 166.29deg,
+      rgba(138, 56, 245, 0.7) 360deg
+    ),
+    conic-gradient(
+      from var(--angle2) at var(--x2) var(--y2),
+      rgba(232, 81, 2, 0.65) 0deg,
+      #fbfbfb 98.65deg,
+      rgba(232, 81, 2, 0.65) 360deg
+    );
+
+  filter: blur(10px);
+  opacity: 0.85;
+  animation: gradientMove 5.3s linear infinite;
+}
+
+@keyframes gradientMove {
+  /* Default - 0% */
+  0% {
+    --angle1: 174.51deg;
+    --x1: 88.65%;
+    --y1: 1.56%;
+    --angle2: 3.45deg;
+    --x2: 1.66%;
+    --y2: 86.82%;
+  }
+
+  /* Variant 2 - ~15% (800ms) */
+  15.09% {
+    --angle1: 54.9deg;
+    --x1: 79.74%;
+    --y1: 38.57%;
+    --angle2: 33.88deg;
+    --x2: 7.01%;
+    --y2: 70.12%;
+  }
+
+  /* Variant 3 - ~30% (800ms) */
+  30.19% {
+    --angle1: 194.37deg;
+    --x1: 100%;
+    --y1: 0%;
+    --angle2: -12.38deg;
+    --x2: 28.12%;
+    --y2: 100%;
+  }
+
+  /* Variant 4 - ~45% (800ms) */
+  45.28% {
+    --angle1: -68.21deg;
+    --x1: 91.66%;
+    --y1: 74.12%;
+    --angle2: -16.21deg;
+    --x2: 36.21%;
+    --y2: 100%;
+  }
+
+  /* Variant 5 - ~60% (800ms) */
+  60.38% {
+    --angle1: 54.9deg;
+    --x1: 79.74%;
+    --y1: 38.57%;
+    --angle2: 33.88deg;
+    --x2: 7.01%;
+    --y2: 70.12%;
+  }
+
+  /* Variant 6 - ~75% (800ms) */
+  75.47% {
+    --angle1: 194.47deg;
+    --x1: 100%;
+    --y1: 100%;
+    --angle2: 31.31deg;
+    --x2: 0%;
+    --y2: 50%;
+  }
+
+  /* Variant 7 - ~91% (800ms) */
+  90.57% {
+    --angle1: 54.9deg;
+    --x1: 79.74%;
+    --y1: 38.57%;
+    --angle2: 33.88deg;
+    --x2: 7.01%;
+    --y2: 70.12%;
+  }
+
+  /* Back to Default - 100% (500ms) */
+  100% {
+    --angle1: 174.51deg;
+    --x1: 88.65%;
+    --y1: 1.56%;
+    --angle2: 3.45deg;
+    --x2: 1.66%;
+    --y2: 86.82%;
+  }
+}

@@ -1,12 +1,20 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Landing from "./components/pages/Landing";
+import Services from "./components/pages/Services";
 
 function App() {
   return (
     <div className="max-w-[1728px] mx-auto md:pl-[45px] md:pr-[36px] px-5 font-rajdhani">
-      <Navbar />
-      <Landing />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Landing />} />
+            <Route path="services" element={<Services />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

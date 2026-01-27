@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import Button from "./common/Button";
 
 const Navbar = () => {
@@ -22,9 +23,9 @@ const Navbar = () => {
       )}
 
       <div className="text-[24px]  gap-12.5 pe-3 ps-6.5 hidden md:flex">
-        <button className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+        <Link to="/services" className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
           Services
-        </button>
+        </Link>
         <button className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
           Our Projects
         </button>
@@ -35,9 +36,9 @@ const Navbar = () => {
       </div>
       {isMenuOpen && (
         <div className="text-[24px] md:hidden gap-5 absolute top-22.5 left-0 right-0 flex flex-col items-start bg-white p-6 z-50 shadow-lg">
-          <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+          <Link to="/services" className="cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
             Services
-          </button>
+          </Link>
           <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
             Our Projects
           </button>
