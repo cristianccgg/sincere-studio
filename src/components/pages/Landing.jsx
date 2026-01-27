@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Button from "../common/Button";
 import { motion } from "framer-motion";
 import { CircleChevronRight } from "lucide-react";
+import WorkAccordion from "../carousel/WorkAccordion";
+import TestimonialsCarousel from "../carousel/TestimonialsCarousel";
 
 // Card sizes per breakpoint
 const cardSizes = {
@@ -50,78 +52,6 @@ const useBreakpoint = () => {
   }, []);
 
   return breakpoint;
-};
-
-const workItems = [
-  { id: 0, src: "/images/landing/our work/nano.png", alt: "nano-project" },
-  { id: 1, src: "/images/landing/our work/Cover Thumbnail 2.png", alt: "project-2" },
-  { id: 2, src: "/images/landing/our work/Cover Thumbnail 3.png", alt: "project-3" },
-  { id: 3, src: "/images/landing/our work/Cover Thumbnail 4.png", alt: "project-4" },
-  { id: 4, src: "/images/landing/our work/Cover Thumbnail 5.png", alt: "project-5" },
-];
-
-const WorkAccordion = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const breakpoint = useBreakpoint();
-  const isMobile = breakpoint === "mobile";
-
-  // Sizes at 1728px: expanded = 530px, collapsed = 240px, height = 490px
-  // Using vw units with max values for responsive behavior
-  // 530/1728 ≈ 30.67vw, 240/1728 ≈ 13.89vw, 490/1728 ≈ 28.36vw
-
-  if (isMobile) {
-    return (
-      <div className="flex flex-col gap-4 mb-10">
-        {workItems.map((item) => (
-          <div
-            key={item.id}
-            className="rounded-[20px] overflow-hidden w-full"
-            style={{ height: "300px" }}
-          >
-            <img
-              src={item.src}
-              alt={item.alt}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex gap-2 xl:gap-3 2xl:gap-4 mb-10">
-      {workItems.map((item, index) => (
-        <motion.div
-          key={item.id}
-          className="rounded-[20px] overflow-hidden cursor-pointer"
-          onClick={() => setActiveIndex(index)}
-          animate={{
-            width: activeIndex === index
-              ? "min(30.67vw, 530px)"
-              : "min(13.89vw, 240px)",
-          }}
-          initial={{
-            width: index === 0 ? "min(30.67vw, 530px)" : "min(13.89vw, 240px)",
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-          }}
-          style={{
-            height: "min(28.36vw, 490px)",
-          }}
-        >
-          <img
-            src={item.src}
-            alt={item.alt}
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-      ))}
-    </div>
-  );
 };
 
 const Landing = () => {
@@ -504,11 +434,158 @@ const Landing = () => {
         <h3 className="text-[36px] font-semibold text-[#403F3F] ">
           Explore Our Work
         </h3>
-        <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
+        <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-15">
           REAL PROJECTS, REAL RESULTS — <br />
           SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
         </h2>
         <WorkAccordion />
+      </section>
+
+      <section className="mt-30 py-7 flex flex-col lg:flex-row gap-10 justify-between">
+        <div className="max-w-182.5">
+          <h3 className="text-[36px] font-semibold text-[#403F3F] ">
+            Explore Our Vision and Concepts
+          </h3>
+          <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-3.75">
+            WE BELIEVE DEEPLY IN OUR CLIENTS AND ARE <br />
+            COMMITTED TO GIVING THEM THE BEST <br /> POSSIBLE SUPPORT
+          </h2>
+          <p className="text-[24px] mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#403F3F] ">
+            At Sincere Studio, we craft digital solutions that are not only
+            beautiful but also effective. Our mission is to blend creativity
+            with strategy to deliver work that builds trust and drives real
+            results. From websites and digital products to marketing strategies,
+            we help brands grow with purpose. <br /> <br />
+            What inspires us is the desire to push boundaries and create with
+            heart. For us, it’s never just about projects — it’s about turning
+            visions into lasting success.
+          </p>
+          <Button
+            fontWeight="medium"
+            icon={
+              <CircleChevronRight
+                style={{
+                  width: "min(2.1vw, 36px)",
+                  height: "min(2.1vw, 36px)",
+                }}
+              />
+            }
+            style={{
+              fontSize: "min(1.16vw, 20px)",
+              padding: "min(0.7vw, 12px) min(1.4vw, 24px)",
+            }}
+          >
+            Let’s create something great
+          </Button>
+        </div>
+        <div className="px-3 py-1.5 max-w-173 flex flex-col gap-3">
+          <div className="flex justify-between gap-3">
+            <svg width="0" height="0" style={{ position: "absolute" }}>
+              <defs>
+                <clipPath id="notchClip" clipPathUnits="objectBoundingBox">
+                  <path
+                    d={`
+          M 0.03 0
+          L 0.795 0
+          Q 0.825 0, 0.825 0.03
+          L 0.825 0.145
+          Q 0.825 0.175, 0.855 0.175
+          L 0.97 0.175
+          Q 1 0.175, 1 0.205
+          L 1 0.97
+          Q 1 1, 0.97 1
+          L 0.03 1
+          Q 0 1, 0 0.97
+          L 0 0.03
+          Q 0 0, 0.03 0
+          Z
+        `}
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <div
+              className="bg-[#E2E3E4] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              style={{
+                clipPath: "url(#notchClip)",
+                WebkitClipPath: "url(#notchClip)",
+              }}
+            >
+              <h2 className="font-semibold">Clarity Over Noise</h2>
+              <p className="tracking-tight">
+                Every element serves a purpose — clean layouts, strong
+                typography, and intentional whitespace that let your message
+                breathe.
+              </p>
+            </div>
+            <div className="w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+              <img
+                src="/images/landing/our vision/dark and light mode 1.png"
+                alt="dark-light-mode-img"
+                className="w-84.25 "
+              />
+            </div>
+          </div>
+          <div className="flex justify-between gap-3">
+            <div className="w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+              <img
+                src="/images/landing/our vision/Frame 12712 1.png"
+                alt="dark-light-mode-img"
+                className="w-84.25 "
+              />
+            </div>
+            <div
+              className="bg-[#E9E0F0] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[298px]"
+              style={{
+                clipPath: "url(#notchClip)",
+                WebkitClipPath: "url(#notchClip)",
+              }}
+            >
+              <h2 className=" font-semibold">
+                Bold in Message, <br /> Minimal in Form
+              </h2>
+              <p>
+                Our work is visually striking but never overwhelming — balance
+                is our signature.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between gap-3">
+            <div
+              className="bg-[#FFE5D8] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              style={{
+                clipPath: "url(#notchClip)",
+                WebkitClipPath: "url(#notchClip)",
+              }}
+            >
+              <h2 className=" font-semibold">Designed to Convert</h2>
+              <p className="tracking-tight">
+                We fuse design with strategy — every pixel supports a business
+                goal, whether it’s engagement, retention, or sales.
+              </p>
+            </div>
+            <div className="w-88.75 pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+              <img
+                src="/images/landing/our vision/Frame 298 1.png"
+                alt="dark-light-mode-img"
+                className="w-84.25 "
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-30 px-5 pb-5">
+        <div>
+          <h3 className="text-[36px] font-semibold text-[#403F3F] text-center">
+            Here are some of the nice things people have said about Us
+          </h3>
+          <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-20 text-center">
+            WE BELIEVE STRONGLY IN OUR CLIENTS & WANT <br /> TO GIVE THEM
+            OPTIMAL SUPPORT
+          </h2>
+          <TestimonialsCarousel />
+        </div>
       </section>
     </div>
   );
