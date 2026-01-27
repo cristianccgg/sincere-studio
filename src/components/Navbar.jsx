@@ -34,7 +34,7 @@ const Navbar = () => {
         <Button size="navbar">Contacts</Button>
       </div>
       {isMenuOpen && (
-        <div className="text-[24px] md:hidden gap-5 absolute top-20 flex flex-col items-start">
+        <div className="text-[24px] md:hidden gap-5 absolute top-22.5 left-0 right-0 flex flex-col items-start bg-white p-6 z-50 shadow-lg">
           <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
             Services
           </button>
