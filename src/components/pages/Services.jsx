@@ -20,23 +20,20 @@ const Services = () => {
           </p>
         </div>
       </section>
-      <section className="xl:ps-[123px] xl:pr-[127px] py-[75px] flex flex-col lg:gap-6">
+      <section className="xl:ps-[123px] xl:pr-[127px] lg:py-[75px] py-10 flex flex-col lg:gap-6">
         <div className="flex flex-col py-6 lg:px-10.5 px-5 rounded-[20px]">
-          <div className="flex items-center gap-7.5">
+          <div
+            className="flex items-center gap-7.5 cursor-pointer"
+            onClick={() => setIsOpen(0)}
+          >
             {isOpen === 0 ? (
               <CircleChevronUp
                 size={37}
                 strokeWidth={1}
-                onClick={() => setIsOpen(0)}
-                className="cursor-pointer text-[#8A38F5]"
+                className="text-[#8A38F5]"
               />
             ) : (
-              <CircleChevronDown
-                size={37}
-                strokeWidth={1}
-                onClick={() => setIsOpen(0)}
-                className="cursor-pointer"
-              />
+              <CircleChevronDown size={37} strokeWidth={1} />
             )}
 
             <h1 className="lg:text-[36px] text-3xl font-bold">Website</h1>
@@ -82,21 +79,18 @@ const Services = () => {
           )}
         </div>
         <div className="flex flex-col py-6 lg:px-10.5 px-5 rounded-[20px]">
-          <div className="flex items-center gap-7.5">
+          <div
+            className="flex items-center gap-7.5 cursor-pointer"
+            onClick={() => setIsOpen(1)}
+          >
             {isOpen === 1 ? (
               <CircleChevronUp
                 size={37}
                 strokeWidth={1}
-                onClick={() => setIsOpen(1)}
-                className="cursor-pointer text-[#8A38F5]"
+                className="text-[#8A38F5]"
               />
             ) : (
-              <CircleChevronDown
-                size={37}
-                strokeWidth={1}
-                onClick={() => setIsOpen(1)}
-                className="cursor-pointer"
-              />
+              <CircleChevronDown size={37} strokeWidth={1} />
             )}
             <h1 className="lg:text-[36px] text-3xl  font-bold">
               Digital Products
@@ -143,21 +137,18 @@ const Services = () => {
           )}
         </div>
         <div className="flex flex-col py-6 lg:px-10.5 px-5 rounded-[20px]">
-          <div className="flex items-center gap-7.5">
+          <div
+            className="flex items-center gap-7.5 cursor-pointer"
+            onClick={() => setIsOpen(2)}
+          >
             {isOpen === 2 ? (
               <CircleChevronUp
                 size={37}
                 strokeWidth={1}
-                onClick={() => setIsOpen(2)}
-                className="cursor-pointer text-[#8A38F5]"
+                className="text-[#8A38F5]"
               />
             ) : (
-              <CircleChevronDown
-                size={37}
-                strokeWidth={1}
-                onClick={() => setIsOpen(2)}
-                className="cursor-pointer"
-              />
+              <CircleChevronDown size={37} strokeWidth={1} />
             )}
             <h1 className="lg:text-[36px] text-3xl font-bold">
               Marketing & Sales Strategy

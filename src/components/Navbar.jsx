@@ -9,7 +9,9 @@ const Navbar = () => {
 
   return (
     <div className="flex h-22.5 font-rajdhani items-center justify-between w-full pl-[13.5px] pr-[22.5px]">
-      <img src="/images/navbar/logo.png" alt="logo" className="w-33 h-15" />
+      <Link to="/">
+        <img src="/images/navbar/logo.png" alt="logo" className="w-33 h-15" />
+      </Link>
       {isMenuOpen ? (
         <X
           className="md:hidden block cursor-pointer"
@@ -23,7 +25,10 @@ const Navbar = () => {
       )}
 
       <div className="text-[24px]  gap-12.5 pe-3 ps-6.5 hidden md:flex">
-        <Link to="/services" className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+        <Link
+          to="/services"
+          className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
+        >
           Services
         </Link>
         <button className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
@@ -36,7 +41,10 @@ const Navbar = () => {
       </div>
       {isMenuOpen && (
         <div className="text-[24px] md:hidden gap-5 absolute top-22.5 left-0 right-0 flex flex-col items-start bg-white p-6 z-50 shadow-lg">
-          <Link to="/services" className="cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+          <Link
+            to="/services"
+            className="cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
+          >
             Services
           </Link>
           <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">

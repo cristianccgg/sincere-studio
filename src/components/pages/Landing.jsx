@@ -602,7 +602,6 @@ const Landing = () => {
           </Button>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
