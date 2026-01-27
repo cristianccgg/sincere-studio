@@ -58,27 +58,76 @@ const TestimonialsCarousel = () => {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [velocity, setVelocity] = useState(0);
+  const [lastX, setLastX] = useState(0);
+  const [lastTime, setLastTime] = useState(0);
+  const animationRef = useRef(null);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
     setScrollLeft(scrollContainerRef.current.scrollLeft);
+    setLastX(e.pageX);
+    setLastTime(Date.now());
+    setVelocity(0);
+
+    // Cancel any ongoing momentum animation
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
   };
 
   const handleMouseLeave = () => {
+    if (isDragging) {
+      applyMomentum();
+    }
     setIsDragging(false);
   };
 
   const handleMouseUp = () => {
+    if (isDragging) {
+      applyMomentum();
+    }
     setIsDragging(false);
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
     e.preventDefault();
+
+    const currentTime = Date.now();
+    const currentX = e.pageX;
+    const timeDelta = currentTime - lastTime;
+    const distance = currentX - lastX;
+
+    // Calculate velocity
+    if (timeDelta > 0) {
+      const currentVelocity = distance / timeDelta;
+      setVelocity(currentVelocity);
+    }
+
+    setLastX(currentX);
+    setLastTime(currentTime);
+
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
     const walk = (x - startX) * 2;
     scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const applyMomentum = () => {
+    let currentVelocity = velocity * 20; // Amplify velocity for momentum
+    const friction = 0.95; // Friction factor (0.95 = 5% speed reduction per frame)
+    const minVelocity = 0.5; // Minimum velocity threshold
+
+    const animate = () => {
+      if (Math.abs(currentVelocity) > minVelocity) {
+        scrollContainerRef.current.scrollLeft -= currentVelocity;
+        currentVelocity *= friction;
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
   };
 
   const handleScroll = () => {
@@ -94,7 +143,12 @@ const TestimonialsCarousel = () => {
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener("scroll", handleScroll);
-      return () => scrollContainer.removeEventListener("scroll", handleScroll);
+      return () => {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
     }
   }, []);
 
@@ -123,28 +177,30 @@ const TestimonialsCarousel = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="p-10.5 min-w-[570px] max-w-[570px] rounded-xl shadow drop-shadow-8xl drop-shadow-black flex flex-col gap-6 flex-shrink-0 h-fit"
+            className="p-6 md:p-8 lg:p-10.5 min-w-[85vw] md:min-w-[45vw] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] max-w-[85vw] md:max-w-[45vw] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 md:gap-5 lg:gap-6 flex-shrink-0 h-fit select-none"
           >
             {/* Quote Marks */}
-            <div className="flex gap-2.25">
+            <div className="flex w-13.5 h-[33.67px] gap-1.5 md:gap-2 lg:gap-2.25">
               <img
                 src="/images/landing/testimonials/quote-sign.png"
                 alt="quote-sign-img"
+                className=""
               />
               <img
                 src="/images/landing/testimonials/quote-sign.png"
                 alt="quote-sign-img"
+                className=""
               />
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-base md:text-lg leading-relaxed">
+            <p className="text-sm md:text-base lg:text-lg leading-relaxed">
               {testimonial.text}
             </p>
 
             {/* Author Info */}
-            <div className="flex gap-2.5">
-              <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+            <div className="flex gap-2 md:gap-2.5">
+              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden flex-shrink-0">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
@@ -152,10 +208,10 @@ const TestimonialsCarousel = () => {
                 />
               </div>
               <div className="flex flex-col justify-between">
-                <h2 className="text-[32px] font-medium leading-tight">
+                <h2 className="text-xl md:text-2xl lg:text-[32px] font-medium leading-tight">
                   {testimonial.name}
                 </h2>
-                <h3 className="text-[24px] font-medium text-gray-600">
+                <h3 className="text-base md:text-lg lg:text-[24px] font-medium text-gray-600">
                   {testimonial.position}
                 </h3>
               </div>
