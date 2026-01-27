@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Services.css";
-import { CircleChevronUp, CircleChevronDown } from "lucide-react";
+import Button from "../common/Button";
+import { CircleChevronUp, CircleChevronDown, ChevronRight } from "lucide-react";
 
 const Services = () => {
   const [isOpen, setIsOpen] = useState(0);
@@ -210,6 +211,26 @@ const Services = () => {
               </div>
             </div>
           )}
+        </div>
+      </section>
+      <section className="pb-5.25">
+        <div className="flex flex-col items-center gap-17.5 py-15 lg:px-15 px-5 shadow-[0_0_6px_0_rgba(0,0,0,0.35)] rounded-2xl">
+          <div className="flex flex-col gap-8.75 items-center ">
+            <h2 className="lg:text-[36px] text-2xl font-semibold text-center">
+              A page showcasing real work and results
+            </h2>
+            <h1 className="lg:text-[40px] text-3xl font-bold text-center">
+              SEE HOW WE’VE HELPED BRANDS TRANSFORM INTO IMPACTFUL DIGITAL
+              EXPERIENCES
+            </h1>
+          </div>
+          <Button
+            size="hero"
+            fontWeight="medium"
+            icon={<ChevronRight size={22} />}
+          >
+            See all Projects
+          </Button>
         </div>
       </section>
     </div>
