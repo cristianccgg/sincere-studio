@@ -200,11 +200,15 @@ const Landing = () => {
             className="md:max-w-143.5"
           />
           <div className="max-w-107">
-            <h2 className="font-medium text-[#444444] text-[42px]">
+            <h2 className="font-medium text-[#444444] md:text-[42px] text-4xl mt-5 lg:mt-0">
               We Creating Values & <br />
               Scaling with Honestly
             </h2>
-            <Button fontWeight="medium" icon={<CircleChevronRight size={36} />}>
+            <Button
+              size="hero"
+              fontWeight="medium"
+              icon={<CircleChevronRight size={24} />}
+            >
               See our Solutions
             </Button>
           </div>
@@ -228,18 +232,20 @@ const Landing = () => {
               Scaling with Honestly
             </h2>
             <Button
+              size="hero"
               fontWeight="medium"
               icon={
                 <CircleChevronRight
                   style={{
-                    width: "min(2.1vw, 36px)",
-                    height: "min(2.1vw, 36px)",
+                    width: "min(1.4vw, 24px)",
+                    height: "min(1.4vw, 24px)",
                   }}
                 />
               }
               style={{
                 fontSize: "min(1.16vw, 20px)",
-                padding: "min(0.7vw, 12px) min(1.4vw, 24px)",
+                padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
+                gap: "min(0.58vw, 10px)",
               }}
             >
               See our Solutions
@@ -458,24 +464,14 @@ const Landing = () => {
             visions into lasting success.
           </p>
           <Button
+            size="md"
             fontWeight="medium"
-            icon={
-              <CircleChevronRight
-                style={{
-                  width: "min(2.1vw, 36px)",
-                  height: "min(2.1vw, 36px)",
-                }}
-              />
-            }
-            style={{
-              fontSize: "min(1.16vw, 20px)",
-              padding: "min(0.7vw, 12px) min(1.4vw, 24px)",
-            }}
+            icon={<CircleChevronRight size={24} />}
           >
-            Let’s create something great
+            Let's create something great
           </Button>
         </div>
-        <div className="px-3 py-1.5 max-w-173 flex flex-col gap-3">
+        <div className="md:px-3 py-1.5 max-w-173 flex flex-col gap-3">
           <div className="flex justify-between gap-3">
             <svg width="0" height="0" style={{ position: "absolute" }}>
               <defs>
@@ -502,7 +498,7 @@ const Landing = () => {
               </defs>
             </svg>
             <div
-              className="bg-[#E2E3E4] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              className="bg-[#E2E3E4] md:text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
@@ -555,7 +551,7 @@ const Landing = () => {
                 WebkitClipPath: "url(#notchClip)",
               }}
             >
-              <h2 className=" font-semibold">Designed to Convert</h2>
+              <h2 className="font-semibold">Designed to Convert</h2>
               <p className="tracking-tight">
                 We fuse design with strategy — every pixel supports a business
                 goal, whether it’s engagement, retention, or sales.
@@ -574,10 +570,10 @@ const Landing = () => {
 
       <section className="mt-30 px-5 pb-5">
         <div>
-          <h3 className="text-[36px] font-semibold text-[#403F3F] text-center">
+          <h3 className="md:text-[36px] text-3xl font-semibold text-[#403F3F] text-center">
             Here are some of the nice things people have said about Us
           </h3>
-          <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-20 text-center">
+          <h2 className="md:text-[40px] text-xl font-bold text-[#262424] mt-5 mb-20 text-center">
             WE BELIEVE STRONGLY IN OUR CLIENTS & WANT <br /> TO GIVE THEM
             OPTIMAL SUPPORT
           </h2>
@@ -585,33 +581,24 @@ const Landing = () => {
         </div>
       </section>
 
-      <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-22.5 px-20 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
+      <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-10 md:py-22.5 px-20 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
         {" "}
-        <div className="flex flex-col gap-[42px] items-center justify-center p-6  mx-auto">
+        <div className="flex flex-col gap-[42px] items-center text-center">
           <h2 className="lg:text-[40px] text-2xl font-bold  text-center">
             DO YOU WANT TO WORK TOGETHER ?
           </h2>
-          <h3 className="lg:text-[24px] text-xl font-medium tracking-[-2%] text-center">
+          <h3 className="lg:text-[24px] text-xl font-medium tracking-[-2%] text-justify max-w-168.75">
             At Sincere Studio, we’re ready to design, build, and grow digital
             solutions that make an impact. Share your ideas with us — the first
             step toward your next big success starts here.
           </h3>
+
           <Button
+            size="lg"
             fontWeight="medium"
-            icon={
-              <CircleChevronRight
-                style={{
-                  width: "min(2.1vw, 36px)",
-                  height: "min(2.1vw, 36px)",
-                }}
-              />
-            }
-            style={{
-              fontSize: "min(1.16vw, 20px)",
-              padding: "min(0.7vw, 12px) min(1.4vw, 24px)",
-            }}
+            icon={<CircleChevronRight size={24} />}
           >
-            Let’s Get Started
+            Let's Get Started
           </Button>
         </div>
       </section>

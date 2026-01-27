@@ -31,7 +31,7 @@ const Navbar = () => {
         <button className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
           About Us
         </button>
-        <Button>Contacts</Button>
+        <Button size="navbar">Contacts</Button>
       </div>
       {isMenuOpen && (
         <div className="text-[24px] md:hidden gap-5 absolute top-20 flex flex-col items-start">
@@ -44,7 +44,7 @@ const Navbar = () => {
           <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
             About Us
           </button>
-          <Button>Contacts</Button>
+          <Button size="navbar">Contacts</Button>
         </div>
       )}
     </div>
