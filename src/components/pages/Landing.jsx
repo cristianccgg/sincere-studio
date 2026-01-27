@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../common/Button";
+import Footer from "../Footer";
 import { motion } from "framer-motion";
 import { CircleChevronRight } from "lucide-react";
 import WorkAccordion from "../carousel/WorkAccordion";
@@ -587,6 +588,38 @@ const Landing = () => {
           <TestimonialsCarousel />
         </div>
       </section>
+
+      <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-22.5 px-20 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
+        {" "}
+        <div className="flex flex-col gap-[42px] items-center justify-center p-6  mx-auto">
+          <h2 className="lg:text-[40px] text-2xl font-bold  text-center">
+            DO YOU WANT TO WORK TOGETHER ?
+          </h2>
+          <h3 className="lg:text-[24px] text-xl font-medium tracking-[-2%] text-center">
+            At Sincere Studio, we’re ready to design, build, and grow digital
+            solutions that make an impact. Share your ideas with us — the first
+            step toward your next big success starts here.
+          </h3>
+          <Button
+            fontWeight="medium"
+            icon={
+              <CircleChevronRight
+                style={{
+                  width: "min(2.1vw, 36px)",
+                  height: "min(2.1vw, 36px)",
+                }}
+              />
+            }
+            style={{
+              fontSize: "min(1.16vw, 20px)",
+              padding: "min(0.7vw, 12px) min(1.4vw, 24px)",
+            }}
+          >
+            Let’s Get Started
+          </Button>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 };

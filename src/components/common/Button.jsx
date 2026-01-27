@@ -12,7 +12,7 @@ const Button = ({
   const sizes = {
     sm: "px-3 py-1.5 text-sm gap-2",
     md: "px-4 py-2 text-[24px] gap-3",
-    lg: "px-4 py-2 text-lg gap-[45px]",
+    lg: "px-4 py-2 text-[36px] gap-[45px]",
   };
 
   return (
