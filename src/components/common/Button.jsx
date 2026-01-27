@@ -13,7 +13,7 @@ const Button = ({
   // Tamaños predefinidos basados en las especificaciones de diseño
   const sizes = {
     // Navbar: 105x42, padding 8/16
-    navbar: "px-4 py-2 text-base gap-[45px]",
+    navbar: "px-4 py-2 text-[20px] gap-[45px]",
 
     // Hero "See our Solutions": 243x52, padding 8/16
     // Mobile: tamaño base, Desktop: escala con viewport
