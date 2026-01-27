@@ -65,39 +65,35 @@ const Landing = () => {
       <section className="w-full mt-4">
         <div className="flex mx-auto relative">
           {/* Mobile/Tablet text */}
-          <div className="flex flex-col w-full justify-center px-4 lg:hidden">
-            <div className="flex flex-wrap justify-between items-baseline leading-none gap-x-2">
-              <span className="font-nats text-[48px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
-                SINCERE
-              </span>
-              <span className="font-nats text-[48px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
-                STUDIO
-              </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-                IT'S
-              </span>
-            </div>
-            <div className="flex flex-wrap justify-between items-baseline leading-none gap-x-2">
-              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-                NOT
-              </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-                JUST
-              </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-                A
-              </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-                DESIGN
-              </span>
-              <span className="font-rajdhani text-[36px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-                STUDIO
-              </span>
-            </div>
+          <div className="flex flex-wrap w-full items-baseline px-4 lg:hidden leading-none gap-x-2">
+            <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
+              SINCERE
+            </span>
+            <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
+              STUDIO
+            </span>
+            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+              IT'S
+            </span>
+            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+              NOT
+            </span>
+            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+              JUST
+            </span>
+            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+              A
+            </span>
+            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+              DESIGN
+            </span>
+            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
+              STUDIO
+            </span>
           </div>
           {/* Desktop text - scales proportionally based on 1728px, max at design size */}
           <div
-            className="hidden lg:flex flex-col justify-center"
+            className="hidden lg:flex flex-col justify-center lg:pr-8 xl:pr-0"
             style={{
               width: "min(59.8vw, 1033px)",
               height: "min(15.6vw, 270px)",
@@ -185,7 +181,7 @@ const Landing = () => {
             </defs>
           </svg>
           <div
-            className="absolute -right-px bg-cover hidden lg:block"
+            className="absolute bg-cover hidden lg:block lg:-right-2 xl:right-0"
             style={{
               width: "min(59vw, 1020px)",
               height: "min(48.6vw, 840px)",
@@ -223,7 +219,7 @@ const Landing = () => {
             alt="hero-img1"
             style={{ maxWidth: "min(32vw, 574px)" }}
           />
-          <div className="shrink-0 bg-white pr-4 xl:pr-0 flex flex-col items-end">
+          <div className="shrink-0 bg-white lg:pr-8 2xl:pr-0 flex flex-col items-end">
             <h2
               className="font-medium text-[#444444] leading-tight whitespace-nowrap"
               style={{ fontSize: "min(2.78vw, 48px)" }}
