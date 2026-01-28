@@ -24,20 +24,28 @@ const Navbar = () => {
         />
       )}
 
-      <div className="text-[24px]  gap-12.5 pe-3 ps-6.5 hidden md:flex">
+      <div className="text-[24px] gap-12.5 pe-3 ps-6.5 hidden md:flex items-center">
         <Link
           to="/services"
           className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
         >
           Services
         </Link>
-        <button className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+        <Link
+          to="/our-projects"
+          className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
+        >
           Our Projects
-        </button>
-        <button className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+        </Link>
+        <Link
+          to="/about-us"
+          className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
+        >
           About Us
-        </button>
-        <Button size="navbar">Contacts</Button>
+        </Link>
+        <Link to="/contacts">
+          <Button size="navbar">Contacts</Button>
+        </Link>
       </div>
       {isMenuOpen && (
         <div className="text-[24px] md:hidden gap-5 absolute top-22.5 left-0 right-0 flex flex-col items-start bg-white p-6 z-50 shadow-lg">
@@ -50,10 +58,15 @@ const Navbar = () => {
           <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
             Our Projects
           </button>
-          <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
+          <Link
+            to="about-us"
+            className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
+          >
             About Us
-          </button>
-          <Button size="navbar">Contacts</Button>
+          </Link>
+          <Link to="/contacts">
+            <Button size="navbar">Contacts</Button>
+          </Link>
         </div>
       )}
     </div>
