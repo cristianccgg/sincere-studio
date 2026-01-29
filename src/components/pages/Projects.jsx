@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div>
       <div className="flex flex-col items-center gap-8.75 my-20.75">
-        <h2 className="text-[36px] font-semibold">Explore Our Work</h2>
-        <h1 className="text-[40px] font-blold text-center">
+        <h2 className="lg:text-[36px] text-2xl font-semibold">
+          Explore Our Work
+        </h2>
+        <h1 className="lg:text-[40px] text-3xl font-bold text-center">
           REAL PROJECTS, REAL RESULTS — <br /> SEE HOW WE TURN IDEAS INTO
           DIGITAL EXPERIENCES.
         </h1>
@@ -63,7 +66,10 @@ const Projects = () => {
             />
           </motion.div>
         </div>
-        <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
+        <Link
+          to="/projects/mano"
+          className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+        >
           <img
             src="/images/projects/main/tumbnail2.png"
             alt="thumbnail2-img"
@@ -89,15 +95,15 @@ const Projects = () => {
               <h3>#Developing</h3>
             </div>
           </div>
-          <h3 className="text-2xl lg:text-[32px] font-medium">MANO - Fashion Brand App</h3>
+          <h3 className="text-2xl lg:text-[32px] font-medium">
+            MANO - Fashion Brand App
+          </h3>
           <motion.div
-            className="-space-y-2 h-fit cursor-pointer"
+            className="-space-y-2 h-fit"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <button className="text-2xl lg:text-[32px] font-semibold cursor-pointer">
-              More
-            </button>
+            <span className="text-2xl lg:text-[32px] font-semibold">More</span>
             <motion.div
               className="bg-[#8A38F5] h-1 -mt-1"
               initial={{ width: "35%" }}
@@ -110,7 +116,7 @@ const Projects = () => {
               }}
             />
           </motion.div>
-        </div>
+        </Link>
         <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
           <img
             src="/images/projects/main/tumbnail4.png"

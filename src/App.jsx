@@ -6,6 +6,7 @@ import Services from "./components/pages/Services";
 import AboutUs from "./components/pages/AboutUs";
 import Contacts from "./components/pages/Contacts";
 import Projects from "./components/pages/Projects";
+import Mano from "./components/pages/Mano";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route index element={<Landing />} />
             <Route path="services" element={<Services />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="projects/mano" element={<Mano />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="contacts" element={<Contacts />} />
           </Route>
