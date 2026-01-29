@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "./common/Button";
 
 const Footer = () => {
@@ -7,36 +8,38 @@ const Footer = () => {
       <div className="flex flex-col items-start md:gap-17.5 gap-10">
         <div className="flex flex-col gap-2">
           <h2 className="lg:text-[48px] text-[32px] font-bold leading-[100%]">
-            LET’S COLABORATE
+            LET'S COLABORATE
           </h2>
           <h3 className="lg:text-[36px] text-[24px] font-medium ">
             We can make more then just a product
           </h3>
         </div>
-        <Button variant="primary" size="lg">
-          Let’s work !
-        </Button>
+        <Link to="/contacts">
+          <Button variant="primary" size="lg">
+            Let's work !
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="lg:text-[32px] text-[24px] font-semibold">Company</h3>
-        <h4 className="lg:text-[24px] text-xl font-semibold cursor-pointer">
+        <Link to="/" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           Home
-        </h4>
-        <h4 className="lg:text-[24px] text-xl font-semibold cursor-pointer">
+        </Link>
+        <Link to="/services" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           Services
-        </h4>
-        <h4 className="lg:text-[24px] text-xl font-semibold cursor-pointer">
+        </Link>
+        <Link to="/projects" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           Our Projects
-        </h4>
-        <h4 className="lg:text-[24px] text-xl font-semibold cursor-pointer">
+        </Link>
+        <Link to="/about-us" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           About Us
-        </h4>
-        <h4 className="lg:text-[24px] text-xl font-semibold cursor-pointer">
-          Let’s work
-        </h4>
-        <h4 className="lg:text-[24px] text-xl font-semibold cursor-pointer">
+        </Link>
+        <Link to="/contacts" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+          Let's work
+        </Link>
+        <span className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           Privacy Policy
-        </h4>
+        </span>
       </div>
     </div>
   );
