@@ -113,29 +113,29 @@ const Projects = () => {
         </div>
         <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
           <img
-            src="/images/projects/main/tumbnail3.png"
-            alt="thumbnail3-img"
+            src="/images/projects/main/tumbnail4.png"
+            alt="thumbnail4-img"
             className="rounded-2xl w-full h-auto aspect-[760/456] object-cover"
           />
           <div className="flex gap-1.75 flex-wrap">
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#FreelancePlatform</h3>
+              <h3>#WeddingPlatform</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#DigitalProduct</h3>
+              <h3>#UX/UI</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
               <h3>#WebDesign</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#UXUI</h3>
+              <h3>#Prototyping</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#MarketplaceDesign</h3>
+              <h3>#Developing</h3>
             </div>
           </div>
           <h3 className="text-2xl lg:text-[32px] font-medium">
-            MatchWise – Freelance Marketplace Platform
+            Wedwish – Digital Platform for Wedding Gifts
           </h3>
           <motion.div
             className="-space-y-2 h-fit cursor-pointer"
@@ -160,29 +160,29 @@ const Projects = () => {
         </div>
         <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
           <img
-            src="/images/projects/main/tumbnail4.png"
-            alt="thumbnail4-img"
+            src="/images/projects/main/tumbnail3.png"
+            alt="thumbnail3-img"
             className="rounded-2xl w-full h-auto aspect-[760/456] object-cover"
           />
           <div className="flex gap-1.75 flex-wrap">
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#WeddingPlatform</h3>
+              <h3>#FreelancePlatform</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#UX/UI</h3>
+              <h3>#DigitalProduct</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
               <h3>#WebDesign</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#Prototyping</h3>
+              <h3>#UXUI</h3>
             </div>
             <div className="px-3 py-1 bg-[#403F3F] w-fit text-[#FFFFFF] rounded-[5px]">
-              <h3>#Developing</h3>
+              <h3>#MarketplaceDesign</h3>
             </div>
           </div>
           <h3 className="text-2xl lg:text-[32px] font-medium">
-            Wedwish – Digital Platform for Wedding Gifts
+            MatchWise – Freelance Marketplace Platform
           </h3>
           <motion.div
             className="-space-y-2 h-fit cursor-pointer"
