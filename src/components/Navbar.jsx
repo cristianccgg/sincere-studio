@@ -32,7 +32,7 @@ const Navbar = () => {
           Services
         </Link>
         <Link
-          to="/our-projects"
+          to="/projects"
           className="px-3 cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
         >
           Our Projects
@@ -55,11 +55,14 @@ const Navbar = () => {
           >
             Services
           </Link>
-          <button className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]">
-            Our Projects
-          </button>
           <Link
-            to="about-us"
+            to="/projects"
+            className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
+          >
+            Our Projects
+          </Link>
+          <Link
+            to="/about-us"
             className=" cursor-pointer hover:underline hover:underline-offset-[25%] hover:decoration-[#8A38F5]"
           >
             About Us
