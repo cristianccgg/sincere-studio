@@ -41,7 +41,7 @@ const Services = () => {
           </div>
           {isOpen === 0 && (
             <div className="flex flex-col gap-[50px] mt-[34px]">
-              <p>
+              <p className="lg:text-[24px] text-xl font-medium">
                 A website demonstrates professionalism and builds trust — it has
                 been proven to increase revenue by making your products and
                 services accessible to anyone, anywhere.
@@ -99,7 +99,7 @@ const Services = () => {
           </div>
           {isOpen === 1 && (
             <div className="flex flex-col gap-[50px] mt-[34px]">
-              <p>
+              <p className="lg:text-[24px] text-xl font-medium">
                 Digital products are the future of scalable business. They let
                 you create once and sell infinitely, reaching global audiences
                 without the cost of inventory or shipping. From eBooks and
@@ -157,7 +157,7 @@ const Services = () => {
           </div>
           {isOpen === 2 && (
             <div className="flex flex-col gap-[50px] mt-[34px]">
-              <p>
+              <p className="lg:text-[24px] text-xl font-medium">
                 Digital marketing connects your brand with the right audience at
                 the right time. With a tailored strategy, you can boost
                 visibility, build trust, and drive consistent growth through
