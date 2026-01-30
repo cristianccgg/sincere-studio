@@ -30,7 +30,7 @@ const MatchWise = () => {
         {/* Hero Section with iPhones */}
         <section className="mt-10">
           <div className="rounded-lg">
-            <img src="/images/projects/MatchWise/hero.png" alt="img-cover" />
+            <img src="/images/projects/matchwise/hero.png" alt="img-cover" />
           </div>
         </section>
         <section className="mt-[90px]">
@@ -39,24 +39,24 @@ const MatchWise = () => {
               About the Project
             </h1>
             <h2 className="lg:text-[24px] font-medium text-xl">
-              LShot is a professional photographer specializing in portrait,
-              fashion, and event photography. His goal was to create a modern,
-              minimal, and elegant website that reflects his artistic style
-              while making it easy for potential clients to explore his
-              portfolio and book services. The site needed to serve as both a
-              visual gallery and a personal brand statement.
+              MatchWise is a next-generation freelance platform that connects
+              businesses, freelancers, and interns in a smarter and more
+              transparent way. Designed with clean UX/UI and powered by
+              AI-driven job matching, it simplifies every stage of the
+              freelancing process—making it faster and more efficient for both
+              talent and companies.
             </h2>
           </div>
-          <div className="flex flex-col md:flex-row gap-10 lg:gap-0 mt-[90px] md:items-start xl:justify-evenly items-center justify-center">
+          <div className="flex flex-col md:flex-row gap-10 lg:gap-[61px]  mt-[90px] md:items-start  items-center justify-center">
             <img
-              src="/images/projects/Leo Kirilov/about/Project Image Container.png"
+              src="/images/projects/matchwise/about/Home page land 1.png"
               alt="about-img"
-              className="w-90 xl:w-auto"
+              className="xl:w-[490px] md:w-80 w-90 "
             />
             <img
-              src="/images/projects/Leo Kirilov/about/Project Image Container2.png"
+              src="/images/projects/matchwise/about/Home page land 2.png"
               alt="about-img"
-              className="max-h-[728px] w-90 xl:w-auto"
+              className="xl:w-[490px] md:w-80 w-90 md:mt-25 xl:mt-[191px]"
             />
           </div>
         </section>
@@ -67,21 +67,51 @@ const MatchWise = () => {
               Challenges & Goals
             </h1>
             <h2 className="lg:text-[24px] tracking-[2%] text-justify font-medium text-xl  xl:h-[211px]">
-              The biggest challenge was balancing aesthetics with functionality.
-              As a photographer, his work had to take center stage, requiring a
-              design that was visually striking yet minimal enough not to
-              distract from the images. The site also needed to handle
-              high-resolution photography with fast load times, ensuring an
-              optimal experience on both desktop and mobile. Another key goal
-              was to structure the portfolio into clear categories for intuitive
-              navigation, while also integrating business tools to help
-              potential clients connect and book sessions seamlessly.
+              Traditional freelance platforms are often overcrowded, complex,
+              and hard to navigate. Users face lengthy onboarding, irrelevant
+              job matches, and unclear payment structures. Our objective with
+              MatchWise was to overcome these pain points by creating a minimal,
+              user-friendly platform that delivers:
             </h2>
           </div>
-          <div className="mt-[90px] flex items-center justify-center">
+          <div className="flex flex-col lg:text-[24px] gap-[14.4px] mt-6">
+            <div className="flex items-center gap-[20.5px]">
+              <img src="/images/services/Cube.png" alt="cube-icon" />
+              <p className="font-normal">
+                Effortless onboarding for both freelancers and businesses.
+              </p>
+            </div>
+            <div className="flex items-center gap-[20.5px]">
+              <img src="/images/services/Cube.png" alt="cube-icon" />
+              <p className="font-normal">
+                AI-powered smart matching to connect the right talent with the
+                right projects.
+              </p>
+            </div>
+            <div className="flex items-center gap-[20.5px]">
+              <img src="/images/services/Cube.png" alt="cube-icon" />
+              <p className="font-normal">
+                Transparent, secure payments for complete peace of mind.
+              </p>
+            </div>
+            <div className="flex items-center gap-[20.5px]">
+              <img src="/images/services/Cube.png" alt="cube-icon" />
+              <p className="font-normal">
+                A dedicated Internship Hub to help students and young
+                professionals launch their careers.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row gap-10 lg:gap-[61px]  mt-[90px] md:items-start  items-center justify-center">
             <img
-              src="/images/projects/Leo Kirilov/challenges/Image Gallery Container.png"
-              alt="challenges-img"
+              src="/images/projects/matchwise/challenges/Internship 3.png"
+              alt="about-img"
+              className="xl:w-[490px] md:w-80 w-90 "
+            />
+            <img
+              src="/images/projects/matchwise/challenges/Internship 4.png"
+              alt="about-img"
+              className="xl:w-[490px] md:w-80 w-90 md:mt-25 xl:mt-[191px]"
             />
           </div>
           <div className="flex flex-col gap-6 max-w-[1223px] mt-[90px]">
@@ -89,36 +119,29 @@ const MatchWise = () => {
               What We Did
             </h1>
             <h2 className="lg:text-[24px] tracking-[2%] text-justify font-medium text-xl">
-              We designed a minimalist, responsive website optimized for both
-              desktop and mobile. Key features included:
+              We designed and developed a clean, modern interface with intuitive
+              navigation and step-by-step flows tailored to freelancers and
+              businesses. Key features include:
             </h2>
             <div className="flex flex-col lg:text-[24px] gap-[14.4px]">
               <div className="flex items-center gap-[20.5px]">
                 <img src="/images/services/Cube.png" alt="cube-icon" />
                 <p className="font-normal">
-                  Organized portfolio sections by category for intuitive
-                  browsing
+                  Real-time communication tools for seamless collaboration.
                 </p>
               </div>
               <div className="flex items-center gap-[20.5px]">
                 <img src="/images/services/Cube.png" alt="cube-icon" />
                 <p className="font-normal">
-                  Integrated booking and contact form for streamlined client
-                  inquiries
+                  A trust-driven review system to build credibility.
                 </p>
               </div>
-              <div className="flex items-center gap-[20.5px]">
+              <div className="flex items-start gap-[20.5px]">
                 <img src="/images/services/Cube.png" alt="cube-icon" />
                 <p className="font-normal">
-                  Optimized high-resolution images for fast load speeds without
-                  losing quality
-                </p>
-              </div>
-              <div className="flex items-center gap-[20.5px]">
-                <img src="/images/services/Cube.png" alt="cube-icon" />
-                <p className="font-normal">
-                  Crafted a visually balanced layout that highlighted LShot’s
-                  photography style while maintaining simplicity
+                  A dedicated Internship Hub that helps businesses discover
+                  fresh talent while giving young professionals valuable
+                  opportunities.
                 </p>
               </div>
             </div>
