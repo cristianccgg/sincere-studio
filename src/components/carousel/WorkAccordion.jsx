@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CircleChevronRight, CircleArrowRight } from "lucide-react";
 
@@ -8,30 +9,35 @@ const workItems = [
     src: "/images/landing/our work/nano.png",
     alt: "nano-project",
     text: "MANO - Fashion Brand App",
+    link: "/projects/mano",
   },
   {
     id: 1,
     src: "/images/landing/our work/Cover Thumbnail 2.png",
     alt: "LShot-project",
-    text: "MANO - Fashion Brand App",
+    text: "LShot - Screenshot Tool",
+    link: "/projects/lshot",
   },
   {
     id: 2,
     src: "/images/landing/our work/Cover Thumbnail 3.png",
     alt: "The-Food-Co-Project",
-    text: "MANO - Fashion Brand App",
+    text: "The Food Co - Restaurant",
+    link: "/projects/thefoodco",
   },
   {
     id: 3,
     src: "/images/landing/our work/Cover Thumbnail 4.png",
     alt: "Wedwish-project",
-    text: "MANO - Fashion Brand App",
+    text: "Wedwish - Wedding App",
+    link: "/projects/wedwish",
   },
   {
     id: 4,
     src: "/images/landing/our work/Cover Thumbnail 5.png",
     alt: "MatchWise-project",
-    text: "MANO - Fashion Brand App",
+    text: "MatchWise - Dating App",
+    link: "/projects/matchwise",
   },
 ];
 
@@ -66,16 +72,12 @@ const WorkAccordion = () => {
   const [hoveredIconIndex, setHoveredIconIndex] = useState(null);
   const breakpoint = useBreakpoint();
   const isMobile = breakpoint === "mobile";
+  const navigate = useNavigate();
 
   const handleImageClick = (index) => {
     if (activeIndex === index && clickedIndex === index) {
-      // Si ya está abierto, ir a la página de detalles
-      console.log(
-        `Navegar a la página de detalles del proyecto: ${workItems[index].alt}`,
-      );
-      // window.location.href = `/projects/${workItems[index].alt}`;
+      navigate(workItems[index].link);
     } else {
-      // Primer click o click en diferente imagen - abrir/cambiar
       setActiveIndex(index);
       setClickedIndex(index);
     }
@@ -85,7 +87,11 @@ const WorkAccordion = () => {
     return (
       <div className="flex flex-col gap-4 mb-10">
         {workItems.map((item) => (
-          <div key={item.id} className="rounded-[20px] overflow-hidden w-full">
+          <Link
+            to={item.link}
+            key={item.id}
+            className="rounded-[20px] overflow-hidden w-full"
+          >
             <div className="relative w-full" style={{ height: "300px" }}>
               <img
                 src={item.src}
@@ -97,7 +103,7 @@ const WorkAccordion = () => {
                 <CircleArrowRight className="w-10.5 h-10.5" />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     );

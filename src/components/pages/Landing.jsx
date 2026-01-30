@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Button from "../common/Button";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
@@ -204,13 +205,15 @@ const Landing = () => {
               We Creating Values & <br />
               Scaling with Honestly
             </h2>
-            <Button
-              size="hero"
-              fontWeight="medium"
-              icon={<CircleChevronRight size={24} />}
-            >
-              See our Solutions
-            </Button>
+            <Link to="/projects">
+              <Button
+                size="hero"
+                fontWeight="medium"
+                icon={<CircleChevronRight size={24} />}
+              >
+                See our Solutions
+              </Button>
+            </Link>
           </div>
         </div>
         {/* Desktop bottom section - scales proportionally */}
@@ -231,25 +234,27 @@ const Landing = () => {
               We Creating Values & <br />
               Scaling with Honestly
             </h2>
-            <Button
-              size="hero"
-              fontWeight="medium"
-              icon={
-                <CircleChevronRight
-                  style={{
-                    width: "min(1.4vw, 24px)",
-                    height: "min(1.4vw, 24px)",
-                  }}
-                />
-              }
-              style={{
-                fontSize: "min(1.16vw, 20px)",
-                padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
-                gap: "min(0.58vw, 10px)",
-              }}
-            >
-              See our Solutions
-            </Button>
+            <Link to="/projects">
+              <Button
+                size="hero"
+                fontWeight="medium"
+                icon={
+                  <CircleChevronRight
+                    style={{
+                      width: "min(1.4vw, 24px)",
+                      height: "min(1.4vw, 24px)",
+                    }}
+                  />
+                }
+                style={{
+                  fontSize: "min(1.16vw, 20px)",
+                  padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
+                  gap: "min(0.58vw, 10px)",
+                }}
+              >
+                See our Solutions
+              </Button>
+            </Link>
           </div>
         </div>
         <div></div>
@@ -264,7 +269,8 @@ const Landing = () => {
           ALIGNED FOR MAXIMUM IMPACT
         </h2>
         <div className="flex flex-col lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between">
-          <div
+          <Link
+            to="/services"
             style={
               isMobile
                 ? {}
@@ -318,8 +324,9 @@ const Landing = () => {
                 alt="digital-products-img"
               />
             </motion.div>
-          </div>
-          <div
+          </Link>
+          <Link
+            to="/services"
             style={
               isMobile
                 ? {}
@@ -374,8 +381,9 @@ const Landing = () => {
                 alt="Web-design-img"
               />
             </motion.div>
-          </div>
-          <div
+          </Link>
+          <Link
+            to="/services"
             style={
               isMobile
                 ? {}
@@ -429,7 +437,7 @@ const Landing = () => {
                 alt="Marketing-sales-img"
               />
             </motion.div>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -463,13 +471,15 @@ const Landing = () => {
             heart. For us, it’s never just about projects — it’s about turning
             visions into lasting success.
           </p>
-          <Button
-            size="md"
-            fontWeight="medium"
-            icon={<CircleChevronRight size={24} />}
-          >
-            Let's create something great
-          </Button>
+          <Link to="/contacts">
+            <Button
+              size="md"
+              fontWeight="medium"
+              icon={<CircleChevronRight size={24} />}
+            >
+              Let's create something great
+            </Button>
+          </Link>
         </div>
         <div className="md:px-3 py-1.5 max-w-173 flex flex-col gap-3">
           <div className="flex justify-between gap-3">
@@ -593,13 +603,15 @@ const Landing = () => {
             step toward your next big success starts here.
           </h3>
 
-          <Button
-            size="lg"
-            fontWeight="medium"
-            icon={<CircleChevronRight size={24} />}
-          >
-            Let's Get Started
-          </Button>
+          <Link to="/contacts">
+            <Button
+              size="lg"
+              fontWeight="medium"
+              icon={<CircleChevronRight size={24} />}
+            >
+              Let's Get Started
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

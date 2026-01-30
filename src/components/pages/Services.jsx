@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Services.css";
 import Button from "../common/Button";
 import { CircleChevronUp, CircleChevronDown, ChevronRight } from "lucide-react";
@@ -215,13 +216,15 @@ const Services = () => {
               EXPERIENCES
             </h1>
           </div>
-          <Button
-            size="hero"
-            fontWeight="medium"
-            icon={<ChevronRight size={22} />}
-          >
-            See all Projects
-          </Button>
+          <Link to="/projects">
+            <Button
+              size="hero"
+              fontWeight="medium"
+              icon={<ChevronRight size={22} />}
+            >
+              See all Projects
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

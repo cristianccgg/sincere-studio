@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Services.css";
 import Button from "../common/Button";
 import { ChevronRight } from "lucide-react";
@@ -66,14 +67,16 @@ const AboutUs = () => {
                 complete dedication. Together, we create with heart, focus, and
                 a clear vision for meaningful results.
               </p>
-              <Button
-                size="hero"
-                fontWeight="medium"
-                icon={<ChevronRight size={22} />}
-                className="self-start"
-              >
-                See our Solutions
-              </Button>
+              <Link to="/projects">
+                <Button
+                  size="hero"
+                  fontWeight="medium"
+                  icon={<ChevronRight size={22} />}
+                  className="self-start"
+                >
+                  See our Solutions
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -127,14 +130,15 @@ const AboutUs = () => {
                 here to transform ideas into results that last.
               </h2>
             </div>
-            <Button
-              size="hero"
-              fontWeight="medium"
-              icon={<ChevronRight size={22} />}
-              className="self-center"
-            >
-              Make it Real
-            </Button>
+            <Link to="/contacts" className="self-center">
+              <Button
+                size="hero"
+                fontWeight="medium"
+                icon={<ChevronRight size={22} />}
+              >
+                Make it Real
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
