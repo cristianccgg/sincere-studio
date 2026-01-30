@@ -7,6 +7,10 @@ import AboutUs from "./components/pages/AboutUs";
 import Contacts from "./components/pages/Contacts";
 import Projects from "./components/pages/Projects";
 import Mano from "./components/pages/Mano";
+import LShot from "./components/pages/LShot";
+import Wedwish from "./components/pages/Wedwish";
+import MatchWise from "./components/pages/MatchWise";
+import TheFoodCo from "./components/pages/TheFoodCo";
 
 function App() {
   return (
@@ -18,6 +22,10 @@ function App() {
             <Route path="services" element={<Services />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/mano" element={<Mano />} />
+            <Route path="projects/lshot" element={<LShot />} />
+            <Route path="projects/wedwish" element={<Wedwish />} />
+            <Route path="projects/matchwise" element={<MatchWise />} />
+            <Route path="projects/thefoodco" element={<TheFoodCo />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="contacts" element={<Contacts />} />
           </Route>

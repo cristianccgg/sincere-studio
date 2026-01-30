@@ -16,7 +16,10 @@ const Projects = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-y-[94px] gap-x-4 lg:gap-x-[75px] px-4 lg:px-0 max-w-[1595px] mx-auto">
-        <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
+        <Link
+          to="/projects/lshot"
+          className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+        >
           <img
             src="/images/projects/main/Cover Thumbnail 1.png"
             alt="thumbnail1-img"
@@ -46,13 +49,11 @@ const Projects = () => {
             LShot – Professional Photography
           </h3>
           <motion.div
-            className="-space-y-2 h-fit cursor-pointer"
+            className="-space-y-2 h-fit"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <button className="text-2xl lg:text-[32px] font-semibold cursor-pointer">
-              More
-            </button>
+            <span className="text-2xl lg:text-[32px] font-semibold">More</span>
             <motion.div
               className="bg-[#8A38F5] h-1 -mt-1"
               initial={{ width: "35%" }}
@@ -65,7 +66,7 @@ const Projects = () => {
               }}
             />
           </motion.div>
-        </div>
+        </Link>
         <Link
           to="/projects/mano"
           className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
@@ -117,7 +118,10 @@ const Projects = () => {
             />
           </motion.div>
         </Link>
-        <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
+        <Link
+          to="/projects/wedwish"
+          className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+        >
           <img
             src="/images/projects/main/tumbnail4.png"
             alt="thumbnail4-img"
@@ -144,13 +148,11 @@ const Projects = () => {
             Wedwish – Digital Platform for Wedding Gifts
           </h3>
           <motion.div
-            className="-space-y-2 h-fit cursor-pointer"
+            className="-space-y-2 h-fit"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <button className="text-2xl lg:text-[32px] font-semibold cursor-pointer">
-              More
-            </button>
+            <span className="text-2xl lg:text-[32px] font-semibold">More</span>
             <motion.div
               className="bg-[#8A38F5] h-1 -mt-1"
               initial={{ width: "35%" }}
@@ -163,8 +165,11 @@ const Projects = () => {
               }}
             />
           </motion.div>
-        </div>
-        <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
+        </Link>
+        <Link
+          to="/projects/matchwise"
+          className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+        >
           <img
             src="/images/projects/main/tumbnail3.png"
             alt="thumbnail3-img"
@@ -191,13 +196,11 @@ const Projects = () => {
             MatchWise – Freelance Marketplace Platform
           </h3>
           <motion.div
-            className="-space-y-2 h-fit cursor-pointer"
+            className="-space-y-2 h-fit"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <button className="text-2xl lg:text-[32px] font-semibold cursor-pointer">
-              More
-            </button>
+            <span className="text-2xl lg:text-[32px] font-semibold">More</span>
             <motion.div
               className="bg-[#8A38F5] h-1 -mt-1"
               initial={{ width: "35%" }}
@@ -210,8 +213,11 @@ const Projects = () => {
               }}
             />
           </motion.div>
-        </div>
-        <div className="flex flex-col gap-6 items-start w-full max-w-[760px]">
+        </Link>
+        <Link
+          to="/projects/thefoodco"
+          className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+        >
           <img
             src="/images/projects/main/tumbnail5.png"
             alt="thumbnail5-img"
@@ -238,16 +244,14 @@ const Projects = () => {
             </div>
           </div>
           <h3 className="text-2xl lg:text-[32px] font-medium">
-            Wedwish - Digital Platform for Wedding Gifts
+            The Food Co. – A Digital Space for Unique Dining Experiences
           </h3>
           <motion.div
-            className="-space-y-2 h-fit cursor-pointer"
+            className="-space-y-2 h-fit"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <button className="text-2xl lg:text-[32px] font-semibold cursor-pointer">
-              More
-            </button>
+            <span className="text-2xl lg:text-[32px] font-semibold">More</span>
             <motion.div
               className="bg-[#8A38F5] h-1 -mt-1"
               initial={{ width: "35%" }}
@@ -260,7 +264,7 @@ const Projects = () => {
               }}
             />
           </motion.div>
-        </div>
+        </Link>
       </div>
     </div>
   );
