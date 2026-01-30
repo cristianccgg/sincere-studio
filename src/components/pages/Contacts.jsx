@@ -38,7 +38,10 @@ const Contacts = () => {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-[40px] md:gap-[70px]">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-[40px] md:gap-[70px]"
+      >
         {/* First Name & Last Name */}
         <div className="flex flex-col md:flex-row gap-[24px] md:gap-[61px]">
           <div className="flex flex-col gap-[16px] md:gap-[24px] flex-1 md:max-w-[320px]">
@@ -308,7 +311,7 @@ const Contacts = () => {
             Submit
           </button>
           <img
-            src="public/images/contacts/send-icon.png"
+            src="/images/contacts/send-icon.png"
             alt="send-icon"
             className="w-[22px] h-[22px] md:w-[28px] md:h-[28px]"
           />
