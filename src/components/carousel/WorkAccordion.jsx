@@ -116,7 +116,25 @@ const WorkAccordion = () => {
               />
               <div className="flex absolute text-[24px] text-white bottom-4 left-4 justify-between items-center w-[90%]">
                 <h3>{item.text}</h3>
-                <CircleArrowRight className="w-10.5 h-10.5" />
+                <motion.div
+                  onMouseEnter={() => setHoveredIconIndex(item.id)}
+                  onMouseLeave={() => setHoveredIconIndex(null)}
+                  animate={{
+                    rotate: hoveredIconIndex === item.id ? -45 : 0,
+                  }}
+                  transition={{
+                    type: "spring",
+                    mass: 1,
+                    stiffness: 177.8,
+                    damping: 20,
+                  }}
+                >
+                  {hoveredIconIndex === item.id ? (
+                    <CircleArrowRight className="w-10.5 h-10.5" />
+                  ) : (
+                    <CircleChevronRight className="w-10.5 h-10.5" />
+                  )}
+                </motion.div>
               </div>
             </div>
           </Link>

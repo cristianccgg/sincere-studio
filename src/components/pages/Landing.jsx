@@ -65,6 +65,9 @@ const Landing = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-40% 0px -40% 0px" });
 
+  const visionSectionRef = useRef(null);
+  const isVisionInView = useInView(visionSectionRef, { once: true, margin: "-40% 0px -40% 0px" });
+
   return (
     <div>
       <section className="w-full mt-4">
@@ -475,8 +478,13 @@ const Landing = () => {
         <WorkAccordion />
       </section>
 
-      <section className="mt-30 py-7 flex flex-col lg:flex-row gap-10 justify-between">
-        <div className="max-w-182.5">
+      <section className="mt-30 py-7 flex flex-col lg:flex-row gap-10 justify-between" ref={visionSectionRef}>
+        <motion.div
+          className="max-w-182.5"
+          initial={{ opacity: 0, y: 80 }}
+          animate={isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+          transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+        >
           <h3 className="text-[36px] font-semibold text-[#403F3F] ">
             Explore Our Vision and Concepts
           </h3>
@@ -503,8 +511,13 @@ const Landing = () => {
               Let's create something great
             </Button>
           </Link>
-        </div>
-        <div className="md:px-3 py-1.5 max-w-173 flex flex-col gap-3">
+        </motion.div>
+        <motion.div
+          className="md:px-3 py-1.5 max-w-173 flex flex-col gap-3"
+          initial={{ opacity: 0, y: -80 }}
+          animate={isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }}
+          transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+        >
           <div className="flex justify-between gap-3">
             <svg width="0" height="0" style={{ position: "absolute" }}>
               <defs>
@@ -598,7 +611,7 @@ const Landing = () => {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="mt-30 px-5 pb-5">
