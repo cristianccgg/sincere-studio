@@ -66,7 +66,10 @@ const Landing = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-40% 0px -40% 0px" });
 
   const visionSectionRef = useRef(null);
-  const isVisionInView = useInView(visionSectionRef, { once: true, margin: "-40% 0px -40% 0px" });
+  const isVisionInView = useInView(visionSectionRef, { once: true, margin: "0px 0px -60% 0px" });
+
+  const testimonialsSectionRef = useRef(null);
+  const isTestimonialsInView = useInView(testimonialsSectionRef, { once: true, margin: "0px 0px -60% 0px" });
 
   return (
     <div>
@@ -518,7 +521,12 @@ const Landing = () => {
           animate={isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }}
           transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
         >
-          <div className="flex justify-between gap-3">
+          <motion.div
+            className="flex justify-between gap-3"
+            initial={{ opacity: 0, x: -50, y: 50 }}
+            animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -50, y: 50 }}
+            transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.1 }}
+          >
             <svg width="0" height="0" style={{ position: "absolute" }}>
               <defs>
                 <clipPath id="notchClip" clipPathUnits="objectBoundingBox">
@@ -564,8 +572,13 @@ const Landing = () => {
                 className="w-84.25 "
               />
             </div>
-          </div>
-          <div className="flex justify-between gap-3">
+          </motion.div>
+          <motion.div
+            className="flex justify-between gap-3"
+            initial={{ opacity: 0, x: 50, y: -50 }}
+            animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: -50 }}
+            transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.2 }}
+          >
             <div className="w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
               <img
                 src="/images/landing/our vision/Frame 12712 1.png"
@@ -588,34 +601,46 @@ const Landing = () => {
                 is our signature.
               </p>
             </div>
-          </div>
+          </motion.div>
           <div className="flex justify-between gap-3">
-            <div
+            <motion.div
               className="bg-[#FFE5D8] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
               }}
+              initial={{ opacity: 0, x: 50, y: 50 }}
+              animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: 50 }}
+              transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.3 }}
             >
               <h2 className="font-semibold">Designed to Convert</h2>
               <p className="tracking-tight">
                 We fuse design with strategy — every pixel supports a business
-                goal, whether it’s engagement, retention, or sales.
+                goal, whether it's engagement, retention, or sales.
               </p>
-            </div>
-            <div className="w-88.75 pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+            </motion.div>
+            <motion.div
+              className="w-88.75 pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
+              initial={{ opacity: 0, x: -50, y: -50 }}
+              animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -50, y: -50 }}
+              transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.3 }}
+            >
               <img
                 src="/images/landing/our vision/Frame 298 1.png"
                 alt="dark-light-mode-img"
                 className="w-84.25 "
               />
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </section>
 
-      <section className="mt-30 px-5 pb-5">
-        <div>
+      <section className="mt-30 px-5 pb-5" ref={testimonialsSectionRef}>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+          transition={{ duration: 0.3, ease: "easeIn" }}
+        >
           <h3 className="md:text-[36px] text-3xl font-semibold text-[#403F3F] text-center">
             Here are some of the nice things people have said about Us
           </h3>
@@ -623,8 +648,14 @@ const Landing = () => {
             WE BELIEVE STRONGLY IN OUR CLIENTS & WANT <br /> TO GIVE THEM
             OPTIMAL SUPPORT
           </h2>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.3, ease: "easeIn", delay: 0.1 }}
+        >
           <TestimonialsCarousel />
-        </div>
+        </motion.div>
       </section>
 
       <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-10 md:py-22.5 px-20 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
