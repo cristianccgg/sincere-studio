@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../common/Button";
 import Footer from "../Footer";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { CircleChevronRight } from "lucide-react";
 import WorkAccordion from "../carousel/WorkAccordion";
 import TestimonialsCarousel from "../carousel/TestimonialsCarousel";
@@ -61,6 +62,9 @@ const Landing = () => {
   const sizes = cardSizes[breakpoint];
   const isMobile = breakpoint === "mobile";
 
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-40% 0px -40% 0px" });
+
   return (
     <div>
       <section className="w-full mt-4">
@@ -93,12 +97,15 @@ const Landing = () => {
             </span>
           </div>
           {/* Desktop text - scales proportionally based on 1728px, max at design size */}
-          <div
+          <motion.div
             className="hidden lg:flex flex-col justify-center lg:pr-8 xl:pr-0"
             style={{
               width: "min(59.8vw, 1033px)",
               height: "min(15.6vw, 270px)",
             }}
+            initial={{ opacity: 0, x: -100, y: -50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12 }}
           >
             <div className="flex justify-between items-baseline leading-none">
               <span
@@ -152,7 +159,7 @@ const Landing = () => {
                 STUDIO
               </span>
             </div>
-          </div>
+          </motion.div>
           {/* SVG para definir el clipPath con esquinas redondeadas */}
           <svg width="0" height="0" className="absolute">
             <defs>
@@ -181,7 +188,7 @@ const Landing = () => {
               </clipPath>
             </defs>
           </svg>
-          <div
+          <motion.div
             className="absolute bg-cover hidden lg:block lg:-right-2 xl:right-0"
             style={{
               width: "min(59vw, 1020px)",
@@ -190,6 +197,9 @@ const Landing = () => {
               backgroundPosition: "15% center",
               clipPath: "url(#heroClip)",
             }}
+            initial={{ opacity: 0, x: 100, y: -50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.1 }}
           />
         </div>
 
@@ -221,12 +231,20 @@ const Landing = () => {
           className="hidden lg:flex items-end justify-between"
           style={{ maxWidth: "min(60.4vw, 1043px)" }}
         >
-          <img
+          <motion.img
             src="/images/landing/hero1.png"
             alt="hero-img1"
             style={{ maxWidth: "min(32vw, 574px)" }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.2 }}
           />
-          <div className="shrink-0 bg-white lg:pr-8 2xl:pr-0 flex flex-col items-end">
+          <motion.div
+            className="shrink-0 bg-white lg:pr-8 2xl:pr-0 flex flex-col items-end"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.3 }}
+          >
             <h2
               className="font-medium text-[#444444] leading-tight whitespace-nowrap"
               style={{ fontSize: "min(2.78vw, 48px)" }}
@@ -255,20 +273,31 @@ const Landing = () => {
                 See our Solutions
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
         <div></div>
       </section>
 
-      <section className="mt-30">
-        <h3 className="text-[36px] font-semibold text-[#403F3F] ">
-          We make more then a design
-        </h3>
-        <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
-          EVERY SERVICE, EVERY SKILL - <br />
-          ALIGNED FOR MAXIMUM IMPACT
-        </h2>
-        <div className="flex flex-col lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between">
+      <section className="mt-30" ref={sectionRef}>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+          transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12 }}
+        >
+          <h3 className="text-[36px] font-semibold text-[#403F3F] ">
+            We make more then a design
+          </h3>
+          <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
+            EVERY SERVICE, EVERY SKILL - <br />
+            ALIGNED FOR MAXIMUM IMPACT
+          </h2>
+        </motion.div>
+        <motion.div
+          className="flex flex-col lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between"
+          initial={{ opacity: 0, y: 80 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+          transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.1 }}
+        >
           <Link
             to="/services"
             style={
@@ -303,10 +332,8 @@ const Landing = () => {
                 boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
               }}
               transition={{
-                type: "spring",
-                mass: 1,
-                stiffness: 300,
-                damping: 20,
+                duration: 0.3,
+                ease: "easeIn",
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
@@ -359,10 +386,8 @@ const Landing = () => {
                 boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
               }}
               transition={{
-                type: "spring",
-                mass: 1,
-                stiffness: 300,
-                damping: 20,
+                duration: 0.3,
+                ease: "easeIn",
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
@@ -416,10 +441,8 @@ const Landing = () => {
                 boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
               }}
               transition={{
-                type: "spring",
-                mass: 1,
-                stiffness: 300,
-                damping: 20,
+                duration: 0.3,
+                ease: "easeIn",
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
@@ -438,7 +461,7 @@ const Landing = () => {
               />
             </motion.div>
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       <section className="mt-30">

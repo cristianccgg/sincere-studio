@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CircleChevronRight, CircleArrowRight } from "lucide-react";
@@ -67,19 +67,35 @@ const useBreakpoint = () => {
 };
 
 const WorkAccordion = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [clickedIndex, setClickedIndex] = useState(0);
+  const [activeSlot, setActiveSlot] = useState(0); // which slot is expanded (0-4)
+  const [previousSlot, setPreviousSlot] = useState(0); // track previous slot for direction
   const [hoveredIconIndex, setHoveredIconIndex] = useState(null);
   const breakpoint = useBreakpoint();
   const isMobile = breakpoint === "mobile";
   const navigate = useNavigate();
 
-  const handleImageClick = (index) => {
-    if (activeIndex === index && clickedIndex === index) {
-      navigate(workItems[index].link);
+  // Direction: true = moving right (click on slot > activeSlot), false = moving left
+  const isMovingRight = activeSlot > previousSlot;
+
+  // Calculate pixel values based on viewport - must be before any conditional returns
+  const sizes = useMemo(() => {
+    if (typeof window === "undefined") {
+      return { collapsed: 240, expanded: 530 };
+    }
+    const vw = window.innerWidth / 100;
+    const collapsed = Math.min(13.89 * vw, 240);
+    const expanded = Math.min(30.67 * vw, 530);
+    return { collapsed, expanded };
+  }, [breakpoint]);
+
+  const handleSlotClick = (slot) => {
+    if (slot === activeSlot) {
+      // Already active, navigate
+      navigate(workItems[slot].link);
     } else {
-      setActiveIndex(index);
-      setClickedIndex(index);
+      // Track direction and move expanded container to clicked slot
+      setPreviousSlot(activeSlot);
+      setActiveSlot(slot);
     }
   };
 
@@ -109,64 +125,142 @@ const WorkAccordion = () => {
     );
   }
 
+  const springTransition = {
+    type: "spring",
+    mass: 1,
+    stiffness: 100,
+    damping: 15,
+  };
+
+  const gap = breakpoint === "2xl" ? 16 : breakpoint === "xl" ? 12 : 8;
+
+  const collapsedWidthPx = sizes.collapsed;
+  const expandedWidthPx = sizes.expanded;
+  const extraWidthPx = expandedWidthPx - collapsedWidthPx;
+
+  // CSS values for styling
+  const collapsedWidth = "min(13.89vw, 240px)";
+  const expandedWidth = "min(30.67vw, 530px)";
+
+  // Calculate left position in pixels for a collapsed card at a given slot
+  const getCollapsedPositionPx = (slot) => {
+    const basePosition = slot * (collapsedWidthPx + gap);
+    if (slot > activeSlot) {
+      return basePosition + extraWidthPx;
+    }
+    return basePosition;
+  };
+
+  // Position for the expanded container in pixels
+  const getExpandedPositionPx = () => {
+    return activeSlot * (collapsedWidthPx + gap);
+  };
+
   return (
-    <div className="flex gap-2 xl:gap-3 2xl:gap-4 mb-7.25">
-      {workItems.map((item, index) => (
-        <motion.div
-          key={item.id}
-          className="rounded-[20px] overflow-hidden cursor-pointer"
-          onClick={() => handleImageClick(index)}
-          animate={{
-            width:
-              activeIndex === index
-                ? "min(30.67vw, 530px)"
-                : "min(13.89vw, 240px)",
-          }}
-          initial={{
-            width: index === 0 ? "min(30.67vw, 530px)" : "min(13.89vw, 240px)",
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-          }}
-          style={{
-            height: "min(28.36vw, 490px)",
-          }}
-        >
-          <div className="w-full h-full relative">
+    <div className="mb-7.25 relative" style={{ height: "min(28.36vw, 490px)" }}>
+      {/* Collapsed cards - one for each slot, except the active one */}
+      {workItems.map((item, slot) => {
+        // Don't render a collapsed card for the active slot (it's covered by the expanded)
+        if (slot === activeSlot) return null;
+
+        // When moving left, cards that are moving (between new and old slot) should be on top
+        const isCardMoving = isMovingRight
+          ? slot > previousSlot && slot <= activeSlot
+          : slot >= activeSlot && slot < previousSlot;
+        const collapsedZIndex = !isMovingRight && isCardMoving ? 20 : 1;
+
+        return (
+          <motion.div
+            key={item.id}
+            className="absolute top-0 rounded-[20px] overflow-hidden cursor-pointer"
+            onClick={() => handleSlotClick(slot)}
+            style={{
+              width: collapsedWidth,
+              height: "min(28.36vw, 490px)",
+              zIndex: collapsedZIndex,
+            }}
+            initial={false}
+            animate={{
+              x: getCollapsedPositionPx(slot),
+            }}
+            transition={springTransition}
+          >
             <img
               src={item.src}
               alt={item.alt}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            {clickedIndex === index && (
-              <div className="flex absolute text-[24px] text-white bottom-4 left-4 justify-between items-center w-[90%]">
-                <h3>{item.text}</h3>
-                <motion.div
-                  onMouseEnter={() => setHoveredIconIndex(index)}
-                  onMouseLeave={() => setHoveredIconIndex(null)}
-                  animate={{
-                    rotate: hoveredIconIndex === index ? -45 : 0,
-                  }}
-                  transition={{
-                    type: "spring",
-                    mass: 1,
-                    stiffness: 177.8,
-                    damping: 20,
-                  }}
-                >
-                  {hoveredIconIndex === index ? (
-                    <CircleArrowRight className="w-10.5 h-10.5" />
-                  ) : (
-                    <CircleChevronRight className="w-10.5 h-10.5" />
-                  )}
-                </motion.div>
-              </div>
+          </motion.div>
+        );
+      })}
+
+      {/* Expanded container - moves between positions with crossfade */}
+      <motion.div
+        className="absolute top-0 rounded-[20px] overflow-hidden cursor-pointer"
+        onClick={() => navigate(workItems[activeSlot].link)}
+        style={{
+          width: expandedWidth,
+          height: "min(28.36vw, 490px)",
+          zIndex: isMovingRight ? 10 : 5,
+        }}
+        initial={false}
+        animate={{
+          x: getExpandedPositionPx(),
+        }}
+        transition={springTransition}
+      >
+        {/* All images stacked with crossfade */}
+        {workItems.map((item, index) => (
+          <motion.img
+            key={item.id}
+            src={item.src}
+            alt={item.alt}
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={false}
+            animate={{
+              opacity: activeSlot === index ? 1 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+          />
+        ))}
+
+        {/* Text overlay with crossfade */}
+        <div className="flex absolute text-[24px] text-white bottom-4 left-4 justify-between items-center w-[90%]">
+          {workItems.map((item, index) => (
+            <motion.h3
+              key={item.id}
+              className="absolute"
+              initial={false}
+              animate={{
+                opacity: activeSlot === index ? 1 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {item.text}
+            </motion.h3>
+          ))}
+          <motion.div
+            className="ml-auto"
+            onMouseEnter={() => setHoveredIconIndex(activeSlot)}
+            onMouseLeave={() => setHoveredIconIndex(null)}
+            animate={{
+              rotate: hoveredIconIndex === activeSlot ? -45 : 0,
+            }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 177.8,
+              damping: 20,
+            }}
+          >
+            {hoveredIconIndex === activeSlot ? (
+              <CircleArrowRight className="w-10.5 h-10.5" />
+            ) : (
+              <CircleChevronRight className="w-10.5 h-10.5" />
             )}
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        </div>
+      </motion.div>
     </div>
   );
 };
