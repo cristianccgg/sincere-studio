@@ -36,7 +36,7 @@ const Button = ({
       className={`
         inline-flex items-center justify-center
         font-rajdhani font-${fontWeight}
-        bg-[#E85102] text-white
+        bg-[#E85102] text-[#FBFBFB]
         rounded-[100px]
         cursor-pointer
         transition-all duration-300

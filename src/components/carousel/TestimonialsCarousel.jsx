@@ -161,7 +161,7 @@ const TestimonialsCarousel = () => {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex overflow-x-auto gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
+        className="flex overflow-x-auto  gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -177,7 +177,7 @@ const TestimonialsCarousel = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="p-6 md:p-8 lg:p-10.5 min-w-[85vw] md:min-w-[45vw] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] max-w-[85vw] md:max-w-[45vw] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 md:gap-5 lg:gap-6 flex-shrink-0 h-fit select-none"
+            className="p-6 md:p-8 shadow-containers drop-shadow-containers lg:p-10.5 min-w-[85vw] md:min-w-[45vw] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] max-w-[85vw] md:max-w-[45vw] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 md:gap-5 lg:gap-6 flex-shrink-0 h-fit select-none"
           >
             {/* Quote Marks */}
             <div className="flex w-13.5 h-[33.67px] gap-1.5 md:gap-2 lg:gap-2.25">
@@ -194,7 +194,7 @@ const TestimonialsCarousel = () => {
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-sm md:text-base lg:text-lg leading-relaxed">
+            <p className="text-sm md:text-base text-[#262424] lg:text-lg leading-relaxed">
               {testimonial.text}
             </p>
 
@@ -207,11 +207,11 @@ const TestimonialsCarousel = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col justify-between">
+              <div className="flex flex-col justify-between text-[#262424]">
                 <h2 className="text-xl md:text-2xl lg:text-[32px] font-medium leading-tight">
                   {testimonial.name}
                 </h2>
-                <h3 className="text-base md:text-lg lg:text-[24px] font-medium text-gray-600">
+                <h3 className="text-base md:text-lg lg:text-[24px] font-medium text-[#262424]">
                   {testimonial.position}
                 </h3>
               </div>

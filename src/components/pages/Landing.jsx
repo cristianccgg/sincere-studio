@@ -63,20 +63,29 @@ const Landing = () => {
   const isMobile = breakpoint === "mobile";
 
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-40% 0px -40% 0px" });
+  const isInView = useInView(sectionRef, {
+    once: true,
+    margin: "-40% 0px -40% 0px",
+  });
 
   const visionSectionRef = useRef(null);
-  const isVisionInView = useInView(visionSectionRef, { once: true, margin: "0px 0px -60% 0px" });
+  const isVisionInView = useInView(visionSectionRef, {
+    once: true,
+    margin: "0px 0px -60% 0px",
+  });
 
   const testimonialsSectionRef = useRef(null);
-  const isTestimonialsInView = useInView(testimonialsSectionRef, { once: true, margin: "0px 0px -60% 0px" });
+  const isTestimonialsInView = useInView(testimonialsSectionRef, {
+    once: true,
+    margin: "0px 0px -60% 0px",
+  });
 
   return (
     <div>
       <section className="w-full mt-4">
         <div className="flex mx-auto relative">
           {/* Mobile/Tablet text */}
-          <div className="flex flex-wrap w-full items-baseline px-4 lg:hidden leading-none gap-x-2">
+          <div className="flex flex-wrap w-full text-[#262424] items-baseline px-4 lg:hidden leading-none gap-x-2">
             <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
               SINCERE
             </span>
@@ -111,9 +120,14 @@ const Landing = () => {
             }}
             initial={{ opacity: 0, x: -100, y: -50 }}
             animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 64.02,
+              damping: 12,
+            }}
           >
-            <div className="flex justify-between items-baseline leading-none">
+            <div className="flex justify-between text-[#262424] items-baseline leading-none">
               <span
                 className="font-nats font-normal tracking-[-0.02em]"
                 style={{ fontSize: "min(7.4vw, 128px)" }}
@@ -133,7 +147,7 @@ const Landing = () => {
                 IT'S
               </span>
             </div>
-            <div className="flex justify-between items-baseline leading-none">
+            <div className="flex justify-between items-baseline leading-none text-[#262424]">
               <span
                 className="font-rajdhani tracking-[-0.02em]"
                 style={{ fontSize: "min(5.56vw, 96px)" }}
@@ -205,7 +219,13 @@ const Landing = () => {
             }}
             initial={{ opacity: 0, x: 100, y: -50 }}
             animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.1 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 64.02,
+              damping: 12,
+              delay: 0.1,
+            }}
           />
         </div>
 
@@ -243,13 +263,25 @@ const Landing = () => {
             style={{ maxWidth: "min(32vw, 574px)" }}
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.2 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 64.02,
+              damping: 12,
+              delay: 0.2,
+            }}
           />
           <motion.div
             className="shrink-0 bg-white lg:pr-8 2xl:pr-0 flex flex-col items-end"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.3 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 64.02,
+              damping: 12,
+              delay: 0.3,
+            }}
           >
             <h2
               className="font-medium text-[#444444] leading-tight whitespace-nowrap"
@@ -258,7 +290,7 @@ const Landing = () => {
               We Creating Values & <br />
               Scaling with Honestly
             </h2>
-            <Link to="/projects">
+            <Link to="/projects" className="2xl:mt-[42px]">
               <Button
                 size="hero"
                 fontWeight="medium"
@@ -284,11 +316,16 @@ const Landing = () => {
         <div></div>
       </section>
 
-      <section className="mt-30" ref={sectionRef}>
+      <section className="mt-30 bg-[#FBFBFB]" ref={sectionRef}>
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
-          transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 64.02,
+            damping: 12,
+          }}
         >
           <h3 className="text-[36px] font-semibold text-[#403F3F] ">
             We make more then a design
@@ -302,7 +339,13 @@ const Landing = () => {
           className="flex flex-col lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between"
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-          transition={{ type: "spring", mass: 1, stiffness: 64.02, damping: 12, delay: 0.1 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 64.02,
+            damping: 12,
+            delay: 0.1,
+          }}
         >
           <Link
             to="/services"
@@ -348,7 +391,7 @@ const Landing = () => {
                 </h3>
                 <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
               </div>
-              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
+              <p className="font-rajdhani font-normal  text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
                 We design and develop apps, templates, and interactive tools
                 that deliver real value to your users.
               </p>
@@ -474,18 +517,23 @@ const Landing = () => {
         <h3 className="text-[36px] font-semibold text-[#403F3F] ">
           Explore Our Work
         </h3>
-        <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-15">
+        <h2 className="md:text-[40px] text-3xl font-bold text-[#403F3F] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-15">
           REAL PROJECTS, REAL RESULTS — <br />
           SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
         </h2>
         <WorkAccordion />
       </section>
 
-      <section className="mt-30 py-7 flex flex-col lg:flex-row gap-10 justify-between" ref={visionSectionRef}>
+      <section
+        className="mt-30 py-7 flex flex-col lg:flex-row gap-10 justify-between"
+        ref={visionSectionRef}
+      >
         <motion.div
           className="max-w-182.5"
           initial={{ opacity: 0, y: 80 }}
-          animate={isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+          animate={
+            isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }
+          }
           transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
         >
           <h3 className="text-[36px] font-semibold text-[#403F3F] ">
@@ -495,7 +543,7 @@ const Landing = () => {
             WE BELIEVE DEEPLY IN OUR CLIENTS AND ARE <br />
             COMMITTED TO GIVING THEM THE BEST <br /> POSSIBLE SUPPORT
           </h2>
-          <p className="text-[24px] mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#403F3F] ">
+          <p className="text-[24px] mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
             At Sincere Studio, we craft digital solutions that are not only
             beautiful but also effective. Our mission is to blend creativity
             with strategy to deliver work that builds trust and drives real
@@ -518,14 +566,26 @@ const Landing = () => {
         <motion.div
           className="md:px-3 py-1.5 max-w-173 flex flex-col gap-3"
           initial={{ opacity: 0, y: -80 }}
-          animate={isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }}
+          animate={
+            isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }
+          }
           transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
         >
           <motion.div
             className="flex justify-between gap-3"
             initial={{ opacity: 0, x: -50, y: 50 }}
-            animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -50, y: 50 }}
-            transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.1 }}
+            animate={
+              isVisionInView
+                ? { opacity: 1, x: 0, y: 0 }
+                : { opacity: 0, x: -50, y: 50 }
+            }
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 100,
+              damping: 15,
+              delay: 0.1,
+            }}
           >
             <svg width="0" height="0" style={{ position: "absolute" }}>
               <defs>
@@ -552,13 +612,13 @@ const Landing = () => {
               </defs>
             </svg>
             <div
-              className="bg-[#E2E3E4] md:text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              className="bg-[#E2E3E4]  md:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
               }}
             >
-              <h2 className="font-semibold">Clarity Over Noise</h2>
+              <h2 className="font-semibold ">Clarity Over Noise</h2>
               <p className="tracking-tight">
                 Every element serves a purpose — clean layouts, strong
                 typography, and intentional whitespace that let your message
@@ -576,8 +636,18 @@ const Landing = () => {
           <motion.div
             className="flex justify-between gap-3"
             initial={{ opacity: 0, x: 50, y: -50 }}
-            animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: -50 }}
-            transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.2 }}
+            animate={
+              isVisionInView
+                ? { opacity: 1, x: 0, y: 0 }
+                : { opacity: 0, x: 50, y: -50 }
+            }
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 100,
+              damping: 15,
+              delay: 0.2,
+            }}
           >
             <div className="w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
               <img
@@ -587,7 +657,7 @@ const Landing = () => {
               />
             </div>
             <div
-              className="bg-[#E9E0F0] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[298px]"
+              className="bg-[#E9E0F0] text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[298px]"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
@@ -604,14 +674,24 @@ const Landing = () => {
           </motion.div>
           <div className="flex justify-between gap-3">
             <motion.div
-              className="bg-[#FFE5D8] text-[20px] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              className="bg-[#FFE5D8] text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
               }}
               initial={{ opacity: 0, x: 50, y: 50 }}
-              animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: 50 }}
-              transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.3 }}
+              animate={
+                isVisionInView
+                  ? { opacity: 1, x: 0, y: 0 }
+                  : { opacity: 0, x: 50, y: 50 }
+              }
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 100,
+                damping: 15,
+                delay: 0.3,
+              }}
             >
               <h2 className="font-semibold">Designed to Convert</h2>
               <p className="tracking-tight">
@@ -622,8 +702,18 @@ const Landing = () => {
             <motion.div
               className="w-88.75 pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
               initial={{ opacity: 0, x: -50, y: -50 }}
-              animate={isVisionInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -50, y: -50 }}
-              transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15, delay: 0.3 }}
+              animate={
+                isVisionInView
+                  ? { opacity: 1, x: 0, y: 0 }
+                  : { opacity: 0, x: -50, y: -50 }
+              }
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 100,
+                damping: 15,
+                delay: 0.3,
+              }}
             >
               <img
                 src="/images/landing/our vision/Frame 298 1.png"
@@ -638,7 +728,9 @@ const Landing = () => {
       <section className="mt-30 px-5 pb-5" ref={testimonialsSectionRef}>
         <motion.div
           initial={{ opacity: 0, y: -50 }}
-          animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+          animate={
+            isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
+          }
           transition={{ duration: 0.3, ease: "easeIn" }}
         >
           <h3 className="md:text-[36px] text-3xl font-semibold text-[#403F3F] text-center">
@@ -651,7 +743,9 @@ const Landing = () => {
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          animate={
+            isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+          }
           transition={{ duration: 0.3, ease: "easeIn", delay: 0.1 }}
         >
           <TestimonialsCarousel />

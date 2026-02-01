@@ -21,7 +21,7 @@ const Services = () => {
           </p>
         </div>
       </section>
-      <section className="xl:ps-[123px] xl:pr-[127px] lg:py-[75px] py-10 flex flex-col lg:gap-6">
+      <section className="xl:ps-[123px] rounded-[20px] bg-[#FBFBFB] xl:pr-[127px] lg:py-[75px] py-10 flex flex-col lg:gap-6">
         <div className="flex flex-col py-6 lg:px-10.5 px-5 rounded-[20px]">
           <div
             className="flex items-center gap-7.5 cursor-pointer"

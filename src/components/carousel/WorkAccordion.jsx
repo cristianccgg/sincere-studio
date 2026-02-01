@@ -114,7 +114,7 @@ const WorkAccordion = () => {
                 alt={item.alt}
                 className="w-full h-full object-cover"
               />
-              <div className="flex absolute text-[24px] text-white bottom-4 left-4 justify-between items-center w-[90%]">
+              <div className="flex absolute text-[24px] text-[#FBFBFB] bottom-4 left-4 justify-between items-center w-[90%]">
                 <h3>{item.text}</h3>
                 <motion.div
                   onMouseEnter={() => setHoveredIconIndex(item.id)}
@@ -243,7 +243,7 @@ const WorkAccordion = () => {
         ))}
 
         {/* Text overlay with crossfade */}
-        <div className="flex absolute text-[24px] text-white bottom-4 left-4 justify-between items-center w-[90%]">
+        <div className="flex absolute text-[24px] text-[#FBFBFB] bottom-4 left-4 justify-between items-center w-[90%]">
           {workItems.map((item, index) => (
             <motion.h3
               key={item.id}
