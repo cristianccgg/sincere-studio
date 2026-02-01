@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CircleChevronRight, CircleArrowRight } from "lucide-react";
@@ -77,16 +77,30 @@ const WorkAccordion = () => {
   // Direction: true = moving right (click on slot > activeSlot), false = moving left
   const isMovingRight = activeSlot > previousSlot;
 
-  // Calculate pixel values based on viewport - must be before any conditional returns
-  const sizes = useMemo(() => {
+  // Calculate pixel values based on viewport - updates on every resize
+  const [sizes, setSizes] = useState(() => {
     if (typeof window === "undefined") {
       return { collapsed: 240, expanded: 530 };
     }
     const vw = window.innerWidth / 100;
-    const collapsed = Math.min(13.89 * vw, 240);
-    const expanded = Math.min(30.67 * vw, 530);
-    return { collapsed, expanded };
-  }, [breakpoint]);
+    return {
+      collapsed: Math.min(13.89 * vw, 240),
+      expanded: Math.min(30.67 * vw, 530),
+    };
+  });
+
+  useEffect(() => {
+    const updateSizes = () => {
+      const vw = window.innerWidth / 100;
+      setSizes({
+        collapsed: Math.min(13.89 * vw, 240),
+        expanded: Math.min(30.67 * vw, 530),
+      });
+    };
+
+    window.addEventListener("resize", updateSizes);
+    return () => window.removeEventListener("resize", updateSizes);
+  }, []);
 
   const handleSlotClick = (slot) => {
     if (slot === activeSlot) {

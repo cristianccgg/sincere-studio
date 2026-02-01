@@ -57,10 +57,11 @@ const TestimonialsCarousel = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [velocity, setVelocity] = useState(0);
   const [lastX, setLastX] = useState(0);
   const [lastTime, setLastTime] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const animationRef = useRef(null);
 
   const handleMouseDown = (e) => {
@@ -130,25 +131,39 @@ const TestimonialsCarousel = () => {
     animate();
   };
 
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const scrollPosition = scrollContainerRef.current.scrollLeft;
-      const cardWidth = scrollContainerRef.current.offsetWidth;
-      const index = Math.round(scrollPosition / cardWidth);
-      setCurrentIndex(index);
-    }
-  };
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
+
+    const handleScroll = () => {
+      if (scrollContainer) {
+        const firstCard = scrollContainer.querySelector(':scope > div:not(style)');
+        if (firstCard) {
+          const cardWidth = firstCard.offsetWidth + 24; // card width + gap
+          const index = Math.round(scrollContainer.scrollLeft / cardWidth);
+          setCurrentIndex(Math.max(0, Math.min(index, testimonials.length - 1)));
+        }
+      }
+    };
+
     if (scrollContainer) {
       scrollContainer.addEventListener("scroll", handleScroll);
-      return () => {
-        scrollContainer.removeEventListener("scroll", handleScroll);
-        if (animationRef.current) {
-          cancelAnimationFrame(animationRef.current);
-        }
-      };
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
     }
   }, []);
 
@@ -161,7 +176,7 @@ const TestimonialsCarousel = () => {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex overflow-x-auto  gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
+        className="flex overflow-x-auto gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -177,7 +192,9 @@ const TestimonialsCarousel = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="p-6 md:p-8 shadow-containers drop-shadow-containers lg:p-10.5 min-w-[85vw] md:min-w-[45vw] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] max-w-[85vw] md:max-w-[45vw] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 md:gap-5 lg:gap-6 flex-shrink-0 h-fit select-none"
+            className={`p-6 md:p-8 shadow-containers drop-shadow-containers lg:p-10.5 md:min-w-[45vw] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] md:max-w-[45vw] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 md:gap-5 lg:gap-6 flex-shrink-0 h-fit select-none ${
+                  isMobile ? 'min-w-[280px] max-w-[280px]' : ''
+                }`}
           >
             {/* Quote Marks */}
             <div className="flex w-13.5 h-[33.67px] gap-1.5 md:gap-2 lg:gap-2.25">
@@ -219,6 +236,31 @@ const TestimonialsCarousel = () => {
           </div>
         ))}
       </div>
+
+      {/* Dots - only on mobile */}
+      {isMobile && (
+        <div className="flex justify-center gap-2 mt-4">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                const firstCard = scrollContainerRef.current?.querySelector(':scope > div:not(style)');
+                if (firstCard && scrollContainerRef.current) {
+                  const cardWidth = firstCard.offsetWidth + 24;
+                  scrollContainerRef.current.scrollTo({
+                    left: index * cardWidth,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                currentIndex === index ? 'bg-[#8A38F5]' : 'bg-[#D9D9D9]'
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

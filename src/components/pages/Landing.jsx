@@ -11,17 +11,17 @@ import TestimonialsCarousel from "../carousel/TestimonialsCarousel";
 // Card sizes per breakpoint
 const cardSizes = {
   "2xl": {
-    container: { width: 480, height: 455 },
+    container: { width: 480, height: 415 },
     card: { width: 477, height: 415, padding: 24, gap: 24 },
     hover: { width: 480, height: 455, padding: 40, gap: 28 },
   },
   xl: {
-    container: { width: 380, height: 400 },
+    container: { width: 380, height: 345 },
     card: { width: 377, height: 345, padding: 20, gap: 20 },
     hover: { width: 380, height: 365, padding: 32, gap: 24 },
   },
   lg: {
-    container: { width: 290, height: 340 },
+    container: { width: 290, height: 280 },
     card: { width: 287, height: 280, padding: 16, gap: 16 },
     hover: { width: 290, height: 300, padding: 24, gap: 20 },
   },
@@ -316,7 +316,10 @@ const Landing = () => {
         <div></div>
       </section>
 
-      <section className="mt-30 bg-[#FBFBFB]" ref={sectionRef}>
+      <section
+        className="mt-30 lg:px-[36px] px-2 pb-[34px] bg-[#FBFBFB]"
+        ref={sectionRef}
+      >
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
@@ -513,7 +516,7 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="mt-30">
+      <section className="mt-30 bg-[#FBFBFB] lg:py-[29px] py-5 xl:px-[37px] px-5">
         <h3 className="text-[36px] font-semibold text-[#403F3F] ">
           Explore Our Work
         </h3>
@@ -525,7 +528,7 @@ const Landing = () => {
       </section>
 
       <section
-        className="mt-30 py-7 flex flex-col lg:flex-row gap-10 justify-between"
+        className="mt-30 py-7 lg:ps-9.5 lg:pe-3.75 ps-5 pe-5 bg-[#FBFBFB] flex flex-col lg:flex-row gap-10 justify-between"
         ref={visionSectionRef}
       >
         <motion.div
@@ -536,14 +539,14 @@ const Landing = () => {
           }
           transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
         >
-          <h3 className="text-[36px] font-semibold text-[#403F3F] ">
+          <h3 className="xl:text-[36px] text-2xl font-semibold text-[#403F3F] ">
             Explore Our Vision and Concepts
           </h3>
-          <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-3.75">
+          <h2 className="xl:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-3.75">
             WE BELIEVE DEEPLY IN OUR CLIENTS AND ARE <br />
             COMMITTED TO GIVING THEM THE BEST <br /> POSSIBLE SUPPORT
           </h2>
-          <p className="text-[24px] mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
+          <p className="lg:text-[24px] text-xl mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
             At Sincere Studio, we craft digital solutions that are not only
             beautiful but also effective. Our mission is to blend creativity
             with strategy to deliver work that builds trust and drives real
