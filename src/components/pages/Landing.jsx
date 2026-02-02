@@ -354,23 +354,27 @@ const Landing = () => {
             className={isMobile ? "w-full" : ""}
           >
             <motion.div
-              className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+              className="cursor-pointer flex flex-col rounded-[20px] border"
               style={{
                 width: sizes.card.width,
                 height: sizes.card.height,
                 padding: sizes.card.padding,
                 gap: sizes.card.gap,
-                boxShadow: "none",
+                boxShadow: isMobile ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)" : "none",
+                borderColor: isMobile ? "#FBFBFB" : "transparent",
               }}
-              whileHover={{
-                width: isMobile ? "100%" : sizes.hover.width,
-                height: isMobile ? "auto" : sizes.hover.height,
-                padding: sizes.hover.padding,
-                gap: sizes.hover.gap,
-                borderColor: "#FBFBFB",
-                borderWidth: 1,
-                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
-              }}
+              whileHover={
+                isMobile
+                  ? {}
+                  : {
+                      width: sizes.hover.width,
+                      height: sizes.hover.height,
+                      padding: sizes.hover.padding,
+                      gap: sizes.hover.gap,
+                      borderColor: "#FBFBFB",
+                      boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+                    }
+              }
               transition={{
                 duration: 0.3,
                 ease: "easeIn",
@@ -408,23 +412,27 @@ const Landing = () => {
             className={isMobile ? "w-full" : ""}
           >
             <motion.div
-              className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+              className="cursor-pointer flex flex-col rounded-[20px] border"
               style={{
                 width: sizes.card.width,
                 height: sizes.card.height,
                 padding: sizes.card.padding,
                 gap: sizes.card.gap,
-                boxShadow: "none",
+                boxShadow: isMobile ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)" : "none",
+                borderColor: isMobile ? "#FBFBFB" : "transparent",
               }}
-              whileHover={{
-                width: isMobile ? "100%" : sizes.hover.width,
-                height: isMobile ? "auto" : sizes.hover.height,
-                padding: sizes.hover.padding,
-                gap: sizes.hover.gap,
-                borderColor: "#FBFBFB",
-                borderWidth: 1,
-                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
-              }}
+              whileHover={
+                isMobile
+                  ? {}
+                  : {
+                      width: sizes.hover.width,
+                      height: sizes.hover.height,
+                      padding: sizes.hover.padding,
+                      gap: sizes.hover.gap,
+                      borderColor: "#FBFBFB",
+                      boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+                    }
+              }
               transition={{
                 duration: 0.3,
                 ease: "easeIn",
@@ -463,23 +471,27 @@ const Landing = () => {
             className={isMobile ? "w-full" : ""}
           >
             <motion.div
-              className="cursor-pointer flex flex-col rounded-[20px] border border-transparent"
+              className="cursor-pointer flex flex-col rounded-[20px] border"
               style={{
                 width: sizes.card.width,
                 height: sizes.card.height,
                 padding: sizes.card.padding,
                 gap: sizes.card.gap,
-                boxShadow: "none",
+                boxShadow: isMobile ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)" : "none",
+                borderColor: isMobile ? "#FBFBFB" : "transparent",
               }}
-              whileHover={{
-                width: isMobile ? "100%" : sizes.hover.width,
-                height: isMobile ? "auto" : sizes.hover.height,
-                padding: sizes.hover.padding,
-                gap: sizes.hover.gap,
-                borderColor: "#FBFBFB",
-                borderWidth: 1,
-                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
-              }}
+              whileHover={
+                isMobile
+                  ? {}
+                  : {
+                      width: sizes.hover.width,
+                      height: sizes.hover.height,
+                      padding: sizes.hover.padding,
+                      gap: sizes.hover.gap,
+                      borderColor: "#FBFBFB",
+                      boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+                    }
+              }
               transition={{
                 duration: 0.3,
                 ease: "easeIn",
@@ -745,11 +757,6 @@ const Landing = () => {
               fontWeight="medium"
               variant="static"
               icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
-              style={{
-                fontSize: "min(1.16vw, 20px)",
-                padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
-                gap: "min(0.58vw, 10px)",
-              }}
             >
               Let's Get Started
             </Button>
