@@ -7,6 +7,7 @@ const Button = ({
   iconPosition = "right",
   size = "md",
   fontWeight = "semibold",
+  variant = "default", // "default" | "static" (no background change)
   className = "",
   style = {},
   ...props
@@ -56,6 +57,33 @@ const Button = ({
     if (!iconElement) return null;
 
     if (config.iconStyle) {
+      if (variant === "static") {
+        // Para botón estático (fondo siempre naranja):
+        // Default: círculo naranja con flecha blanca
+        // Hover: círculo blanco con borde blanco y flecha naranja
+        return (
+          <motion.span
+            className="shrink-0 flex items-center justify-center rounded-full w-6 h-6"
+            animate={{
+              backgroundColor: isHovered ? "#FFFFFF" : "#E85102",
+              borderColor: "#FBFBFB",
+              borderWidth: 2,
+              color: isHovered ? "#E85102" : "#FBFBFB",
+            }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 100,
+              damping: 15,
+            }}
+            style={{ borderStyle: "solid" }}
+          >
+            {iconElement}
+          </motion.span>
+        );
+      }
+
+      // Default (para botón que cambia de color):
       // Default: círculo con borde blanco, flecha blanca
       // Hover: círculo relleno naranja, flecha blanca
       return (
@@ -103,17 +131,17 @@ const Button = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       animate={{
-        backgroundColor: isHovered ? "#FFFFFF" : "#E85102",
-        borderColor: isHovered ? "#E85102" : "transparent",
-        color: isHovered ? "#262424" : "#FBFBFB",
+        backgroundColor: variant === "static" ? "#E85102" : (isHovered ? "#FFFFFF" : "#E85102"),
+        borderColor: variant === "static" ? "transparent" : (isHovered ? "#E85102" : "transparent"),
+        color: variant === "static" ? "#FBFBFB" : (isHovered ? "#262424" : "#FBFBFB"),
         padding: currentState.padding,
         gap: currentState.gap,
       }}
       transition={{
         type: "spring",
         mass: 1,
-        stiffness: 100,
-        damping: 15,
+        stiffness: 256,
+        damping: 24,
       }}
       {...props}
     >

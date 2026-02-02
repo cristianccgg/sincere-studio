@@ -246,7 +246,7 @@ const Landing = () => {
               <Button
                 size="hero"
                 fontWeight="medium"
-                icon={<ChevronRight size={16} />}
+                icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
               >
                 See our Solutions
               </Button>
@@ -296,12 +296,7 @@ const Landing = () => {
                 size="hero"
                 fontWeight="medium"
                 icon={
-                  <ChevronRight
-                    style={{
-                      width: "min(1vw, 16px)",
-                      height: "min(1vw, 16px)",
-                    }}
-                  />
+                  <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 }
                 style={{
                   fontSize: "min(1.16vw, 20px)",
@@ -559,9 +554,16 @@ const Landing = () => {
           </p>
           <Link to="/contacts">
             <Button
-              size="md"
+              size="hero"
               fontWeight="medium"
-              icon={<CircleChevronRight size={24} />}
+              icon={
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+              }
+              style={{
+                fontSize: "min(1.16vw, 20px)",
+                padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
+                gap: "min(0.58vw, 10px)",
+              }}
             >
               Let's create something great
             </Button>
@@ -770,9 +772,17 @@ const Landing = () => {
 
           <Link to="/contacts">
             <Button
-              size="lg"
+              size="hero"
               fontWeight="medium"
-              icon={<CircleChevronRight size={24} />}
+              variant="static"
+              icon={
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+              }
+              style={{
+                fontSize: "min(1.16vw, 20px)",
+                padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
+                gap: "min(0.58vw, 10px)",
+              }}
             >
               Let's Get Started
             </Button>
