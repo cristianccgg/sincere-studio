@@ -318,7 +318,7 @@ const Landing = () => {
       </section>
 
       <section
-        className="mt-30 lg:px-[36px] px-2 pb-[34px] bg-[#FBFBFB]"
+        className="mt-30 lg:py-[29px] py-5 xl:px-[37px] px-5"
         ref={sectionRef}
       >
         <motion.div
@@ -331,7 +331,7 @@ const Landing = () => {
             damping: 12,
           }}
         >
-          <h3 className="text-[36px] font-semibold text-[#403F3F] ">
+          <h3 className="text-[36px] font-semibold text-[#403F3F]">
             We make more than a design
           </h3>
           <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
@@ -340,7 +340,7 @@ const Landing = () => {
           </h2>
         </motion.div>
         <motion.div
-          className="flex flex-col lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between"
+          className="flex flex-col  lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between"
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
           transition={{
@@ -517,7 +517,7 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="mt-30 bg-[#FBFBFB] lg:py-[29px] py-5 xl:px-[37px] px-5">
+      <section className="mt-30  lg:py-[29px] py-5 xl:px-[37px] px-5 ">
         <h3 className="text-[36px] font-semibold text-[#403F3F] ">
           Explore Our Work
         </h3>
@@ -529,25 +529,25 @@ const Landing = () => {
       </section>
 
       <section
-        className="mt-30 py-7 lg:ps-9.5 lg:pe-3.75 ps-5 pe-5 bg-[#FBFBFB] flex flex-col lg:flex-row gap-10 justify-between"
+        className="mt-30 xl:max-h-[680px]  lg:py-[29px] py-5 xl:px-[37px] px-5 flex flex-col lg:flex-row gap-10 justify-between"
         ref={visionSectionRef}
       >
         <motion.div
-          className="max-w-182.5"
+          className="max-w-182.5  flex flex-col justify-between"
           initial={{ opacity: 0, y: 80 }}
           animate={
             isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }
           }
           transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
         >
-          <h3 className="xl:text-[36px] text-2xl font-semibold text-[#403F3F] ">
+          <h3 className="2xl:text-[36px] text-2xl font-semibold text-[#403F3F] ">
             Explore Our Vision and Concepts
           </h3>
-          <h2 className="xl:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-3.75">
+          <h2 className="2xl:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-3.75">
             WE BELIEVE DEEPLY IN OUR CLIENTS AND ARE <br />
             COMMITTED TO GIVING THEM THE BEST <br /> POSSIBLE SUPPORT
           </h2>
-          <p className="lg:text-[24px] text-xl mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
+          <p className="xl:text-[24px] text-justify text-xl mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
             At Sincere Studio, we craft digital solutions that are not only
             beautiful but also effective. Our mission is to blend creativity
             with strategy to deliver work that builds trust and drives real
@@ -568,7 +568,7 @@ const Landing = () => {
           </Link>
         </motion.div>
         <motion.div
-          className="md:px-3 py-1.5 max-w-173 flex flex-col gap-3"
+          className="md:px-3  xl:max-w-[668px] w-fit flex flex-col gap-3  "
           initial={{ opacity: 0, y: -80 }}
           animate={
             isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }
@@ -616,7 +616,7 @@ const Landing = () => {
               </defs>
             </svg>
             <div
-              className="bg-[#E2E3E4]  md:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              className="bg-[#E2E3E4] max-h-[200px]  2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[296px]"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
@@ -629,16 +629,16 @@ const Landing = () => {
                 breathe.
               </p>
             </div>
-            <div className="w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+            <div className="flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
               <img
                 src="/images/landing/our vision/dark and light mode 1.png"
                 alt="dark-light-mode-img"
-                className="w-84.25 "
+                className="w-84.25 max-h-[200px]"
               />
             </div>
           </motion.div>
           <motion.div
-            className="flex justify-between gap-3"
+            className="flex justify-between gap-3 max-h-[200px]"
             initial={{ opacity: 0, x: 50, y: -50 }}
             animate={
               isVisionInView
@@ -653,15 +653,15 @@ const Landing = () => {
               delay: 0.2,
             }}
           >
-            <div className="w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+            <div className="w-88.75  flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
               <img
                 src="/images/landing/our vision/Frame 12712 1.png"
                 alt="dark-light-mode-img"
-                className="w-84.25 "
+                className="max-w-84.25"
               />
             </div>
             <div
-              className="bg-[#E9E0F0] text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[298px]"
+              className="bg-[#E9E0F0] max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[298px]"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
@@ -676,9 +676,9 @@ const Landing = () => {
               </p>
             </div>
           </motion.div>
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 ">
             <motion.div
-              className="bg-[#FFE5D8] text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              className="bg-[#FFE5D8] max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
@@ -704,7 +704,7 @@ const Landing = () => {
               </p>
             </motion.div>
             <motion.div
-              className="w-88.75 pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
+              className="w-88.75 max-h-[200px] pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
               initial={{ opacity: 0, x: -50, y: -50 }}
               animate={
                 isVisionInView
@@ -722,7 +722,7 @@ const Landing = () => {
               <img
                 src="/images/landing/our vision/Frame 298 1.png"
                 alt="dark-light-mode-img"
-                className="w-84.25 "
+                className="max-w-84.25 max-h-[200px]"
               />
             </motion.div>
           </div>
@@ -756,7 +756,7 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-10 md:py-22.5 px-20 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
+      <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-10 md:py-22.5 px-10 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
         {" "}
         <div className="flex flex-col gap-[42px] items-center text-center">
           <h2 className="lg:text-[40px] text-2xl font-bold  text-center">
