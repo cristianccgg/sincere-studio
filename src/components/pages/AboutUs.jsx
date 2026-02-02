@@ -144,7 +144,7 @@ const WhoWeAreSection = () => {
 const AboutUs = () => {
   return (
     <div className="">
-      <section className="mt-22.5 pb-[35px]">
+      <section className="mt-11.25 pb-[35px]">
         <div className="aboutus-hero flex flex-col xl:ps-[130px] xl:pt-[110px] lg:ps-[100px] justify-center gap-10 px-6 py-10 rounded-[20px]">
           <h1 className="lg:text-[48px] text-2xl font-bold">
             WHAT WE STAND FOR

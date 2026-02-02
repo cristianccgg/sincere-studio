@@ -38,7 +38,7 @@ const Projects = () => {
     <div>
       <motion.div
         ref={titleRef}
-        className="flex flex-col items-center gap-8.75 my-20.75"
+        className="flex flex-col items-center gap-8.75 my-23.5"
         initial={{ opacity: 0, y: -50 }}
         animate={titleEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
         transition={{ duration: 0.3, ease: "easeOut" }}

@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Button from "../common/Button";
 import { Send } from "lucide-react";
 
+const CustomRadio = ({ checked }) => (
+  <div className="w-[31px] h-[31px] rounded-full border-[2px] border-[#8A38F5] flex items-center justify-center bg-white">
+    {checked && <div className="w-[15px] h-[15px] rounded-full bg-[#8A38F5]" />}
+  </div>
+);
+
 const Contacts = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -14,6 +20,7 @@ const Contacts = () => {
     timeframe: "asap",
     projectDetails: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +30,38 @@ const Contacts = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    setIsSubmitted(true);
   };
 
+  if (isSubmitted) {
+    return (
+      <div className="mt-[60px] mb-[60px] md:mt-[100px] md:mb-[140px] bg-white rounded-[20px] shadow-lg shadow-[#00000059]/70 max-w-[1360px] mx-auto py-[40px] px-[20px] md:px-[60px]">
+        <div className="flex flex-col items-center gap-[40px] md:gap-[70px]">
+          {/* Success Button */}
+          <div className="flex items-center justify-center gap-[24px] py-[16px] px-[24px] md:px-[36px] bg-[#35DF1F] rounded-[100px] w-fit">
+            <span className="text-[24px] md:text-[32px] font-semibold text-white leading-[100%] font-['Rajdhani']">
+              Success!
+            </span>
+            <img
+              src="/images/contacts/success-player-multimedia-svgrepo-com 1.png"
+              alt="success-icon"
+              className="w-[32px] h-[32px] md:w-[49px] md:h-[49px]"
+            />
+          </div>
+
+          {/* Success Text */}
+          <p className="text-[24px] md:text-[32px] font-semibold text-[#262424] leading-[100%] text-center font-['Rajdhani'] xl:max-w-[638px]">
+            Your form has been Submitted.
+            <br />
+            We appreciate you taking the time to contact us.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="mt-[60px] mb-[60px] py-[24px] px-[20px] md:mt-[140px] md:mb-[140px] md:py-[40px] md:px-[60px] bg-white rounded-[20px] shadow-lg shadow-[#00000059]/70 max-w-[997px] mx-4 md:mx-auto">
+    <div className="mt-[60px] mb-[60px] py-[24px] px-[20px] md:mt-[140px] md:mb-[140px] md:py-[40px] md:px-[60px] bg-white rounded-[20px] shadow-lg shadow-[#00000059]/70 max-w-[997px]  md:mx-auto">
       {/* Header */}
       <div className="flex flex-col gap-[10px] mb-[40px] md:mb-[70px]">
         <h2 className="text-[24px] md:text-[32px] font-semibold text-[#262424]">
@@ -54,7 +89,7 @@ const Contacts = () => {
               value={formData.firstName}
               onChange={handleChange}
               placeholder="Frank"
-              className="bg-[#ECEEF0] rounded-[10px] h-[47px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none"
+              className="bg-[#ECEEF0] rounded-[5px] h-[47px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none"
               required
             />
           </div>
@@ -68,7 +103,7 @@ const Contacts = () => {
               value={formData.lastName}
               onChange={handleChange}
               placeholder="Johnson"
-              className="bg-[#ECEEF0] h-[47px] rounded-[10px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none"
+              className="bg-[#ECEEF0] h-[47px] rounded-[5px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none"
               required
             />
           </div>
@@ -85,7 +120,7 @@ const Contacts = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="example@email.com"
-            className="bg-[#ECEEF0] h-[47px] rounded-[10px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none w-full"
+            className="bg-[#ECEEF0] h-[47px] rounded-[5px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none w-full"
             required
           />
         </div>
@@ -100,7 +135,7 @@ const Contacts = () => {
               name="countryCode"
               value={formData.countryCode}
               onChange={handleChange}
-              className="bg-[#ECEEF0] h-[50px] w-full md:w-[208px] rounded-[10px] py-[16px] px-[20px] text-[16px] md:text-[24px] text-[#262424] outline-none"
+              className="bg-[#ECEEF0] h-[50px] w-full md:w-[208px] rounded-[5px] py-[16px] px-[20px] text-[16px] md:text-[24px] text-[#262424] outline-none"
             >
               <option value="USA">USA</option>
               <option value="UK">UK</option>
@@ -113,7 +148,7 @@ const Contacts = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+ 1"
-              className="bg-[#ECEEF0] h-[42px] w-full md:w-[240px] rounded-[10px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none"
+              className="bg-[#ECEEF0] h-[42px] w-full md:w-[240px] rounded-[5px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none"
               required
             />
           </div>
@@ -132,8 +167,9 @@ const Contacts = () => {
                 value="redesign"
                 checked={formData.wantTo === "redesign"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.wantTo === "redesign"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 ReDesign my Website/App
               </span>
@@ -145,8 +181,9 @@ const Contacts = () => {
                 value="upgrade"
                 checked={formData.wantTo === "upgrade"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.wantTo === "upgrade"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 Upgrade my UX to meet modern expectations
               </span>
@@ -158,8 +195,9 @@ const Contacts = () => {
                 value="improve"
                 checked={formData.wantTo === "improve"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.wantTo === "improve"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 Improve strategy to increase sales
               </span>
@@ -180,8 +218,9 @@ const Contacts = () => {
                 value="300-600"
                 checked={formData.investment === "300-600"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.investment === "300-600"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 $300 - $600
               </span>
@@ -193,8 +232,9 @@ const Contacts = () => {
                 value="600-1200"
                 checked={formData.investment === "600-1200"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.investment === "600-1200"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 $600 - $1 200
               </span>
@@ -206,8 +246,9 @@ const Contacts = () => {
                 value="1200-1800"
                 checked={formData.investment === "1200-1800"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.investment === "1200-1800"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 $1 200 - $1 800
               </span>
@@ -219,8 +260,9 @@ const Contacts = () => {
                 value="1800-2400"
                 checked={formData.investment === "1800-2400"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.investment === "1800-2400"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 $1 800 - $2 400
               </span>
@@ -242,8 +284,9 @@ const Contacts = () => {
                 value="asap"
                 checked={formData.timeframe === "asap"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.timeframe === "asap"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 As soon as possible
               </span>
@@ -255,8 +298,9 @@ const Contacts = () => {
                 value="1-3months"
                 checked={formData.timeframe === "1-3months"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.timeframe === "1-3months"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 1-3 months
               </span>
@@ -268,8 +312,9 @@ const Contacts = () => {
                 value="3-6months"
                 checked={formData.timeframe === "3-6months"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.timeframe === "3-6months"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 3-6 months
               </span>
@@ -281,8 +326,9 @@ const Contacts = () => {
                 value="ongoing"
                 checked={formData.timeframe === "ongoing"}
                 onChange={handleChange}
-                className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] accent-[#8A38F5] border-[1px]"
+                className="hidden"
               />
+              <CustomRadio checked={formData.timeframe === "ongoing"} />
               <span className="text-[16px] md:text-[24px] font-normal text-[#262424]">
                 Ongoing (subscription-based)
               </span>
@@ -300,7 +346,7 @@ const Contacts = () => {
             name="projectDetails"
             value={formData.projectDetails}
             onChange={handleChange}
-            className="bg-[#ECEEF0] rounded-[10px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none w-full min-h-[120px] md:min-h-[150px] resize-none"
+            className="bg-[#ECEEF0] rounded-[5px] py-[16px] px-[20px] text-[16px] md:text-[24px] placeholder:text-[#262424] outline-none w-full min-h-[120px] md:min-h-[150px] resize-none"
             required
           />
         </div>
