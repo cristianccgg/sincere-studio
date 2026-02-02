@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const Button = ({
   children,
@@ -10,53 +11,116 @@ const Button = ({
   style = {},
   ...props
 }) => {
-  // Tamaños predefinidos basados en las especificaciones de diseño
-  const sizes = {
-    // Navbar: 105x42, padding 8/16
-    navbar: "px-4 py-2 text-[20px] gap-[45px]",
+  const [isHovered, setIsHovered] = useState(false);
 
-    // Hero "See our Solutions": 243x52, padding 8/16
-    // Mobile: tamaño base, Desktop: escala con viewport
-    hero: "px-4 py-2 text-base sm:text-lg lg:text-xl gap-2.5",
+  // Configuración de tamaños con animación de crecimiento
+  const sizeConfig = {
+    navbar: {
+      classes: "text-[20px] xl:text-[24px]",
+      initial: { padding: "8px 16px", gap: 45 },
+      hover: { padding: "8px 16px", gap: 45 },
+      iconStyle: false, // No tiene icono con estilo especial
+    },
+    hero: {
+      classes: "text-base sm:text-lg lg:text-xl xl:text-[24px]",
+      initial: { padding: "8px 16px", gap: 10 },
+      hover: { padding: "10px 20px", gap: 20 },
+      iconStyle: true, // Icono con borde que cambia en hover
+    },
+    md: {
+      classes: "text-base sm:text-lg lg:text-xl",
+      initial: { padding: "8px 16px", gap: 10 },
+      hover: { padding: "12px 24px", gap: 10 },
+      iconStyle: false,
+    },
+    lg: {
+      classes: "text-base sm:text-lg lg:text-xl",
+      initial: { padding: "12px 24px", gap: 10 },
+      hover: { padding: "12px 24px", gap: 10 },
+      iconStyle: false,
+    },
+    footer: {
+      classes: "text-2xl sm:text-3xl lg:text-4xl",
+      initial: { padding: "16px 24px", gap: 10 },
+      hover: { padding: "16px 24px", gap: 10 },
+      iconStyle: false,
+    },
+  };
 
-    // Medium: "Let's create something great": 368x55, padding 12/24
-    // Mobile: tamaño legible, Desktop: xl
-    md: "px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg lg:text-xl gap-2.5",
+  const config = sizeConfig[size] || sizeConfig.md;
+  const currentState = isHovered ? config.hover : config.initial;
 
-    // Large: "Let's Get Started": 244x55, padding 12/24
-    // Mobile: tamaño legible, Desktop: xl
-    lg: "px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg lg:text-xl gap-2.5",
+  // Estilo del icono para el tamaño "hero"
+  // Usa ChevronRight (solo flecha) y crea el círculo con CSS
+  const renderIcon = (iconElement) => {
+    if (!iconElement) return null;
 
-    // Footer "Let's work !": 215x78, padding 16/24
-    footer: "px-6 py-4 text-2xl sm:text-3xl lg:text-4xl gap-2.5",
+    if (config.iconStyle) {
+      // Default: círculo con borde blanco, flecha blanca
+      // Hover: círculo relleno naranja, flecha blanca
+      return (
+        <motion.span
+          className="shrink-0 flex items-center justify-center rounded-full w-6 h-6"
+          animate={{
+            backgroundColor: isHovered ? "#E85102" : "transparent",
+            borderColor: isHovered ? "#E85102" : "#FBFBFB",
+            borderWidth: 2,
+          }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
+          }}
+          style={{ borderStyle: "solid", color: "#FBFBFB" }}
+        >
+          {iconElement}
+        </motion.span>
+      );
+    }
+
+    return <span className="shrink-0">{iconElement}</span>;
   };
 
   return (
-    <button
+    <motion.button
       className={`
         inline-flex items-center justify-center
         font-rajdhani font-${fontWeight}
         bg-[#E85102] text-[#FBFBFB]
         rounded-[100px]
         cursor-pointer
-        transition-all duration-300
         border-2 border-transparent
-        hover:bg-white hover:border-[#E85102] hover:text-[#262424]
 
-        ${sizes[size] || sizes.md}
+        ${config.classes}
         ${className}
       `}
-      style={style}
+      style={{
+        ...style,
+        padding: currentState.padding,
+        gap: currentState.gap,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      animate={{
+        backgroundColor: isHovered ? "#FFFFFF" : "#E85102",
+        borderColor: isHovered ? "#E85102" : "transparent",
+        color: isHovered ? "#262424" : "#FBFBFB",
+        padding: currentState.padding,
+        gap: currentState.gap,
+      }}
+      transition={{
+        type: "spring",
+        mass: 1,
+        stiffness: 100,
+        damping: 15,
+      }}
       {...props}
     >
-      {icon && iconPosition === "left" && (
-        <span className="shrink-0">{icon}</span>
-      )}
+      {icon && iconPosition === "left" && renderIcon(icon)}
       {children}
-      {icon && iconPosition === "right" && (
-        <span className="shrink-0">{icon}</span>
-      )}
-    </button>
+      {icon && iconPosition === "right" && renderIcon(icon)}
+    </motion.button>
   );
 };
 

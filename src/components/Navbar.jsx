@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex h-22.5 font-rajdhani items-center justify-between w-full pl-[13.5px] pr-[22.5px] relative z-50 bg-white">
+      <div className="flex h-22.5 font-rajdhani items-center justify-between w-full pl-[13.5px] pr-[22.5px] relative z-50 bg-[#FBFBFB]">
         <Link to="/" onClick={closeMenu} className="cursor-pointer select-none">
           <img src="/images/navbar/logo.png" alt="logo" className="w-33 h-15 min-w-33 pointer-events-none" draggable="false" />
         </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop navigation */}
-        <div className="text-[24px] gap-12.5 pe-3 ps-6.5 hidden md:flex items-center">
+        <div className="text-[18px] lg:text-[24px] gap-4 lg:gap-12.5 pe-3 ps-6.5 hidden md:flex items-center">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -77,7 +77,7 @@ const Navbar = () => {
 
       {/* Mobile navigation menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed top-22.5 left-0 right-0 bg-white z-50 shadow-lg">
+        <div className="md:hidden fixed top-22.5 left-0 right-0 bg-[#FBFBFB] z-50 shadow-lg">
           <nav className="flex flex-col items-start p-6 gap-5 text-[24px]">
             {navLinks.map((link) => (
               <Link

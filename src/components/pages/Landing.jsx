@@ -4,7 +4,8 @@ import Button from "../common/Button";
 import Footer from "../Footer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CircleChevronRight } from "lucide-react";
+import { CircleChevronRight, ChevronRight } from "lucide-react";
+import AnimatedArrowIcon from "../common/AnimatedArrowIcon";
 import WorkAccordion from "../carousel/WorkAccordion";
 import TestimonialsCarousel from "../carousel/TestimonialsCarousel";
 
@@ -85,7 +86,7 @@ const Landing = () => {
       <section className="w-full mt-4">
         <div className="flex mx-auto relative">
           {/* Mobile/Tablet text */}
-          <div className="flex flex-wrap w-full text-[#262424] items-baseline px-4 lg:hidden leading-none gap-x-2">
+          <div className="flex flex-wrap w-full text-[#262424] items-baseline lg:hidden leading-none gap-x-2 mb-6">
             <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
               SINCERE
             </span>
@@ -245,7 +246,7 @@ const Landing = () => {
               <Button
                 size="hero"
                 fontWeight="medium"
-                icon={<CircleChevronRight size={24} />}
+                icon={<ChevronRight size={16} />}
               >
                 See our Solutions
               </Button>
@@ -295,10 +296,10 @@ const Landing = () => {
                 size="hero"
                 fontWeight="medium"
                 icon={
-                  <CircleChevronRight
+                  <ChevronRight
                     style={{
-                      width: "min(1.4vw, 24px)",
-                      height: "min(1.4vw, 24px)",
+                      width: "min(1vw, 16px)",
+                      height: "min(1vw, 16px)",
                     }}
                   />
                 }
@@ -331,7 +332,7 @@ const Landing = () => {
           }}
         >
           <h3 className="text-[36px] font-semibold text-[#403F3F] ">
-            We make more then a design
+            We make more than a design
           </h3>
           <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
             EVERY SERVICE, EVERY SKILL - <br />
@@ -392,7 +393,7 @@ const Landing = () => {
                 <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Digital Products
                 </h3>
-                <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
+                <AnimatedArrowIcon />
               </div>
               <p className="font-rajdhani font-normal  text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
                 We design and develop apps, templates, and interactive tools
@@ -446,7 +447,7 @@ const Landing = () => {
                 <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Web Design
                 </h3>
-                <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
+                <AnimatedArrowIcon />
               </div>
               <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] text-justify text-[#101010]">
                 Modern, responsive websites with clean <br /> aesthetics and a
@@ -501,7 +502,7 @@ const Landing = () => {
                 <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
                   Marketing and Sales
                 </h3>
-                <CircleChevronRight className="w-8 h-8 xl:w-8 xl:h-8 2xl:w-[42px] 2xl:h-[42px]" />
+                <AnimatedArrowIcon />
               </div>
               <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
                 From SEO and social media to funnels and optimization — we help
