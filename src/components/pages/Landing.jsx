@@ -238,7 +238,7 @@ const Landing = () => {
             className="md:max-w-143.5"
           />
           <div className="max-w-107">
-            <h2 className="font-medium text-[#444444] md:text-[42px] text-4xl mt-5 lg:mt-0">
+            <h2 className="font-medium text-[#444444] md:text-[42px] text-4xl my-5 lg:my-0">
               We Creating Values & <br />
               Scaling with Honestly
             </h2>
@@ -312,7 +312,7 @@ const Landing = () => {
 
       <section
         ref={sectionRef}
-        className="mt-30 lg:py-[29px] py-5 xl:px-[37px] px-5"
+        className="lg:mt-30 mt-10 lg:py-[29px] py-5 xl:px-[37px]"
         onMouseEnter={() => setSectionHovered(true)}
       >
         <motion.div
@@ -322,10 +322,10 @@ const Landing = () => {
           }
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <h3 className="text-[36px] font-semibold text-[#403F3F]">
+          <h3 className="lg:text-[36px] text-xl font-semibold text-[#403F3F]">
             We make more than a design
           </h3>
-          <h2 className="md:text-[40px] text-3xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
+          <h2 className="lg:text-[40px] text-2xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
             EVERY SERVICE, EVERY SKILL - <br />
             ALIGNED FOR MAXIMUM IMPACT
           </h2>
@@ -504,11 +504,11 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="mt-30  lg:py-[29px] py-5 xl:px-[37px] px-5 ">
-        <h3 className="text-[36px] font-semibold text-[#403F3F] ">
+      <section className="lg:mt-30 mt-10  lg:py-[29px] py-5 xl:px-[37px] ">
+        <h3 className="lg:text-[36px] text-xl font-semibold text-[#403F3F] ">
           Explore Our Work
         </h3>
-        <h2 className="md:text-[40px] text-3xl font-bold text-[#403F3F] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-15">
+        <h2 className="lg:text-[40px] text-2xl font-bold text-[#403F3F] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-15">
           REAL PROJECTS, REAL RESULTS — <br />
           SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
         </h2>
@@ -517,7 +517,7 @@ const Landing = () => {
 
       <section
         ref={visionRef}
-        className="mt-30 xl:max-h-[680px]  lg:py-[29px] py-5 xl:px-[37px] px-5 flex flex-col lg:flex-row gap-10 justify-between"
+        className="lg:mt-30 mt-10 xl:max-h-[680px]  lg:py-[29px] py-5 xl:px-[37px] flex flex-col lg:flex-row gap-10 justify-between"
         onMouseEnter={() => setVisionHovered(true)}
       >
         <motion.div
@@ -526,10 +526,10 @@ const Landing = () => {
           animate={visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <h3 className="2xl:text-[36px] text-2xl font-semibold text-[#403F3F] ">
+          <h3 className="2xl:text-[36px] text-xl font-semibold text-[#403F3F] ">
             Explore Our Vision and Concepts
           </h3>
-          <h2 className="2xl:text-[40px] text-3xl font-bold text-[#262424] mt-5 mb-3.75">
+          <h2 className="2xl:text-[40px] text-2xl font-bold text-[#262424] mt-5 mb-3.75">
             WE BELIEVE DEEPLY IN OUR CLIENTS AND ARE <br />
             COMMITTED TO GIVING THEM THE BEST <br /> POSSIBLE SUPPORT
           </h2>
@@ -549,9 +549,9 @@ const Landing = () => {
               fontWeight="medium"
               icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
               style={{
-                fontSize: "min(1.16vw, 20px)",
-                padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
-                gap: "min(0.58vw, 10px)",
+                fontSize: "clamp(14px, 1.16vw, 20px)",
+                padding: "clamp(6px, 0.46vw, 8px) clamp(12px, 0.93vw, 16px)",
+                gap: "clamp(8px, 0.58vw, 10px)",
               }}
             >
               Let's create something great
@@ -559,7 +559,7 @@ const Landing = () => {
           </Link>
         </motion.div>
         <motion.div
-          className="md:px-3  xl:max-w-[668px] w-fit flex flex-col gap-3  "
+          className="md:px-3 xl:max-w-[668px] w-full md:w-fit flex flex-col gap-3"
           initial={{ opacity: 0, y: -80 }}
           animate={
             visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }
@@ -567,7 +567,7 @@ const Landing = () => {
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <motion.div
-            className="flex justify-between gap-3"
+            className="flex flex-col md:flex-row justify-between gap-3"
             initial={{ opacity: 0, x: -50, y: 50 }}
             animate={
               visionEntered
@@ -601,13 +601,13 @@ const Landing = () => {
               </defs>
             </svg>
             <div
-              className="bg-[#E2E3E4] max-h-[200px]  2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[296px]"
+              className="bg-[#E2E3E4] md:max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 w-full md:max-w-[296px]"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
               }}
             >
-              <h2 className="font-semibold ">Clarity Over Noise</h2>
+              <h2 className="font-semibold">Clarity Over Noise</h2>
               <p className="tracking-tight">
                 Every element serves a purpose — clean layouts, strong
                 typography, and intentional whitespace that let your message
@@ -618,12 +618,12 @@ const Landing = () => {
               <img
                 src="/images/landing/our vision/dark and light mode 1.png"
                 alt="dark-light-mode-img"
-                className="w-84.25 max-h-[200px]"
+                className="w-full md:w-84.25 md:max-h-[200px]"
               />
             </div>
           </motion.div>
           <motion.div
-            className="flex justify-between gap-3 max-h-[200px]"
+            className="flex flex-col-reverse md:flex-row justify-between gap-3 md:max-h-[200px]"
             initial={{ opacity: 0, x: 50, y: -50 }}
             animate={
               visionEntered
@@ -632,21 +632,21 @@ const Landing = () => {
             }
             transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
           >
-            <div className="w-88.75  flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
+            <div className="w-full md:w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
               <img
                 src="/images/landing/our vision/Frame 12712 1.png"
                 alt="dark-light-mode-img"
-                className="max-w-84.25"
+                className="w-full md:max-w-84.25"
               />
             </div>
             <div
-              className="bg-[#E9E0F0] max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-[298px]"
+              className="bg-[#E9E0F0] md:max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 w-full md:max-w-[298px]"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
               }}
             >
-              <h2 className=" font-semibold">
+              <h2 className="font-semibold">
                 Bold in Message, <br /> Minimal in Form
               </h2>
               <p>
@@ -655,9 +655,9 @@ const Landing = () => {
               </p>
             </div>
           </motion.div>
-          <div className="flex justify-between gap-3 ">
+          <div className="flex flex-col md:flex-row justify-between gap-3">
             <motion.div
-              className="bg-[#FFE5D8] max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 max-w-74"
+              className="bg-[#FFE5D8] md:max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 w-full md:max-w-74"
               style={{
                 clipPath: "url(#notchClip)",
                 WebkitClipPath: "url(#notchClip)",
@@ -677,7 +677,7 @@ const Landing = () => {
               </p>
             </motion.div>
             <motion.div
-              className="w-88.75 max-h-[200px] pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
+              className="w-full md:w-88.75 md:max-h-[200px] pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
               initial={{ opacity: 0, x: -50, y: -50 }}
               animate={
                 visionEntered
@@ -689,7 +689,7 @@ const Landing = () => {
               <img
                 src="/images/landing/our vision/Frame 298 1.png"
                 alt="dark-light-mode-img"
-                className="max-w-84.25 max-h-[200px]"
+                className="w-full md:max-w-84.25 md:max-h-[200px]"
               />
             </motion.div>
           </div>
@@ -698,7 +698,7 @@ const Landing = () => {
 
       <section
         ref={testimonialsRef}
-        className="mt-30 px-5 pb-5"
+        className="lg:mt-30 mt-10 pb-5"
         onMouseEnter={() => setTestimonialsHovered(true)}
       >
         <motion.div
@@ -708,10 +708,10 @@ const Landing = () => {
           }
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <h3 className="md:text-[36px] text-3xl font-semibold text-[#403F3F] text-center">
+          <h3 className="lg:text-[36px] text-2xl font-semibold text-[#403F3F] text-center">
             Here are some of the nice things people have said about Us
           </h3>
-          <h2 className="md:text-[40px] text-xl font-bold text-[#262424] mt-5 mb-20 text-center">
+          <h2 className="lg:text-[40px] text-xl font-bold text-[#262424] mt-5 mb-20 text-center">
             WE BELIEVE STRONGLY IN OUR CLIENTS & WANT <br /> TO GIVE THEM
             OPTIMAL SUPPORT
           </h2>
@@ -727,7 +727,7 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="bg-[#262424] rounded-[20px] mt-30 text-[#FFFFFF] py-10 md:py-22.5 px-10 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
+      <section className="bg-[#262424] rounded-[20px] lg:mt-30 mt-10 text-[#FFFFFF] py-10 md:py-22.5 px-10 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
         {" "}
         <div className="flex flex-col gap-[42px] items-center text-center">
           <h2 className="lg:text-[40px] text-2xl font-bold  text-center">

@@ -44,15 +44,15 @@ const Projects = () => {
         transition={{ duration: 0.3, ease: "easeOut" }}
         onMouseEnter={() => setTitleEntered(true)}
       >
-        <h2 className="lg:text-[36px] text-2xl font-semibold">
+        <h2 className="lg:text-[36px] text-xl font-semibold">
           Explore Our Work
         </h2>
-        <h1 className="lg:text-[40px] text-3xl font-bold text-center">
+        <h1 className="lg:text-[40px] text-2xl font-bold text-center">
           REAL PROJECTS, REAL RESULTS — <br /> SEE HOW WE TURN IDEAS INTO
           DIGITAL EXPERIENCES.
         </h1>
       </motion.div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-y-[94px] gap-x-4 lg:gap-x-[75px] px-4 lg:px-0 max-w-[1595px] mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-y-[94px] gap-x-4 lg:gap-x-[75px] px-0 lg:px-0 max-w-[1595px] mx-auto">
         {/* Row 1 - Project 1 */}
         <motion.div
           ref={row1Ref}
@@ -64,7 +64,14 @@ const Projects = () => {
           <ProjectCard
             to="/projects/lshot"
             image="/images/projects/main/Cover Thumbnail 1.png"
-            tags={["#PhotographyWebsite", "#WebDesign", "#DigitalProduct", "#UX/UI", "#Developing", "#Prototyping"]}
+            tags={[
+              "#PhotographyWebsite",
+              "#WebDesign",
+              "#DigitalProduct",
+              "#UX/UI",
+              "#Developing",
+              "#Prototyping",
+            ]}
             title="LShot – Professional Photography"
           />
         </motion.div>
@@ -78,7 +85,14 @@ const Projects = () => {
           <ProjectCard
             to="/projects/mano"
             image="/images/projects/main/tumbnail2.png"
-            tags={["#AppDesign", "#FashionTech", "#UX/UI", "#EcommerceDesign", "#Prototyping", "#Developing"]}
+            tags={[
+              "#AppDesign",
+              "#FashionTech",
+              "#UX/UI",
+              "#EcommerceDesign",
+              "#Prototyping",
+              "#Developing",
+            ]}
             title="MANO - Fashion Brand App"
           />
         </motion.div>
@@ -93,7 +107,13 @@ const Projects = () => {
           <ProjectCard
             to="/projects/wedwish"
             image="/images/projects/main/tumbnail4.png"
-            tags={["#WeddingPlatform", "#UX/UI", "#WebDesign", "#Prototyping", "#Developing"]}
+            tags={[
+              "#WeddingPlatform",
+              "#UX/UI",
+              "#WebDesign",
+              "#Prototyping",
+              "#Developing",
+            ]}
             title="Wedwish – Digital Platform for Wedding Gifts"
           />
         </motion.div>
@@ -107,7 +127,13 @@ const Projects = () => {
           <ProjectCard
             to="/projects/matchwise"
             image="/images/projects/main/tumbnail3.png"
-            tags={["#FreelancePlatform", "#DigitalProduct", "#WebDesign", "#UXUI", "#MarketplaceDesign"]}
+            tags={[
+              "#FreelancePlatform",
+              "#DigitalProduct",
+              "#WebDesign",
+              "#UXUI",
+              "#MarketplaceDesign",
+            ]}
             title="MatchWise – Freelance Marketplace Platform"
           />
         </motion.div>
@@ -122,7 +148,14 @@ const Projects = () => {
           <ProjectCard
             to="/projects/thefoodco"
             image="/images/projects/main/tumbnail5.png"
-            tags={["#RestaurantWebsite", "#DigitalProduct", "#WebDesign", "#FoodTech", "#UXUI", "#HospitalityDesign"]}
+            tags={[
+              "#RestaurantWebsite",
+              "#DigitalProduct",
+              "#WebDesign",
+              "#FoodTech",
+              "#UXUI",
+              "#HospitalityDesign",
+            ]}
             title="The Food Co. – A Digital Space for Unique Dining Experiences"
           />
         </motion.div>
