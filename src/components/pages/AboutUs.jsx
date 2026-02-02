@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import "./Services.css";
+import "./AboutUs.css";
 import Button from "../common/Button";
 import { ChevronRight } from "lucide-react";
 
@@ -74,7 +74,7 @@ const AboutUs = () => {
   return (
     <div className="">
       <section className="mt-22.5 pb-[35px]">
-        <div className="services-hero flex flex-col xl:ps-[130px] xl:pt-[110px] lg:ps-[100px] justify-center gap-10 px-6 py-10 rounded-[20px] shadow-[0px_0px_6px_0px_#00000059]">
+        <div className="aboutus-hero flex flex-col xl:ps-[130px] xl:pt-[110px] lg:ps-[100px] justify-center gap-10 px-6 py-10 rounded-[20px]">
           <h1 className="lg:text-[48px] text-3xl font-bold">
             WHAT WE STAND FOR
           </h1>

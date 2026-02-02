@@ -1,0 +1,220 @@
+/* Propiedades animables para el gradiente naranja */
+@property --orange-size1 {
+  syntax: "<percentage>";
+  initial-value: 75.49%;
+  inherits: false;
+}
+
+@property --orange-size2 {
+  syntax: "<percentage>";
+  initial-value: 207.71%;
+  inherits: false;
+}
+
+@property --orange-x {
+  syntax: "<percentage>";
+  initial-value: 45.89%;
+  inherits: false;
+}
+
+@property --orange-y {
+  syntax: "<percentage>";
+  initial-value: 184.77%;
+  inherits: false;
+}
+
+@property --orange-opacity {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --orange-end-opacity {
+  syntax: "<number>";
+  initial-value: 0.46;
+  inherits: false;
+}
+
+/* Propiedades animables para el gradiente púrpura */
+@property --purple-size1 {
+  syntax: "<percentage>";
+  initial-value: 60.39%;
+  inherits: false;
+}
+
+@property --purple-size2 {
+  syntax: "<percentage>";
+  initial-value: 135.25%;
+  inherits: false;
+}
+
+@property --purple-x {
+  syntax: "<percentage>";
+  initial-value: 24.66%;
+  inherits: false;
+}
+
+@property --purple-y {
+  syntax: "<percentage>";
+  initial-value: 40.92%;
+  inherits: false;
+}
+
+@property --purple-start-opacity {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --purple-end-opacity {
+  syntax: "<number>";
+  initial-value: 0.67;
+  inherits: false;
+}
+
+.aboutus-hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(51, 54, 59, 0.25);
+  box-shadow: inset 0px 0px 23.3px 0px rgba(251, 251, 251, 0.49);
+}
+
+.aboutus-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+
+  /* Variables iniciales */
+  --orange-size1: 75.49%;
+  --orange-size2: 207.71%;
+  --orange-x: 45.89%;
+  --orange-y: 184.77%;
+  --orange-opacity: 0;
+  --orange-end-opacity: 0.46;
+
+  --purple-size1: 60.39%;
+  --purple-size2: 135.25%;
+  --purple-x: 24.66%;
+  --purple-y: 40.92%;
+  --purple-start-opacity: 0;
+  --purple-end-opacity: 0.67;
+
+  background: radial-gradient(
+      var(--orange-size1) var(--orange-size2) at var(--orange-x) var(--orange-y),
+      rgba(255, 255, 255, var(--orange-opacity)) 0%,
+      rgba(232, 81, 2, var(--orange-end-opacity)) 100%
+    ),
+    radial-gradient(
+      var(--purple-size1) var(--purple-size2) at var(--purple-x) var(--purple-y),
+      rgba(138, 56, 245, var(--purple-start-opacity)) 21.87%,
+      rgba(138, 56, 245, var(--purple-end-opacity)) 100%
+    );
+
+  animation: aboutusGradientMove 1.55s linear infinite;
+}
+
+@keyframes aboutusGradientMove {
+  /* Default - 0% */
+  0% {
+    --orange-size1: 75.49%;
+    --orange-size2: 207.71%;
+    --orange-x: 45.89%;
+    --orange-y: 184.77%;
+    --orange-opacity: 0;
+    --orange-end-opacity: 0.46;
+
+    --purple-size1: 60.39%;
+    --purple-size2: 135.25%;
+    --purple-x: 24.66%;
+    --purple-y: 40.92%;
+    --purple-start-opacity: 0;
+    --purple-end-opacity: 0.67;
+  }
+
+  /* Variant 2 - 20% */
+  20% {
+    --orange-size1: 62.79%;
+    --orange-size2: 172.75%;
+    --orange-x: 18.59%;
+    --orange-y: 143.26%;
+    --orange-opacity: 0.62;
+    --orange-end-opacity: 0.2852;
+
+    --purple-size1: 85%;
+    --purple-size2: 384.62%;
+    --purple-x: 4.05%;
+    --purple-y: 16.02%;
+    --purple-start-opacity: 0.2744;
+    --purple-end-opacity: 0.6566;
+  }
+
+  /* Variant 3 - 40% */
+  40% {
+    --orange-size1: 68.8%;
+    --orange-size2: 253.44%;
+    --orange-x: 57.98%;
+    --orange-y: 104.59%;
+    --orange-opacity: 0.4464;
+    --orange-end-opacity: 0.2852;
+
+    --purple-size1: 66.49%;
+    --purple-size2: 148.93%;
+    --purple-x: 22.79%;
+    --purple-y: 103.42%;
+    --purple-start-opacity: 0.3136;
+    --purple-end-opacity: 0.6566;
+  }
+
+  /* Variant 4 - 60% */
+  60% {
+    --orange-size1: 77.55%;
+    --orange-size2: 285.65%;
+    --orange-x: 63.59%;
+    --orange-y: 113.77%;
+    --orange-opacity: 0;
+    --orange-end-opacity: 0.2852;
+
+    --purple-size1: 75.12%;
+    --purple-size2: 339.93%;
+    --purple-x: 4.05%;
+    --purple-y: 16.02%;
+    --purple-start-opacity: 0;
+    --purple-end-opacity: 0.6566;
+  }
+
+  /* Variant 5 - 80% */
+  80% {
+    --orange-size1: 51.53%;
+    --orange-size2: 141.8%;
+    --orange-x: 43.22%;
+    --orange-y: 122.46%;
+    --orange-opacity: 0;
+    --orange-end-opacity: 0.2852;
+
+    --purple-size1: 162.89%;
+    --purple-size2: 380.32%;
+    --purple-x: 4.05%;
+    --purple-y: 16.02%;
+    --purple-start-opacity: 0.1274;
+    --purple-end-opacity: 0.6566;
+  }
+
+  /* Back to Default - 100% */
+  100% {
+    --orange-size1: 75.49%;
+    --orange-size2: 207.71%;
+    --orange-x: 45.89%;
+    --orange-y: 184.77%;
+    --orange-opacity: 0;
+    --orange-end-opacity: 0.46;
+
+    --purple-size1: 60.39%;
+    --purple-size2: 135.25%;
+    --purple-x: 24.66%;
+    --purple-y: 40.92%;
+    --purple-start-opacity: 0;
+    --purple-end-opacity: 0.67;
+  }
+}
