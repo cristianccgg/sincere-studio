@@ -27,10 +27,10 @@ const Services = () => {
           <div className="flex flex-col gap-6  lg:px-[42px] px-5 py-6">
             <div
               className="flex items-center gap-7.5 cursor-pointer"
-              onClick={() => setIsOpen(isOpen === 0 ? null : 0)}
+              onClick={() => setIsOpen(0)}
             >
               <motion.div
-                animate={{ rotate: isOpen === 0 ? 180 : 0 }}
+                animate={{ scaleY: isOpen === 0 ? -1 : 1 }}
                 transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
               >
                 <CircleChevronDown
@@ -47,7 +47,7 @@ const Services = () => {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   style={{ overflow: "hidden" }}
                 >
                   <div className="flex flex-col gap-[50px] mt-[34px]">
@@ -94,10 +94,10 @@ const Services = () => {
           <div className="flex flex-col gap-6  lg:px-[42px] px-5 py-6">
             <div
               className="flex items-center gap-7.5 cursor-pointer"
-              onClick={() => setIsOpen(isOpen === 1 ? null : 1)}
+              onClick={() => setIsOpen(1)}
             >
               <motion.div
-                animate={{ rotate: isOpen === 1 ? 180 : 0 }}
+                animate={{ scaleY: isOpen === 1 ? -1 : 1 }}
                 transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
               >
                 <CircleChevronDown
@@ -116,7 +116,7 @@ const Services = () => {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   style={{ overflow: "hidden" }}
                 >
                   <div className="flex flex-col gap-[50px] mt-[34px]">
@@ -165,10 +165,10 @@ const Services = () => {
           <div className="flex flex-col gap-6  lg:px-[42px] px-5 py-6">
             <div
               className="flex items-center gap-7.5 cursor-pointer"
-              onClick={() => setIsOpen(isOpen === 2 ? null : 2)}
+              onClick={() => setIsOpen(2)}
             >
               <motion.div
-                animate={{ rotate: isOpen === 2 ? 180 : 0 }}
+                animate={{ scaleY: isOpen === 2 ? -1 : 1 }}
                 transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
               >
                 <CircleChevronDown
@@ -187,7 +187,7 @@ const Services = () => {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   style={{ overflow: "hidden" }}
                 >
                   <div className="flex flex-col gap-[50px] mt-[34px]">
