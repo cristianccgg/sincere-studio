@@ -6,7 +6,12 @@ const Projects = () => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div>
-      <div className="flex flex-col items-center gap-8.75 my-20.75">
+      <motion.div
+        className="flex flex-col items-center gap-8.75 my-20.75"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
         <h2 className="lg:text-[36px] text-2xl font-semibold">
           Explore Our Work
         </h2>
@@ -14,12 +19,18 @@ const Projects = () => {
           REAL PROJECTS, REAL RESULTS — <br /> SEE HOW WE TURN IDEAS INTO
           DIGITAL EXPERIENCES.
         </h1>
-      </div>
+      </motion.div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-y-[94px] gap-x-4 lg:gap-x-[75px] px-4 lg:px-0 max-w-[1595px] mx-auto">
-        <Link
-          to="/projects/lshot"
-          className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
         >
+          <Link
+            to="/projects/lshot"
+            className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
+          >
           <img
             src="/images/projects/main/Cover Thumbnail 1.png"
             alt="thumbnail1-img"
@@ -67,6 +78,13 @@ const Projects = () => {
             />
           </motion.div>
         </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
         <Link
           to="/projects/mano"
           className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
@@ -118,6 +136,13 @@ const Projects = () => {
             />
           </motion.div>
         </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
         <Link
           to="/projects/wedwish"
           className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
@@ -166,6 +191,13 @@ const Projects = () => {
             />
           </motion.div>
         </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
         <Link
           to="/projects/matchwise"
           className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
@@ -214,6 +246,13 @@ const Projects = () => {
             />
           </motion.div>
         </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
         <Link
           to="/projects/thefoodco"
           className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
@@ -265,6 +304,7 @@ const Projects = () => {
             />
           </motion.div>
         </Link>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./Services.css";
 import Button from "../common/Button";
 import { ChevronRight } from "lucide-react";
+
+const ValueCard = ({ title, description, initialWidth, variantWidth, backgrounds, border }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="flex flex-col items-center justify-center text-[32px] text-[#FBFBFB] rounded-[20px] shadow-[0px_0px_10px_0px_#00000040] cursor-pointer overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      animate={
+        isHovered
+          ? {
+              width: variantWidth,
+              height: 460,
+              background: backgrounds.variant,
+              border: border?.variant || "0px solid transparent",
+            }
+          : {
+              width: initialWidth,
+              height: 322,
+              background: backgrounds.initial,
+              border: border?.initial || "0px solid transparent",
+            }
+      }
+      transition={{ duration: 0.3, ease: "linear" }}
+    >
+      <h1 className="font-bold drop-shadow-[0px_0px_5px_#00000059]">{title}</h1>
+      <motion.p
+        className="text-center font-medium tracking-[-2%] px-4 drop-shadow-[0px_0px_5px_#00000059] overflow-hidden"
+        animate={
+          isHovered
+            ? { opacity: 1, height: "auto", marginTop: 32 }
+            : { opacity: 0, height: 0, marginTop: 0 }
+        }
+        transition={{ duration: 0.3, ease: "linear" }}
+      >
+        {description}
+      </motion.p>
+    </motion.div>
+  );
+};
 
 const AboutUs = () => {
   return (
@@ -49,7 +91,13 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="flex flex-col items-stretch md:flex-row gap-[110px] xl:max-h-[577px] mt-[110px]">
-          <div className="flex-1  flex flex-col gap-[75px] max-w-[692px]">
+          <motion.div
+            className="flex-1  flex flex-col gap-[75px] max-w-[692px]"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
             <div className="flex flex-col gap-6">
               <h2 className="lg:text-[36px] text-2xl font-semibold">
                 Explore Our Vision and Concepts
@@ -78,15 +126,21 @@ const AboutUs = () => {
                 </Button>
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex-1 rounded-2xl overflow-hidden">
+          <motion.div
+            className="flex-1 rounded-2xl overflow-hidden"
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
             <img
               src="/images/about us/who-we-are.png"
               alt=""
               className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -99,19 +153,62 @@ const AboutUs = () => {
             FOUR VALUES WTHAT SHAPE EVERYTHING WE CREATE
           </h1>
         </div>
-        <div className="flex flex-col md:flex-row items-center gap-6 mt-[70px]">
-          <div className="w-[363px] h-[322px] text-[32px] font-bold text-[#FBFBFB] rounded-2xl flex items-center justify-center bg-[radial-gradient(130.55%_100%_at_50%_100%,rgba(255,37,37,0.85)_0%,#FF6819_100%),linear-gradient(0deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1))]">
-            CREATIVITY
-          </div>
-          <div className="w-[363px] h-[322px] text-[32px] font-bold text-[#FBFBFB] rounded-2xl flex items-center justify-center bg-[radial-gradient(142.32%_100%_at_50%_100%,#357CE1_0%,rgba(52,220,238,0.85)_100%),linear-gradient(0deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1))]">
-            SIMPLICITY
-          </div>
-          <div className="w-[363px] h-[322px] text-[32px] font-bold text-[#FBFBFB] rounded-2xl flex items-center justify-center bg-[radial-gradient(121.3%_100%_at_50%_100%,#7729CB_0%,rgba(196,96,216,0.85)_100%),linear-gradient(0deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1))]">
-            INTEGRITY
-          </div>
-          <div className="w-[363px] h-[322px] text-[32px] font-bold text-[#FBFBFB] rounded-2xl flex items-center justify-center bg-[radial-gradient(119.62%_100%_at_50%_100%,#24AC15_0%,#EDF261_100%),linear-gradient(0deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1))]">
-            GROUTH
-          </div>
+        <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-6 mt-[70px]">
+          <ValueCard
+            title="CREATIVITY"
+            description="Every idea is crafted to inspire and deliver real results."
+            initialWidth={363}
+            variantWidth={380}
+            backgrounds={{
+              initial: "radial-gradient(130.55% 100% at 50% 100%, rgba(255, 37, 37, 0.85) 0%, #FF6819 100%)",
+              variant: "radial-gradient(76.96% 51.2% at 50% 111.85%, #FF2525 0%, #FF6819 99.34%)",
+            }}
+            border={{
+              initial: "0px solid transparent",
+              variant: "2px solid rgba(251, 251, 251, 0.5)",
+            }}
+          />
+
+          <ValueCard
+            title="SIMPLICITY"
+            description="We design clean, functional solutions that communicate with clarity."
+            initialWidth={362}
+            variantWidth={370}
+            backgrounds={{
+              initial: "radial-gradient(142.32% 100% at 50% 100%, #357CE1 0%, rgba(52, 220, 238, 0.85) 100%)",
+              variant: "radial-gradient(80.42% 52.93% at 50% 100%, #357CE1 0%, #34DCEE 100%)",
+            }}
+          />
+
+          <ValueCard
+            title="INTEGRITY"
+            description="We build trust through honesty and transparency in every interaction."
+            initialWidth={362}
+            variantWidth={370}
+            backgrounds={{
+              initial: "radial-gradient(121.3% 100% at 50% 100%, #7729CB 0%, rgba(196, 96, 216, 0.85) 100%)",
+              variant: "radial-gradient(57.88% 47.72% at 50% 105.76%, #7729CB 0%, rgba(196, 96, 216, 0.85) 100%)",
+            }}
+            border={{
+              initial: "0px solid transparent",
+              variant: "2px solid #FBFBFB",
+            }}
+          />
+
+          <ValueCard
+            title="GROWTH"
+            description="We constantly evolve, learn, and push boundaries to achieve more."
+            initialWidth={363}
+            variantWidth={370}
+            backgrounds={{
+              initial: "radial-gradient(119.62% 100% at 50% 100%, #24AC15 0%, #EDF261 100%)",
+              variant: "radial-gradient(71.77% 60% at 52.3% 115.76%, #24AC15 0%, #B0DD4A 100%)",
+            }}
+            border={{
+              initial: "0px solid transparent",
+              variant: "2px solid #FBFBFB",
+            }}
+          />
         </div>
       </section>
 
