@@ -255,8 +255,8 @@ const Services = () => {
           </div>
           <Link to="/projects">
             <Button
-              size="hero"
-              fontWeight="medium"
+              size="lg"
+              fontWeight="semibold"
               icon={<ChevronRight size={22} />}
             >
               See all Projects

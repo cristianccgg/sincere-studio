@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import "./AboutUs.css";
 import Button from "../common/Button";
 import { ChevronRight } from "lucide-react";
@@ -70,6 +70,70 @@ const ValueCard = ({
   );
 };
 
+const WhoWeAreSection = () => {
+  const [hasHovered, setHasHovered] = useState(false);
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const hasEntered = hasHovered || inView;
+
+  return (
+    <div
+      ref={sectionRef}
+      className="flex flex-col px-5 items-stretch md:flex-row gap-[110px] xl:max-h-[577px] mt-[110px]"
+      onMouseEnter={() => setHasHovered(true)}
+    >
+      <motion.div
+        className="flex-1 flex flex-col gap-[75px] max-w-[692px]"
+        initial={{ opacity: 0, y: 100 }}
+        animate={hasEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <div className="flex flex-col gap-6">
+          <h2 className="lg:text-[36px] text-2xl font-semibold">
+            Explore Our Vision and Concepts
+          </h2>
+          <h1 className="lg:text-[40px] text-4xl font-bold">Who We Are</h1>
+        </div>
+
+        <div className="flex flex-col gap-[75px]">
+          <p className="xl:text-[24px] lg:text-[22px] text-xl text-justify">
+            We are a team of young creatives driven by growth, passion, and
+            purpose. <br /> Always seeking new ways to develop our potential, we
+            channel that energy into every project and partnership. <br /> Each
+            team member brings unique expertise and proven achievements,
+            combining knowledge and experience with complete dedication.
+            Together, we create with heart, focus, and a clear vision for
+            meaningful results.
+          </p>
+          <Link to="/projects">
+            <Button
+              size="hero"
+              fontWeight="medium"
+              icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
+              className="self-start"
+            >
+              See our Solutions
+            </Button>
+          </Link>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="flex-1 rounded-2xl overflow-hidden"
+        initial={{ opacity: 0, y: -100 }}
+        animate={hasEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -100 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <img
+          src="/images/about us/who-we-are.png"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+    </div>
+  );
+};
+
 const AboutUs = () => {
   return (
     <div className="">
@@ -114,58 +178,7 @@ const AboutUs = () => {
             <h3>Agile speed and flexible, efficient collaboration</h3>
           </div>
         </div>
-        <div className="flex  flex-col px-5 items-stretch md:flex-row gap-[110px] xl:max-h-[577px] mt-[110px]">
-          <motion.div
-            className="flex-1  flex flex-col gap-[75px] max-w-[692px]"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <div className="flex flex-col gap-6">
-              <h2 className="lg:text-[36px] text-2xl font-semibold">
-                Explore Our Vision and Concepts
-              </h2>
-              <h1 className="lg:text-[40px] text-4xl font-bold">Who We Are</h1>
-            </div>
-
-            <div className="flex flex-col gap-[75px]">
-              <p className="xl:text-[24px] lg:text-[22px] text-xl text-justify">
-                We are a team of young creatives driven by growth, passion, and
-                purpose. <br /> Always seeking new ways to develop our
-                potential, we channel that energy into every project and
-                partnership. <br /> Each team member brings unique expertise and
-                proven achievements, combining knowledge and experience with
-                complete dedication. Together, we create with heart, focus, and
-                a clear vision for meaningful results.
-              </p>
-              <Link to="/projects">
-                <Button
-                  size="hero"
-                  fontWeight="medium"
-                  icon={<ChevronRight size={22} />}
-                  className="self-start"
-                >
-                  See our Solutions
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="flex-1 rounded-2xl overflow-hidden"
-            initial={{ opacity: 0, y: -100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <img
-              src="/images/about us/who-we-are.png"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </div>
+        <WhoWeAreSection />
       </section>
 
       <section className="py-[75px] xl:px-[72px] px-5  my-[50px]">
@@ -263,7 +276,8 @@ const AboutUs = () => {
               <Button
                 size="hero"
                 fontWeight="medium"
-                icon={<ChevronRight size={22} />}
+                variant="static"
+                icon={<ChevronRight className="w-4 h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5 xl:w-5 xl:h-5" />}
               >
                 Make it Real
               </Button>

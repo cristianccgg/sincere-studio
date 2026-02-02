@@ -2,10 +2,10 @@ import React from "react";
 
 const LShot = () => {
   return (
-    <div className=" px-5 lg:px-0">
-      <div className="max-w-[1242px] mx-auto">
-        <div className="flex flex-col gap-6 mt-[58px]">
-          <h1 className="lg:text-[40px] text-3xl font-bold">
+    <div className="px-0 lg:px-0">
+      <div className="max-w-[1286px] mx-auto">
+        <div className="flex flex-col gap-6 mt-[58px] max-w-[1242px] mx-auto">
+          <h1 className="lg:text-[40px] text-3xl font-bold ">
             LShot Leo Kirilov
           </h1>
           <h2 className="lg:text-[36px] text-2xl font-semibold">
@@ -33,21 +33,21 @@ const LShot = () => {
             </div>
           </div>
         </div>
-        {/* Hero Section with iPhones */}
-        <section className="mt-10">
-          <div className="rounded-lg">
+
+        <section className="mt-10 max-w-[1284px] mx-auto">
+          <div className="rounded-lg overflow-hidden">
             <img
               src="/images/projects/Leo Kirilov/Cover Thumbnail 1.png"
               alt="img-cover"
             />
           </div>
         </section>
-        <section className="mt-[90px]">
+        <section className="mt-[90px] max-w-[1284px] mx-auto">
           <div className="flex flex-col gap-6">
             <h1 className="lg:text-[36px] text-3xl font-semibold">
               About the Project
             </h1>
-            <h2 className="lg:text-[24px] font-medium text-xl">
+            <h2 className="lg:text-[24px] font-medium text-xl tracking-[2%] text-justify">
               LShot is a professional photographer specializing in portrait,
               fashion, and event photography. His goal was to create a modern,
               minimal, and elegant website that reflects his artistic style
@@ -70,7 +70,7 @@ const LShot = () => {
           </div>
         </section>
 
-        <section className="mt-[90px]">
+        <section className="mt-[90px] max-w-[1284px] mx-auto">
           <div className="flex flex-col gap-6 max-w-[1223px]">
             <h1 className="lg:text-[36px] text-3xl font-semibold">
               Challenges & Goals
@@ -87,13 +87,16 @@ const LShot = () => {
               potential clients connect and book sessions seamlessly.
             </h2>
           </div>
+        </section>
+
+        <section className="max-w-[1284px] mx-auto mt-[90px]">
           <div className="mt-[90px] flex items-center justify-center">
             <img
               src="/images/projects/Leo Kirilov/challenges/Image Gallery Container.png"
               alt="challenges-img"
             />
           </div>
-          <div className="flex flex-col gap-6 max-w-[1223px] mt-[90px]">
+          <div className="flex flex-col gap-6  mt-[90px]">
             <h1 className="lg:text-[36px] text-3xl font-semibold">
               What We Did
             </h1>

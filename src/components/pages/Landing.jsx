@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "../common/Button";
 import Footer from "../Footer";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { CircleChevronRight, ChevronRight } from "lucide-react";
 import AnimatedArrowIcon from "../common/AnimatedArrowIcon";
 import WorkAccordion from "../carousel/WorkAccordion";
@@ -63,23 +62,24 @@ const Landing = () => {
   const sizes = cardSizes[breakpoint];
   const isMobile = breakpoint === "mobile";
 
+  const [sectionHovered, setSectionHovered] = useState(false);
+  const [visionHovered, setVisionHovered] = useState(false);
+  const [testimonialsHovered, setTestimonialsHovered] = useState(false);
+
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, {
+  const visionRef = useRef(null);
+  const testimonialsRef = useRef(null);
+
+  const sectionInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const visionInView = useInView(visionRef, { once: true, amount: 0.3 });
+  const testimonialsInView = useInView(testimonialsRef, {
     once: true,
-    margin: "-40% 0px -40% 0px",
+    amount: 0.3,
   });
 
-  const visionSectionRef = useRef(null);
-  const isVisionInView = useInView(visionSectionRef, {
-    once: true,
-    margin: "0px 0px -60% 0px",
-  });
-
-  const testimonialsSectionRef = useRef(null);
-  const isTestimonialsInView = useInView(testimonialsSectionRef, {
-    once: true,
-    margin: "0px 0px -60% 0px",
-  });
+  const sectionEntered = sectionHovered || sectionInView;
+  const visionEntered = visionHovered || visionInView;
+  const testimonialsEntered = testimonialsHovered || testimonialsInView;
 
   return (
     <div>
@@ -295,9 +295,7 @@ const Landing = () => {
               <Button
                 size="hero"
                 fontWeight="medium"
-                icon={
-                  <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                }
+                icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
                 style={{
                   fontSize: "min(1.16vw, 20px)",
                   padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
@@ -313,18 +311,16 @@ const Landing = () => {
       </section>
 
       <section
-        className="mt-30 lg:py-[29px] py-5 xl:px-[37px] px-5"
         ref={sectionRef}
+        className="mt-30 lg:py-[29px] py-5 xl:px-[37px] px-5"
+        onMouseEnter={() => setSectionHovered(true)}
       >
         <motion.div
           initial={{ opacity: 0, y: -50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
-          transition={{
-            type: "spring",
-            mass: 1,
-            stiffness: 64.02,
-            damping: 12,
-          }}
+          animate={
+            sectionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
+          }
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <h3 className="text-[36px] font-semibold text-[#403F3F]">
             We make more than a design
@@ -337,14 +333,10 @@ const Landing = () => {
         <motion.div
           className="flex flex-col  lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between"
           initial={{ opacity: 0, y: 80 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-          transition={{
-            type: "spring",
-            mass: 1,
-            stiffness: 64.02,
-            damping: 12,
-            delay: 0.1,
-          }}
+          animate={
+            sectionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }
+          }
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
         >
           <Link
             to="/services"
@@ -524,16 +516,15 @@ const Landing = () => {
       </section>
 
       <section
+        ref={visionRef}
         className="mt-30 xl:max-h-[680px]  lg:py-[29px] py-5 xl:px-[37px] px-5 flex flex-col lg:flex-row gap-10 justify-between"
-        ref={visionSectionRef}
+        onMouseEnter={() => setVisionHovered(true)}
       >
         <motion.div
           className="max-w-182.5  flex flex-col justify-between"
           initial={{ opacity: 0, y: 80 }}
-          animate={
-            isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }
-          }
-          transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+          animate={visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <h3 className="2xl:text-[36px] text-2xl font-semibold text-[#403F3F] ">
             Explore Our Vision and Concepts
@@ -556,9 +547,7 @@ const Landing = () => {
             <Button
               size="hero"
               fontWeight="medium"
-              icon={
-                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
-              }
+              icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
               style={{
                 fontSize: "min(1.16vw, 20px)",
                 padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
@@ -573,25 +562,19 @@ const Landing = () => {
           className="md:px-3  xl:max-w-[668px] w-fit flex flex-col gap-3  "
           initial={{ opacity: 0, y: -80 }}
           animate={
-            isVisionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }
+            visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }
           }
-          transition={{ type: "spring", mass: 1, stiffness: 100, damping: 15 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <motion.div
             className="flex justify-between gap-3"
             initial={{ opacity: 0, x: -50, y: 50 }}
             animate={
-              isVisionInView
+              visionEntered
                 ? { opacity: 1, x: 0, y: 0 }
                 : { opacity: 0, x: -50, y: 50 }
             }
-            transition={{
-              type: "spring",
-              mass: 1,
-              stiffness: 100,
-              damping: 15,
-              delay: 0.1,
-            }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
           >
             <svg width="0" height="0" style={{ position: "absolute" }}>
               <defs>
@@ -643,17 +626,11 @@ const Landing = () => {
             className="flex justify-between gap-3 max-h-[200px]"
             initial={{ opacity: 0, x: 50, y: -50 }}
             animate={
-              isVisionInView
+              visionEntered
                 ? { opacity: 1, x: 0, y: 0 }
                 : { opacity: 0, x: 50, y: -50 }
             }
-            transition={{
-              type: "spring",
-              mass: 1,
-              stiffness: 100,
-              damping: 15,
-              delay: 0.2,
-            }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
           >
             <div className="w-88.75  flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
               <img
@@ -687,17 +664,11 @@ const Landing = () => {
               }}
               initial={{ opacity: 0, x: 50, y: 50 }}
               animate={
-                isVisionInView
+                visionEntered
                   ? { opacity: 1, x: 0, y: 0 }
                   : { opacity: 0, x: 50, y: 50 }
               }
-              transition={{
-                type: "spring",
-                mass: 1,
-                stiffness: 100,
-                damping: 15,
-                delay: 0.3,
-              }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
             >
               <h2 className="font-semibold">Designed to Convert</h2>
               <p className="tracking-tight">
@@ -709,17 +680,11 @@ const Landing = () => {
               className="w-88.75 max-h-[200px] pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
               initial={{ opacity: 0, x: -50, y: -50 }}
               animate={
-                isVisionInView
+                visionEntered
                   ? { opacity: 1, x: 0, y: 0 }
                   : { opacity: 0, x: -50, y: -50 }
               }
-              transition={{
-                type: "spring",
-                mass: 1,
-                stiffness: 100,
-                damping: 15,
-                delay: 0.3,
-              }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
             >
               <img
                 src="/images/landing/our vision/Frame 298 1.png"
@@ -731,13 +696,17 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="mt-30 px-5 pb-5" ref={testimonialsSectionRef}>
+      <section
+        ref={testimonialsRef}
+        className="mt-30 px-5 pb-5"
+        onMouseEnter={() => setTestimonialsHovered(true)}
+      >
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={
-            isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
+            testimonialsEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
           }
-          transition={{ duration: 0.3, ease: "easeIn" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <h3 className="md:text-[36px] text-3xl font-semibold text-[#403F3F] text-center">
             Here are some of the nice things people have said about Us
@@ -750,9 +719,9 @@ const Landing = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={
-            isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+            testimonialsEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
           }
-          transition={{ duration: 0.3, ease: "easeIn", delay: 0.1 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
         >
           <TestimonialsCarousel />
         </motion.div>
@@ -775,9 +744,7 @@ const Landing = () => {
               size="hero"
               fontWeight="medium"
               variant="static"
-              icon={
-                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
-              }
+              icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
               style={{
                 fontSize: "min(1.16vw, 20px)",
                 padding: "min(0.46vw, 8px) min(0.93vw, 16px)",

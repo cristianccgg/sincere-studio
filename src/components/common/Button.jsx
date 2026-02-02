@@ -35,9 +35,9 @@ const Button = ({
       iconStyle: false,
     },
     lg: {
-      classes: "text-base sm:text-lg lg:text-xl",
-      initial: { padding: "12px 24px", gap: 10 },
-      hover: { padding: "12px 24px", gap: 10 },
+      classes: "text-lg sm:text-xl lg:text-3xl xl:text-[36px]",
+      initial: { padding: "8px 16px", gap: 10 },
+      hover: { padding: "10px 20px", gap: 20 },
       iconStyle: false,
     },
     footer: {
@@ -63,7 +63,7 @@ const Button = ({
         // Hover: círculo blanco con borde blanco y flecha naranja
         return (
           <motion.span
-            className="shrink-0 flex items-center justify-center rounded-full w-6 h-6"
+            className="shrink-0 flex items-center justify-center rounded-full w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 *:w-4 *:h-4 sm:*:w-4 sm:*:h-4 lg:*:w-5 lg:*:h-5 xl:*:w-5 xl:*:h-5"
             animate={{
               backgroundColor: isHovered ? "#FFFFFF" : "#E85102",
               borderColor: "#FBFBFB",
@@ -88,7 +88,7 @@ const Button = ({
       // Hover: círculo relleno naranja, flecha blanca
       return (
         <motion.span
-          className="shrink-0 flex items-center justify-center rounded-full w-6 h-6"
+          className="shrink-0 flex items-center justify-center rounded-full w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 *:w-4 *:h-4 sm:*:w-4 sm:*:h-4 lg:*:w-5 lg:*:h-5 xl:*:w-5 xl:*:h-5"
           animate={{
             backgroundColor: isHovered ? "#E85102" : "transparent",
             borderColor: isHovered ? "#E85102" : "#FBFBFB",
