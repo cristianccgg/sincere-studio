@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../common/Button";
+import { motion } from "framer-motion";
 import { Send, ChevronDown } from "lucide-react";
 
 const CustomRadio = ({ checked }) => (
@@ -11,6 +11,7 @@ const CustomRadio = ({ checked }) => (
 const countryOptions = ["USA", "UK", "CA", "MX"];
 
 const Contacts = () => {
+  const [submitHovered, setSubmitHovered] = useState(false);
   const [countryOpen, setCountryOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -38,7 +39,7 @@ const Contacts = () => {
 
   if (isSubmitted) {
     return (
-      <div className="mt-[60px] mb-[60px] md:mt-[100px] md:mb-[140px] bg-white rounded-[20px] shadow-lg shadow-[#00000059]/70 max-w-[1360px] mx-auto py-[40px] px-[20px] md:px-[60px]">
+      <div className="mt-[60px] mb-[60px] md:mt-[100px] md:mb-[140px] bg-white rounded-[20px] max-w-[1360px] mx-auto py-[40px] px-[20px] md:px-[60px]" style={{ boxShadow: '0px 0px 6px 0px #00000059' }}>
         <div className="flex flex-col items-center gap-[40px] md:gap-[70px]">
           {/* Success Button */}
           <div className="flex items-center justify-center gap-[24px] py-[16px] px-[24px] md:px-[36px] bg-[#35DF1F] rounded-[100px] w-fit">
@@ -64,7 +65,7 @@ const Contacts = () => {
   }
 
   return (
-    <div className="mt-[60px] mb-[60px] py-[24px] px-[20px] md:mt-[140px] md:mb-[140px] md:py-[40px] md:px-[60px] bg-white rounded-[20px] shadow-lg shadow-[#00000059]/70 max-w-[997px]  md:mx-auto">
+    <div className="mt-[60px] mb-[60px] py-[24px] px-[20px] md:mt-[140px] md:mb-[140px] md:py-[40px] md:px-[60px] bg-white rounded-[20px] max-w-[997px]  md:mx-auto" style={{ boxShadow: '0px 0px 6px 0px #00000059' }}>
       {/* Header */}
       <div className="flex flex-col gap-[10px] mb-[40px] md:mb-[70px]">
         <h2 className="text-[24px] md:text-[32px] font-semibold text-[#262424]">
@@ -376,15 +377,32 @@ const Contacts = () => {
         </div>
 
         {/* Submit Button */}
-        <div className="flex justify-center self-center items-center gap-2.5 py-3 md:py-4 px-[24px] md:px-[32px] rounded-full w-fit bg-[#E85102]">
-          <button className="text-[24px] md:text-[32px] text-white font-semibold">
+        <div className="flex justify-center">
+          <motion.button
+            type="submit"
+            className="inline-flex items-center justify-center font-rajdhani font-semibold text-[18px] md:text-[32px] bg-[#E85102] text-[#FBFBFB] rounded-[100px] cursor-pointer py-[10px] px-[20px] md:py-[16px] md:px-[32px] gap-[8px] md:gap-[10px] border-[3px] border-transparent"
+            onMouseEnter={() => setSubmitHovered(true)}
+            onMouseLeave={() => setSubmitHovered(false)}
+            animate={{
+              backgroundColor: submitHovered ? "#FFFFFF" : "#E85102",
+              borderColor: submitHovered ? "#E85102" : "transparent",
+              color: submitHovered ? "#262424" : "#FBFBFB",
+            }}
+            transition={{
+              type: "tween",
+              ease: "easeIn",
+              duration: 0.3,
+            }}
+          >
             Submit
-          </button>
-          <img
-            src="/images/contacts/send-icon.png"
-            alt="send-icon"
-            className="w-[22px] h-[22px] md:w-[28px] md:h-[28px]"
-          />
+            <motion.img
+              src={submitHovered ? "/images/contacts/send-icon1.png" : "/images/contacts/send-icon.png"}
+              alt="send-icon"
+              className="w-[22px] h-[22px] md:w-[28px] md:h-[28px]"
+              animate={{ marginLeft: submitHovered ? 10 : 0 }}
+              transition={{ type: "tween", ease: "easeIn", duration: 0.3 }}
+            />
+          </motion.button>
         </div>
       </form>
     </div>
