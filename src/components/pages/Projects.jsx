@@ -107,6 +107,7 @@ const Projects = () => {
           <ProjectCard
             to="/projects/wedwish"
             image="/images/projects/main/tumbnail4.png"
+            imageBg="radial-gradient(75.95% 75.95% at 50% 38.92%, #2899CE 46.63%, #144D68 100%)"
             tags={[
               "#WeddingPlatform",
               "#UX/UI",
@@ -169,7 +170,7 @@ const Projects = () => {
   );
 };
 
-const ProjectCard = ({ to, image, tags, title }) => {
+const ProjectCard = ({ to, image, tags, title, imageBg }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -177,11 +178,24 @@ const ProjectCard = ({ to, image, tags, title }) => {
       to={to}
       className="flex flex-col gap-6 items-start w-full max-w-[760px] cursor-pointer"
     >
-      <img
-        src={image}
-        alt={`${title}-img`}
-        className="rounded-2xl w-full h-auto aspect-[760/456] object-cover"
-      />
+      {imageBg ? (
+        <div
+          className="rounded-2xl w-full aspect-[760/456] flex items-center justify-center"
+          style={{ background: imageBg, padding: "42.5px 23px" }}
+        >
+          <img
+            src={image}
+            alt={`${title}-img`}
+            className="w-full h-full object-contain"
+          />
+        </div>
+      ) : (
+        <img
+          src={image}
+          alt={`${title}-img`}
+          className="rounded-2xl w-full h-auto aspect-[760/456] object-cover"
+        />
+      )}
       <div className="flex gap-1.75 flex-wrap">
         {tags.map((tag, index) => (
           <div
