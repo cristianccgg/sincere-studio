@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../common/Button";
-import { Send } from "lucide-react";
+import { Send, ChevronDown } from "lucide-react";
 
 const CustomRadio = ({ checked }) => (
   <div className="w-[31px] h-[31px] rounded-full border-[2px] border-[#8A38F5] flex items-center justify-center bg-white">
@@ -8,7 +8,10 @@ const CustomRadio = ({ checked }) => (
   </div>
 );
 
+const countryOptions = ["USA", "UK", "CA", "MX"];
+
 const Contacts = () => {
+  const [countryOpen, setCountryOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -131,17 +134,38 @@ const Contacts = () => {
             Phone number <span className="text-[#262424]">*</span>
           </label>
           <div className="flex flex-col sm:flex-row gap-[12px] md:gap-[20px] md:items-center">
-            <select
-              name="countryCode"
-              value={formData.countryCode}
-              onChange={handleChange}
-              className="bg-[#ECEEF0] h-[50px] w-full md:w-[208px] rounded-[5px] py-[16px] px-[20px] text-[16px] md:text-[24px] text-[#262424] outline-none"
-            >
-              <option value="USA">USA</option>
-              <option value="UK">UK</option>
-              <option value="CA">CA</option>
-              <option value="MX">MX</option>
-            </select>
+            <div className="relative w-full md:w-[208px]">
+              <button
+                type="button"
+                onClick={() => setCountryOpen(!countryOpen)}
+                onBlur={() => setTimeout(() => setCountryOpen(false), 150)}
+                className="bg-[#ECEEF0] h-[50px] w-full rounded-[5px] py-[16px] pl-[20px] pr-[8px] text-[16px] md:text-[24px] text-[#262424] outline-none flex items-center justify-between"
+              >
+                {formData.countryCode}
+                <ChevronDown
+                  className={`w-[20px] h-[20px] md:w-[34px] md:h-[34px] text-[#7F7F7F] transition-transform ${countryOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {countryOpen && (
+                <ul className="absolute top-full left-0 w-full bg-[#ECEEF0] rounded-[5px] mt-[4px] z-10 overflow-hidden shadow-md">
+                  {countryOptions.map((option) => (
+                    <li
+                      key={option}
+                      onMouseDown={() => {
+                        setFormData((prev) => ({
+                          ...prev,
+                          countryCode: option,
+                        }));
+                        setCountryOpen(false);
+                      }}
+                      className="py-[10px] px-[20px] text-[16px] md:text-[24px] text-[#262424] cursor-pointer hover:bg-[#D9DBDD]"
+                    >
+                      {option}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <input
               type="tel"
               name="phone"
