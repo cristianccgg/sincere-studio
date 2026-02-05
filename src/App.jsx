@@ -12,6 +12,7 @@ import LShot from "./components/pages/LShot";
 import Wedwish from "./components/pages/Wedwish";
 import MatchWise from "./components/pages/MatchWise";
 import TheFoodCo from "./components/pages/TheFoodCo";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="projects/thefoodco" element={<TheFoodCo />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="contacts" element={<Contacts />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
           </Route>
         </Routes>
       </BrowserRouter>

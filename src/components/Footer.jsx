@@ -37,9 +37,9 @@ const Footer = () => {
         <Link to="/contacts" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           Let's work
         </Link>
-        <span className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link to="/privacy-policy" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
           Privacy Policy
-        </span>
+        </Link>
       </div>
     </div>
   );

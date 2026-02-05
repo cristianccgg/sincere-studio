@@ -21,9 +21,9 @@ const cardSizes = {
     hover: { width: 380, height: 365, padding: 32, gap: 24 },
   },
   lg: {
-    container: { width: 290, height: 280 },
-    card: { width: 287, height: 280, padding: 16, gap: 16 },
-    hover: { width: 290, height: 300, padding: 24, gap: 20 },
+    container: { width: 290, height: "auto" },
+    card: { width: 287, height: "auto", padding: 16, gap: 16 },
+    hover: { width: 290, height: "auto", padding: 24, gap: 20 },
   },
   mobile: {
     container: { width: "100%", height: "auto" },
@@ -61,6 +61,7 @@ const Landing = () => {
   const breakpoint = useBreakpoint();
   const sizes = cardSizes[breakpoint];
   const isMobile = breakpoint === "mobile";
+  const needsStretch = isMobile || breakpoint === "lg";
 
   const [sectionHovered, setSectionHovered] = useState(false);
   const [visionHovered, setVisionHovered] = useState(false);
@@ -331,7 +332,7 @@ const Landing = () => {
           </h2>
         </motion.div>
         <motion.div
-          className="flex flex-col  lg:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 gap-15 items-center justify-between"
+          className="flex flex-col  md:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 md:gap-3 gap-15 items-center md:items-stretch justify-between"
           initial={{ opacity: 0, y: 80 }}
           animate={
             sectionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }
@@ -341,7 +342,7 @@ const Landing = () => {
           <Link
             to="/services"
             style={
-              isMobile
+              needsStretch
                 ? {}
                 : {
                     width: sizes.container.width,
@@ -351,16 +352,18 @@ const Landing = () => {
                     justifyContent: "center",
                   }
             }
-            className={isMobile ? "w-full" : ""}
+            className={needsStretch ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col" : ""}
           >
             <motion.div
-              className="cursor-pointer flex flex-col rounded-[20px] border"
+              className="cursor-pointer flex flex-col rounded-[20px] border md:border-0 md:flex-1 w-full"
               style={{
-                width: sizes.card.width,
-                height: sizes.card.height,
+                width: isMobile ? undefined : sizes.card.width,
+                height: needsStretch ? undefined : sizes.card.height,
                 padding: sizes.card.padding,
                 gap: sizes.card.gap,
-                boxShadow: isMobile ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)" : "none",
+                boxShadow: isMobile
+                  ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)"
+                  : "none",
                 borderColor: isMobile ? "#FBFBFB" : "transparent",
               }}
               whileHover={
@@ -381,12 +384,12 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                <h3 className="text-xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Digital Products
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal  text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
+              <p className="font-rajdhani font-normal  text-lg 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010] flex-1">
                 We design and develop apps, templates, and interactive tools
                 that deliver real value to your users.
               </p>
@@ -399,7 +402,7 @@ const Landing = () => {
           <Link
             to="/services"
             style={
-              isMobile
+              needsStretch
                 ? {}
                 : {
                     width: sizes.container.width,
@@ -409,16 +412,18 @@ const Landing = () => {
                     justifyContent: "center",
                   }
             }
-            className={isMobile ? "w-full" : ""}
+            className={needsStretch ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col" : ""}
           >
             <motion.div
-              className="cursor-pointer flex flex-col rounded-[20px] border"
+              className="cursor-pointer flex flex-col rounded-[20px] border md:border-0 md:flex-1 w-full"
               style={{
-                width: sizes.card.width,
-                height: sizes.card.height,
+                width: isMobile ? undefined : sizes.card.width,
+                height: needsStretch ? undefined : sizes.card.height,
                 padding: sizes.card.padding,
                 gap: sizes.card.gap,
-                boxShadow: isMobile ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)" : "none",
+                boxShadow: isMobile
+                  ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)"
+                  : "none",
                 borderColor: isMobile ? "#FBFBFB" : "transparent",
               }}
               whileHover={
@@ -439,12 +444,12 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                <h3 className="text-xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Web Design
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] text-justify text-[#101010]">
+              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] text-justify text-[#101010] flex-1">
                 Modern, responsive websites with clean <br /> aesthetics and a
                 seamless user experience <br /> — tailored to your brand and
                 goals.
@@ -458,7 +463,7 @@ const Landing = () => {
           <Link
             to="/services"
             style={
-              isMobile
+              needsStretch
                 ? {}
                 : {
                     width: sizes.container.width,
@@ -468,16 +473,18 @@ const Landing = () => {
                     justifyContent: "center",
                   }
             }
-            className={isMobile ? "w-full" : ""}
+            className={needsStretch ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col" : ""}
           >
             <motion.div
-              className="cursor-pointer flex flex-col rounded-[20px] border"
+              className="cursor-pointer flex flex-col rounded-[20px] border md:border-0 md:flex-1 w-full"
               style={{
-                width: sizes.card.width,
-                height: sizes.card.height,
+                width: isMobile ? undefined : sizes.card.width,
+                height: needsStretch ? undefined : sizes.card.height,
                 padding: sizes.card.padding,
                 gap: sizes.card.gap,
-                boxShadow: isMobile ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)" : "none",
+                boxShadow: isMobile
+                  ? "0px 0px 6.3px 0px rgba(0,0,0,0.4)"
+                  : "none",
                 borderColor: isMobile ? "#FBFBFB" : "transparent",
               }}
               whileHover={
@@ -503,7 +510,7 @@ const Landing = () => {
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010]">
+              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010] flex-1">
                 From SEO and social media to funnels and optimization — we help
                 you attract, convert, and grow your business.
               </p>
