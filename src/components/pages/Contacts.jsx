@@ -78,7 +78,7 @@ const Contacts = () => {
         className="flex flex-col gap-[40px] md:gap-[70px]"
       >
         {/* First Name & Last Name */}
-        <div className="flex flex-col md:flex-row gap-[24px] md:gap-[61px]">
+        <div className="flex flex-col sm:flex-row gap-[24px] md:gap-[61px]">
           <div className="flex flex-col gap-[16px] md:gap-[24px] flex-1 md:max-w-[320px]">
             <label className="text-[20px] md:text-[32px] font-semibold text-[#262424]">
               First Name <span className="text-[#262424]">*</span>
@@ -130,7 +130,7 @@ const Contacts = () => {
           <label className="text-[20px] md:text-[32px] font-semibold text-[#262424]">
             Phone number <span className="text-[#262424]">*</span>
           </label>
-          <div className="flex flex-col md:flex-row gap-[12px] md:gap-[20px] md:items-center">
+          <div className="flex flex-col sm:flex-row gap-[12px] md:gap-[20px] md:items-center">
             <select
               name="countryCode"
               value={formData.countryCode}
