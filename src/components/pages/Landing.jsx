@@ -132,19 +132,19 @@ const Landing = () => {
             <div className="flex justify-between text-[#262424] items-baseline leading-none">
               <span
                 className="font-nats font-normal tracking-[-0.02em]"
-                style={{ fontSize: "min(7.4vw, 128px)" }}
+                style={{ fontSize: "min(7vw, 128px)" }}
               >
                 SINCERE
               </span>
               <span
                 className="font-nats font-normal tracking-[-0.02em]"
-                style={{ fontSize: "min(7.4vw, 128px)" }}
+                style={{ fontSize: "min(7vw, 128px)" }}
               >
                 STUDIO
               </span>
               <span
                 className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5.56vw, 96px)" }}
+                style={{ fontSize: "min(5vw, 96px)" }}
               >
                 IT'S
               </span>
@@ -152,31 +152,31 @@ const Landing = () => {
             <div className="flex justify-between items-baseline leading-none text-[#262424]">
               <span
                 className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5.56vw, 96px)" }}
+                style={{ fontSize: "min(5vw, 96px)" }}
               >
                 NOT
               </span>
               <span
                 className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5.56vw, 96px)" }}
+                style={{ fontSize: "min(5vw, 96px)" }}
               >
                 JUST
               </span>
               <span
                 className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5.56vw, 96px)" }}
+                style={{ fontSize: "min(5vw, 96px)" }}
               >
                 A
               </span>
               <span
                 className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5.56vw, 96px)" }}
+                style={{ fontSize: "min(5vw, 96px)" }}
               >
                 DESIGN
               </span>
               <span
                 className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5.56vw, 96px)" }}
+                style={{ fontSize: "min(5vw, 96px)" }}
               >
                 STUDIO
               </span>
@@ -274,7 +274,7 @@ const Landing = () => {
             }}
           />
           <motion.div
-            className="shrink-0 bg-white lg:pr-8 2xl:pr-0 flex flex-col items-end"
+            className=" bg-white md:pr-6 xl:pr-0  flex flex-col items-end"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -287,7 +287,7 @@ const Landing = () => {
           >
             <h2
               className="font-medium text-[#444444] leading-tight whitespace-nowrap"
-              style={{ fontSize: "min(2.78vw, 48px)" }}
+              style={{ fontSize: "min(2.40vw, 48px)" }}
             >
               We Creating Values & <br />
               Scaling with Honestly
@@ -352,7 +352,11 @@ const Landing = () => {
                     justifyContent: "center",
                   }
             }
-            className={needsStretch ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col" : ""}
+            className={
+              needsStretch
+                ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col"
+                : ""
+            }
           >
             <motion.div
               className="cursor-pointer flex flex-col rounded-[20px] border md:border-0 md:flex-1 w-full"
@@ -412,7 +416,11 @@ const Landing = () => {
                     justifyContent: "center",
                   }
             }
-            className={needsStretch ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col" : ""}
+            className={
+              needsStretch
+                ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col"
+                : ""
+            }
           >
             <motion.div
               className="cursor-pointer flex flex-col rounded-[20px] border md:border-0 md:flex-1 w-full"
@@ -473,7 +481,11 @@ const Landing = () => {
                     justifyContent: "center",
                   }
             }
-            className={needsStretch ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col" : ""}
+            className={
+              needsStretch
+                ? "w-full sm:max-w-100 sm:mx-auto md:max-w-none md:mx-0 md:flex md:flex-col"
+                : ""
+            }
           >
             <motion.div
               className="cursor-pointer flex flex-col rounded-[20px] border md:border-0 md:flex-1 w-full"
