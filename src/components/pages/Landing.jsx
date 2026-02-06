@@ -87,7 +87,7 @@ const Landing = () => {
       <section className="w-full mt-4">
         <div className="flex mx-auto relative">
           {/* Mobile/Tablet text */}
-          <div className="flex flex-wrap w-full text-[#262424] items-baseline lg:hidden leading-none gap-x-2 mb-6">
+          <div className="flex flex-wrap w-full text-[#262424] items-baseline sm:hidden leading-none gap-x-2 mb-6">
             <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
               SINCERE
             </span>
@@ -115,7 +115,7 @@ const Landing = () => {
           </div>
           {/* Desktop text - scales proportionally based on 1728px, max at design size */}
           <motion.div
-            className="hidden lg:flex flex-col justify-center lg:pr-8 xl:pr-0"
+            className="hidden sm:flex flex-col justify-center lg:pr-8 xl:pr-0"
             style={{
               width: "min(59.8vw, 1033px)",
               height: "min(15.6vw, 270px)",
