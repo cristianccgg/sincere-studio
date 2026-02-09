@@ -103,7 +103,17 @@ const Landing = () => {
     <div>
       {/* Mobile hero layout (< sm) */}
       <section className="sm:hidden">
-        <div className="flex flex-wrap w-full text-[#262424] items-baseline leading-none gap-x-2 mb-6">
+        <motion.div
+          className="flex flex-wrap w-full text-[#262424] items-baseline leading-none gap-x-2 mb-6"
+          initial={{ opacity: 0, x: -100, y: -50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 64.02,
+            damping: 12,
+          }}
+        >
           <span className="font-nats text-[40px] font-normal tracking-[-0.02em]">
             SINCERE
           </span>
@@ -128,13 +138,33 @@ const Landing = () => {
           <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
             STUDIO
           </span>
-        </div>
-        <img
+        </motion.div>
+        <motion.img
           src="/images/landing/hero1.png"
           alt="hero-img1"
           className="w-full"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 64.02,
+            damping: 12,
+            delay: 0.2,
+          }}
         />
-        <div className="mt-5">
+        <motion.div
+          className="mt-5"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 64.02,
+            damping: 12,
+            delay: 0.3,
+          }}
+        >
           <h2 className="font-medium text-[#444444] text-4xl mb-5">
             We Creating Values & <br />
             Scaling with Honestly
@@ -148,7 +178,7 @@ const Landing = () => {
               See our Solutions
             </Button>
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       {/* Desktop/tablet hero layout (>= sm) with scale + clipPath */}
@@ -164,7 +194,18 @@ const Landing = () => {
             transform: `scale(${heroScale})`,
           }}
         >
-          <div className="tracking-[-2%] leading-none" style={{ width: 1013 }}>
+          <motion.div
+            className="tracking-[-2%] leading-none"
+            style={{ width: 1013 }}
+            initial={{ opacity: 0, x: -100, y: -50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 64.02,
+              damping: 12,
+            }}
+          >
             <h1 className="font-nats flex justify-between items-baseline text-[128px]">
               <span>SINCERE</span>
               <span>STUDIO</span>
@@ -177,14 +218,34 @@ const Landing = () => {
               <span>DESIGN</span>
               <span>STUDIO</span>
             </p>
-          </div>
+          </motion.div>
           <div className="flex items-end justify-between mt-10">
-            <img
+            <motion.img
               src="/images/landing/hero1.png"
               alt="hero-img1"
               className="max-w-143.5"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 64.02,
+                damping: 12,
+                delay: 0.2,
+              }}
             />
-            <div className="flex flex-col justify-between items-end w-107 h-50.75">
+            <motion.div
+              className="flex flex-col justify-between items-end w-107 h-50.75"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                mass: 1,
+                stiffness: 64.02,
+                damping: 12,
+                delay: 0.3,
+              }}
+            >
               <h2 className="font-medium text-[#444444] text-[48px] whitespace-nowrap">
                 We Creating Values & <br />
                 Scaling with Honestly
@@ -194,7 +255,7 @@ const Landing = () => {
                   See our Solutions
                 </button>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
         {/* SVG para definir el clipPath — valores interpolados según heroScale */}
@@ -260,234 +321,6 @@ const Landing = () => {
           }}
         />
       </section>
-      <section className="w-full mt-4 hidden">
-        <div className="flex mx-auto relative">
-          {/* Mobile/Tablet text */}
-          <div className="flex flex-wrap w-full text-[#262424] items-baseline sm:hidden leading-none gap-x-2 mb-6">
-            <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
-              SINCERE
-            </span>
-            <span className="font-nats text-[40px] sm:text-[72px] lg:text-[96px] font-normal tracking-[-0.02em]">
-              STUDIO
-            </span>
-            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-              IT'S
-            </span>
-            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-              NOT
-            </span>
-            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-              JUST
-            </span>
-            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-              A
-            </span>
-            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-              DESIGN
-            </span>
-            <span className="font-rajdhani text-[30px] sm:text-[54px] lg:text-[72px] tracking-[-0.02em]">
-              STUDIO
-            </span>
-          </div>
-
-          {/* Desktop text - scales proportionally based on 1728px, max at design size */}
-          <motion.div
-            className="hidden sm:flex flex-col justify-center lg:pr-8 xl:pr-0"
-            style={{
-              width: "min(59.8vw, 1033px)",
-              height: "min(15.6vw, 270px)",
-            }}
-            initial={{ opacity: 0, x: -100, y: -50 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{
-              type: "spring",
-              mass: 1,
-              stiffness: 64.02,
-              damping: 12,
-            }}
-          >
-            <div className="flex justify-between text-[#262424] items-baseline leading-none">
-              <span
-                className="font-nats font-normal tracking-[-0.02em]"
-                style={{ fontSize: "min(7vw, 128px)" }}
-              >
-                SINCERE
-              </span>
-              <span
-                className="font-nats font-normal tracking-[-0.02em]"
-                style={{ fontSize: "min(7vw, 128px)" }}
-              >
-                STUDIO
-              </span>
-              <span
-                className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5vw, 96px)" }}
-              >
-                IT'S
-              </span>
-            </div>
-            <div className="flex justify-between items-baseline leading-none text-[#262424]">
-              <span
-                className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5vw, 96px)" }}
-              >
-                NOT
-              </span>
-              <span
-                className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5vw, 96px)" }}
-              >
-                JUST
-              </span>
-              <span
-                className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5vw, 96px)" }}
-              >
-                A
-              </span>
-              <span
-                className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5vw, 96px)" }}
-              >
-                DESIGN
-              </span>
-              <span
-                className="font-rajdhani tracking-[-0.02em]"
-                style={{ fontSize: "min(5vw, 96px)" }}
-              >
-                STUDIO
-              </span>
-            </div>
-          </motion.div>
-          {/* SVG para definir el clipPath con esquinas redondeadas */}
-          <svg width="0" height="0" className="absolute">
-            <defs>
-              <clipPath id="heroClip" clipPathUnits="objectBoundingBox">
-                <path
-                  d={`
-                    M 0.45 0.02
-                    Q 0.45 0, 0.47 0
-                    L 0.98 0
-                    Q 1 0, 1 0.02
-                    L 1 0.98
-                    Q 1 1, 0.98 1
-                    L 0.47 1
-                    Q 0.45 1, 0.45 0.98
-                    L 0.45 0.75
-                    Q 0.45 0.73, 0.43 0.73
-                    L 0.02 0.73
-                    Q 0 0.73, 0 0.71
-                    L 0 0.34
-                    Q 0 0.32, 0.02 0.32
-                    L 0.43 0.32
-                    Q 0.45 0.32, 0.45 0.30
-                    Z
-                  `}
-                />
-              </clipPath>
-            </defs>
-          </svg>
-          <motion.div
-            className="absolute bg-cover hidden lg:block lg:-right-2 xl:right-0"
-            style={{
-              width: "min(59vw, 1020px)",
-              height: "min(48.6vw, 840px)",
-              backgroundImage: "url('/images/landing/hero2.png')",
-              backgroundPosition: "15% center",
-              clipPath: "url(#heroClip)",
-            }}
-            initial={{ opacity: 0, x: 100, y: -50 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{
-              type: "spring",
-              mass: 1,
-              stiffness: 64.02,
-              damping: 12,
-              delay: 0.1,
-            }}
-          />
-        </div>
-
-        {/* Mobile/Tablet bottom section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between max-w-[1043px] lg:hidden">
-          <img
-            src="/images/landing/hero1.png"
-            alt="hero-img1"
-            className="md:max-w-143.5"
-          />
-          <div className="max-w-107">
-            <h2 className="font-medium text-[#444444] md:text-[42px] text-4xl my-5 lg:my-0">
-              We Creating Values & <br />
-              Scaling with Honestly
-            </h2>
-            <Link to="/projects">
-              <Button
-                size="hero"
-                fontWeight="medium"
-                icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
-              >
-                See our Solutions
-              </Button>
-            </Link>
-          </div>
-        </div>
-        {/* Desktop bottom section - scales proportionally */}
-        <div
-          className="hidden lg:flex items-end justify-between"
-          style={{ maxWidth: "min(60.4vw, 1043px)" }}
-        >
-          <motion.img
-            src="/images/landing/hero1.png"
-            alt="hero-img1"
-            style={{ maxWidth: "min(32vw, 574px)" }}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              type: "spring",
-              mass: 1,
-              stiffness: 64.02,
-              damping: 12,
-              delay: 0.2,
-            }}
-          />
-          <motion.div
-            className=" bg-white md:pr-6 xl:pr-0  flex flex-col items-end"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              mass: 1,
-              stiffness: 64.02,
-              damping: 12,
-              delay: 0.3,
-            }}
-          >
-            <h2
-              className="font-medium text-[#444444] leading-tight whitespace-nowrap"
-              style={{ fontSize: "min(2.40vw, 48px)" }}
-            >
-              We Creating Values & <br />
-              Scaling with Honestly
-            </h2>
-            <Link to="/projects" className="2xl:mt-[42px]">
-              <Button
-                size="hero"
-                fontWeight="medium"
-                icon={<ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
-                style={{
-                  fontSize: "min(1.16vw, 20px)",
-                  padding: "min(0.46vw, 8px) min(0.93vw, 16px)",
-                  gap: "min(0.58vw, 10px)",
-                }}
-              >
-                See our Solutions
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-        <div></div>
-      </section>
-
       <section
         ref={sectionRef}
         className="lg:mt-30 mt-10 lg:py-[29px] py-5 xl:px-[37px]"
