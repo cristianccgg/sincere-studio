@@ -8,10 +8,9 @@ import { ChevronRight } from "lucide-react";
 const ValueCard = ({
   title,
   description,
+  icon,
   initialWidth,
   variantWidth,
-  backgrounds,
-  border,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [scale, setScale] = useState(1);
@@ -41,7 +40,7 @@ const ValueCard = ({
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center text-[20px] lg:text-[24px] xl:text-[32px] text-[#FBFBFB] rounded-[20px] shadow-[0px_0px_10px_0px_#00000040] cursor-pointer overflow-hidden"
+      className="flex flex-col items-center justify-center text-[20px] lg:text-[24px] xl:text-[32px] text-[#262424] rounded-[20px] cursor-pointer overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       animate={
@@ -49,27 +48,50 @@ const ValueCard = ({
           ? {
               width: isMobile ? "100%" : variantWidth * scale,
               height: 460 * scale,
-              background: backgrounds.variant,
-              border: border?.variant || "0px solid transparent",
+              background: "#FBFBFB",
+              border: "3px solid #262424",
+              boxShadow: "0px 0px 4px 0px #00000040",
             }
           : {
               width: isMobile ? "100%" : initialWidth * scale,
               height: 322 * scale,
-              background: backgrounds.initial,
-              border: border?.initial || "0px solid transparent",
+              background: "#FBFBFB",
+              border: "3px solid #262424",
+              boxShadow: "0px 0px 0px 0px #00000000",
             }
       }
-      transition={{ duration: 0.3, ease: "linear" }}
+      transition={{ duration: 0.3, ease: "easeIn" }}
     >
-      <h1 className="font-bold drop-shadow-[0px_0px_5px_#00000059]">{title}</h1>
+      <motion.img
+        src={icon}
+        alt=""
+        className="w-12 h-12 lg:w-16 lg:h-16"
+        animate={
+          isHovered
+            ? { opacity: 0, height: 0, marginBottom: 0 }
+            : { opacity: 1, height: "auto", marginBottom: 27 * scale }
+        }
+        transition={{ duration: 0.3, ease: "easeIn" }}
+      />
+      <motion.h1
+        className="font-bold"
+        animate={
+          isHovered
+            ? { opacity: 0, height: 0 }
+            : { opacity: 1, height: "auto" }
+        }
+        transition={{ duration: 0.3, ease: "easeIn" }}
+      >
+        {title}
+      </motion.h1>
       <motion.p
-        className="text-center font-medium tracking-[-2%] px-4 drop-shadow-[0px_0px_5px_#00000059] overflow-hidden"
+        className="text-center font-medium tracking-[-2%] px-4 overflow-hidden"
         animate={
           isHovered
             ? { opacity: 1, height: "auto", marginTop: 24 * scale }
             : { opacity: 0, height: 0, marginTop: 0 }
         }
-        transition={{ duration: 0.3, ease: "linear" }}
+        transition={{ duration: 0.3, ease: "easeIn" }}
       >
         {description}
       </motion.p>
@@ -201,65 +223,33 @@ const AboutUs = () => {
           <ValueCard
             title="CREATIVITY"
             description="Every idea is crafted to inspire and deliver real results."
+            icon="/images/about us/Group 22.png"
             initialWidth={363}
             variantWidth={380}
-            backgrounds={{
-              initial:
-                "radial-gradient(130.55% 100% at 50% 100%, rgba(255, 37, 37, 0.85) 0%, #FF6819 100%)",
-              variant:
-                "radial-gradient(76.96% 51.2% at 50% 111.85%, #FF2525 0%, #FF6819 99.34%)",
-            }}
-            border={{
-              initial: "0px solid transparent",
-              variant: "2px solid rgba(251, 251, 251, 0.5)",
-            }}
           />
 
           <ValueCard
             title="SIMPLICITY"
             description="We design clean, functional solutions that communicate with clarity."
+            icon="/images/about us/Group 23.png"
             initialWidth={362}
             variantWidth={370}
-            backgrounds={{
-              initial:
-                "radial-gradient(142.32% 100% at 50% 100%, #357CE1 0%, rgba(52, 220, 238, 0.85) 100%)",
-              variant:
-                "radial-gradient(80.42% 52.93% at 50% 100%, #357CE1 0%, #34DCEE 100%)",
-            }}
           />
 
           <ValueCard
             title="INTEGRITY"
             description="We build trust through honesty and transparency in every interaction."
+            icon="/images/about us/Group 21.png"
             initialWidth={362}
             variantWidth={370}
-            backgrounds={{
-              initial:
-                "radial-gradient(121.3% 100% at 50% 100%, #7729CB 0%, rgba(196, 96, 216, 0.85) 100%)",
-              variant:
-                "radial-gradient(57.88% 47.72% at 50% 105.76%, #7729CB 0%, rgba(196, 96, 216, 0.85) 100%)",
-            }}
-            border={{
-              initial: "0px solid transparent",
-              variant: "2px solid #FBFBFB",
-            }}
           />
 
           <ValueCard
             title="GROWTH"
             description="We constantly evolve, learn, and push boundaries to achieve more."
+            icon="/images/about us/Group 24.png"
             initialWidth={363}
             variantWidth={370}
-            backgrounds={{
-              initial:
-                "radial-gradient(119.62% 100% at 50% 100%, #24AC15 0%, #EDF261 100%)",
-              variant:
-                "radial-gradient(71.77% 60% at 52.3% 115.76%, #24AC15 0%, #B0DD4A 100%)",
-            }}
-            border={{
-              initial: "0px solid transparent",
-              variant: "2px solid #FBFBFB",
-            }}
           />
         </div>
       </section>
