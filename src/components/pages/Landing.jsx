@@ -558,23 +558,23 @@ const Landing = () => {
 
       <section
         ref={visionRef}
-        className="lg:mt-30 mt-10 xl:max-h-[680px]  lg:py-[29px] py-5 xl:px-[37px] flex flex-col lg:flex-row gap-10 justify-between"
+        className="lg:mt-30 mt-10 xl:max-h-[730px]  lg:py-[29px] py-5 xl:px-[37px] flex flex-col md:flex-row gap-10 justify-between"
         onMouseEnter={() => setVisionHovered(true)}
       >
         <motion.div
-          className="max-w-182.5  flex flex-col justify-between"
+          className="max-w-182.5  flex flex-col justify-between text-justify"
           initial={{ opacity: 0, y: 80 }}
           animate={visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <h3 className="2xl:text-[36px] text-xl font-semibold text-[#403F3F] ">
+          <h3 className="2xl:text-[36px] lg:text-2xl  text-xl font-semibold text-[#403F3F] ">
             Explore Our Vision and Concepts
           </h3>
-          <h2 className="2xl:text-[40px] text-2xl font-bold text-[#262424] mt-5 mb-3.75">
-            WE BELIEVE DEEPLY IN OUR CLIENTS AND ARE <br />
-            COMMITTED TO GIVING THEM THE BEST <br /> POSSIBLE SUPPORT
+          <h2 className="2xl:text-[40px] lg:text-2xl md:text-lg text-2xl font-bold text-[#262424] mt-5 mb-3.75 ">
+            WE BELIEVE DEEPLY IN OUR CLIENTS AND WE ARE COMMITTED TO GIVING THEM
+            THE BEST POSSIBLE SUPPORT
           </h2>
-          <p className="xl:text-[24px] text-justify text-xl mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
+          <p className="xl:text-[24px] lg:text-xl md:text-base text-justify text-xl mb-8.5 max-w-177.25 font-rajdhani font-normal text-[#262424] ">
             At Sincere Studio, we craft digital solutions that are not only
             beautiful but also effective. Our mission is to blend creativity
             with strategy to deliver work that builds trust and drives real
@@ -599,142 +599,9 @@ const Landing = () => {
             </Button>
           </Link>
         </motion.div>
-        <motion.div
-          className="md:px-3 xl:max-w-[668px] w-full md:w-fit flex flex-col gap-3"
-          initial={{ opacity: 0, y: -80 }}
-          animate={
-            visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }
-          }
-          transition={{ duration: 0.3, ease: "easeOut" }}
-        >
-          <motion.div
-            className="flex flex-col md:flex-row justify-between gap-3"
-            initial={{ opacity: 0, x: -50, y: 50 }}
-            animate={
-              visionEntered
-                ? { opacity: 1, x: 0, y: 0 }
-                : { opacity: 0, x: -50, y: 50 }
-            }
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-          >
-            <svg width="0" height="0" style={{ position: "absolute" }}>
-              <defs>
-                <clipPath id="notchClip" clipPathUnits="objectBoundingBox">
-                  <path
-                    d={`
-          M 0.03 0
-          L 0.795 0
-          Q 0.825 0, 0.825 0.03
-          L 0.825 0.145
-          Q 0.825 0.175, 0.855 0.175
-          L 0.97 0.175
-          Q 1 0.175, 1 0.205
-          L 1 0.97
-          Q 1 1, 0.97 1
-          L 0.03 1
-          Q 0 1, 0 0.97
-          L 0 0.03
-          Q 0 0, 0.03 0
-          Z
-        `}
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-            <div
-              className="bg-[#E2E3E4] md:max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 w-full md:max-w-[296px]"
-              style={{
-                clipPath: "url(#notchClip)",
-                WebkitClipPath: "url(#notchClip)",
-              }}
-            >
-              <h2 className="font-semibold">Clarity Over Noise</h2>
-              <p className="tracking-tight">
-                Every element serves a purpose — clean layouts, strong
-                typography, and intentional whitespace that let your message
-                breathe.
-              </p>
-            </div>
-            <div className="flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
-              <img
-                src="/images/landing/our vision/dark and light mode 1.png"
-                alt="dark-light-mode-img"
-                className="w-full md:w-84.25 md:max-h-[200px]"
-              />
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col-reverse md:flex-row justify-between gap-3 md:max-h-[200px]"
-            initial={{ opacity: 0, x: 50, y: -50 }}
-            animate={
-              visionEntered
-                ? { opacity: 1, x: 0, y: 0 }
-                : { opacity: 0, x: 50, y: -50 }
-            }
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
-          >
-            <div className="w-full md:w-88.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden">
-              <img
-                src="/images/landing/our vision/Frame 12712 1.png"
-                alt="dark-light-mode-img"
-                className="w-full md:max-w-84.25"
-              />
-            </div>
-            <div
-              className="bg-[#E9E0F0] md:max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 w-full md:max-w-[298px]"
-              style={{
-                clipPath: "url(#notchClip)",
-                WebkitClipPath: "url(#notchClip)",
-              }}
-            >
-              <h2 className="font-semibold">
-                Bold in Message, <br /> Minimal in Form
-              </h2>
-              <p>
-                Our work is visually striking but never overwhelming — balance
-                is our signature.
-              </p>
-            </div>
-          </motion.div>
-          <div className="flex flex-col md:flex-row justify-between gap-3">
-            <motion.div
-              className="bg-[#FFE5D8] md:max-h-[200px] 2xl:text-[20px] text-[#262424] rounded-[10px] flex flex-col gap-6 px-4 pt-4 pb-7.5 w-full md:max-w-74"
-              style={{
-                clipPath: "url(#notchClip)",
-                WebkitClipPath: "url(#notchClip)",
-              }}
-              initial={{ opacity: 0, x: 50, y: 50 }}
-              animate={
-                visionEntered
-                  ? { opacity: 1, x: 0, y: 0 }
-                  : { opacity: 0, x: 50, y: 50 }
-              }
-              transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
-            >
-              <h2 className="font-semibold">Designed to Convert</h2>
-              <p className="tracking-tight">
-                We fuse design with strategy — every pixel supports a business
-                goal, whether it's engagement, retention, or sales.
-              </p>
-            </motion.div>
-            <motion.div
-              className="w-full md:w-88.75 md:max-h-[200px] pt-1.75 flex items-center justify-center rounded-[10px] relative border-[#D9DDE0] border overflow-hidden"
-              initial={{ opacity: 0, x: -50, y: -50 }}
-              animate={
-                visionEntered
-                  ? { opacity: 1, x: 0, y: 0 }
-                  : { opacity: 0, x: -50, y: -50 }
-              }
-              transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
-            >
-              <img
-                src="/images/landing/our vision/Frame 298 1.png"
-                alt="dark-light-mode-img"
-                className="w-full md:max-w-84.25 md:max-h-[200px]"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+        <div>
+          <img src="/images/landing/our vision/photo.png" alt="photo" />
+        </div>
       </section>
 
       <section
