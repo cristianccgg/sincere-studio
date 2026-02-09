@@ -412,8 +412,8 @@ const Landing = () => {
                 <AnimatedArrowIcon />
               </div>
               <p className="font-rajdhani font-normal text-[20px] leading-[100%] tracking-[-0.01em] text-[#101010] flex-1">
-                Modern, responsive websites with clean aesthetics and a
-                seamless user experience — tailored to your brand and goals.
+                Modern, responsive websites with clean aesthetics and a seamless
+                user experience — tailored to your brand and goals.
               </p>
               <img
                 src="/images/landing/we make more/web-design.png"
@@ -710,11 +710,12 @@ const Landing = () => {
 
       <section
         ref={visionRef}
-        className="lg:mt-30 mt-10 xl:max-h-[730px]  lg:py-[29px] py-5 xl:px-[37px] flex flex-col md:flex-row gap-10 justify-between"
+        className="lg:mt-30 mt-[75px] xl:max-h-[730px]  lg:py-[29px] py-5 xl:px-[37px] flex flex-col md:flex-row gap-10 justify-between"
         onMouseEnter={() => setVisionHovered(true)}
       >
+        {/* Desktop layout */}
         <motion.div
-          className="max-w-182.5  flex flex-col justify-between text-justify"
+          className="hidden md:flex max-w-182.5 flex-col justify-between text-justify"
           initial={{ opacity: 0, y: 80 }}
           animate={visionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
@@ -733,7 +734,7 @@ const Landing = () => {
             results. From websites and digital products to marketing strategies,
             we help brands grow with purpose. <br /> <br />
             What inspires us is the desire to push boundaries and create with
-            heart. For us, it’s never just about projects — it’s about turning
+            heart. For us, it's never just about projects — it's about turning
             visions into lasting success.
           </p>
           <Link to="/contacts">
@@ -751,17 +752,89 @@ const Landing = () => {
             </Button>
           </Link>
         </motion.div>
-        <div>
+        <div className="hidden md:block">
           <img src="/images/landing/our vision/photo.png" alt="photo" />
+        </div>
+
+        {/* Mobile layout */}
+        <div className="md:hidden flex flex-col">
+          {/* Title + subtitle enter from left */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 100,
+              damping: 15,
+            }}
+          >
+            <h3 className="text-[20px] leading-[100%] font-semibold text-[#403F3F]">
+              Explore Our Vision and Concepts
+            </h3>
+            <h2 className="text-[24px] leading-[100%] font-bold text-[#262424] mt-5 mb-[24px]">
+              WE BELIEVE DEEPLY IN OUR CLIENTS AND WE ARE COMMITTED TO GIVING
+              THEM THE BEST POSSIBLE SUPPORT
+            </h2>
+          </motion.div>
+          {/* Image enters from right */}
+          <motion.img
+            src="/images/landing/our vision/photo.png"
+            alt="photo"
+            className="w-full rounded-[12px] mb-[24px]"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 100,
+              damping: 15,
+            }}
+          />
+          {/* Text + button enter from left */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              type: "spring",
+              mass: 1,
+              stiffness: 100,
+              damping: 15,
+            }}
+          >
+            <p className="font-rajdhani font-normal text-[20px]  text-[#262424] mb-[16px]">
+              What inspires us is the desire to push boundaries and create with
+              heart. <br /> For us, it's never just about projects — it's about
+              turning visions into lasting success.
+            </p>
+            <Link to="/contacts">
+              <Button
+                size="hero"
+                fontWeight="semibold"
+                icon={<ChevronRight className="w-3 h-3" />}
+                style={{
+                  fontSize: "18px",
+                  lineHeight: "100%",
+                }}
+              >
+                Start a Project
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
       <section
         ref={testimonialsRef}
-        className="lg:mt-30 mt-10 pb-5"
+        className="lg:mt-30 mt-[75px] pb-5"
         onMouseEnter={() => setTestimonialsHovered(true)}
       >
+        {/* Desktop titles */}
         <motion.div
+          className="hidden md:block"
           initial={{ opacity: 0, y: -50 }}
           animate={
             testimonialsEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
@@ -776,6 +849,26 @@ const Landing = () => {
             OPTIMAL SUPPORT
           </h2>
         </motion.div>
+        {/* Mobile titles */}
+        <motion.div
+          className="md:hidden mb-[24px]"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
+          }}
+        >
+          <h3 className="text-[20px] leading-[100%] font-semibold text-[#403F3F]">
+            Here are some of the nice things people have said about Us
+          </h3>
+          <h2 className="text-[24px] leading-[100%] font-bold text-[#262424] mt-5">
+            THANK YOU FOR CHOOSING US
+          </h2>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={
@@ -787,18 +880,17 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="bg-[#262424] rounded-[20px] lg:mt-30 mt-10 text-[#FFFFFF] py-10 md:py-22.5 px-10 2xl:px-105.25 xl:px-80 lg:px-40  sm:px-20">
-        {" "}
-        <div className="flex flex-col gap-[42px] items-center text-center">
-          <h2 className="lg:text-[40px] text-2xl font-bold  text-center">
+      <section className="bg-[#262424] rounded-[20px] lg:mt-30 mt-[75px] text-[#FFFFFF] md:py-22.5 md:px-10 2xl:px-105.25 xl:px-80 lg:px-40 sm:px-20 py-[46px] px-[58px]">
+        {/* Desktop */}
+        <div className="hidden md:flex flex-col gap-[42px] items-center text-center">
+          <h2 className="lg:text-[40px] text-2xl font-bold text-center">
             DO YOU WANT TO WORK TOGETHER ?
           </h2>
-          <h3 className="lg:text-[24px] text-xl font-medium tracking-[-2%] text-justify max-w-168.75">
-            At Sincere Studio, we’re ready to design, build, and grow digital
+          <h3 className="lg:text-[24px] text-xl font-medium tracking-[-0.02em] text-justify max-w-168.75">
+            At Sincere Studio, we're ready to design, build, and grow digital
             solutions that make an impact. Share your ideas with us — the first
             step toward your next big success starts here.
           </h3>
-
           <Link to="/contacts">
             <Button
               size="hero"
@@ -809,6 +901,29 @@ const Landing = () => {
               Let's Get Started
             </Button>
           </Link>
+        </div>
+        {/* Mobile */}
+        <div className="md:hidden flex flex-col">
+          <h2 className="text-[24px] leading-[100%] font-bold tracking-[-0.02em] text-center">
+            DO YOU WANT TO <br /> WORK TOGETHER ?
+          </h2>
+          <h3 className="text-[20px]  font-medium tracking-[-2%] text-justify mt-[24px]">
+            At Sincere Studio, we're ready to design, build, and grow digital
+            solutions that make an impact. Share your ideas with us — the first
+            step toward your next big success starts here.
+          </h3>
+          <div className="mt-[42px] self-center">
+            <Link to="/contacts">
+              <Button
+                size="hero"
+                fontWeight="medium"
+                variant="static"
+                icon={<ChevronRight className="w-3 h-3" />}
+              >
+                Let's Get Started
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -237,30 +237,6 @@ const TestimonialsCarousel = () => {
         ))}
       </div>
 
-      {/* Dots - only on mobile */}
-      {isMobile && (
-        <div className="flex justify-center gap-2 mt-4">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                const firstCard = scrollContainerRef.current?.querySelector(':scope > div:not(style)');
-                if (firstCard && scrollContainerRef.current) {
-                  const cardWidth = firstCard.offsetWidth + 24;
-                  scrollContainerRef.current.scrollTo({
-                    left: index * cardWidth,
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                currentIndex === index ? 'bg-[#8A38F5]' : 'bg-[#D9D9D9]'
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 };
