@@ -104,71 +104,51 @@ const Landing = () => {
       {/* Mobile hero layout (< sm) */}
       <section className="sm:hidden">
         <motion.div
-          className="flex flex-wrap w-full text-[#262424] items-baseline leading-none gap-x-2 mb-6"
-          initial={{ opacity: 0, x: -100, y: -50 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{
-            type: "spring",
-            mass: 1,
-            stiffness: 64.02,
-            damping: 12,
-          }}
-        >
-          <span className="font-nats text-[40px] font-normal tracking-[-0.02em]">
-            SINCERE
-          </span>
-          <span className="font-nats text-[40px] font-normal tracking-[-0.02em]">
-            STUDIO
-          </span>
-          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
-            IT'S
-          </span>
-          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
-            NOT
-          </span>
-          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
-            JUST
-          </span>
-          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
-            A
-          </span>
-          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
-            DESIGN
-          </span>
-          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
-            STUDIO
-          </span>
-        </motion.div>
-        <motion.img
-          src="/images/landing/hero1.png"
-          alt="hero-img1"
-          className="w-full"
+          className="flex flex-col w-full text-[#262424] leading-[36px] mb-6"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
             type: "spring",
             mass: 1,
-            stiffness: 64.02,
-            damping: 12,
+            stiffness: 100,
+            damping: 15,
+          }}
+        >
+          <span className="font-nats text-[36px] font-normal leading-[36px]">
+            SINCERE STUDIO
+          </span>
+          <div className="flex flex-wrap gap-x-2">
+            <span className="font-rajdhani text-[24px] font-medium leading-[36px]">
+              IT'S NOT JUST A DESIGN STUDIO
+            </span>
+          </div>
+        </motion.div>
+        <motion.img
+          src="/images/landing/hero1.png"
+          alt="hero-img1"
+          className="w-full"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
             delay: 0.2,
           }}
         />
         <motion.div
-          className="mt-5"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="mt-8"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             type: "spring",
             mass: 1,
-            stiffness: 64.02,
-            damping: 12,
+            stiffness: 100,
+            damping: 15,
             delay: 0.3,
           }}
         >
-          <h2 className="font-medium text-[#444444] text-4xl mb-5">
-            We Creating Values & <br />
-            Scaling with Honestly
-          </h2>
           <Link to="/projects">
             <Button
               size="hero"
@@ -251,9 +231,13 @@ const Landing = () => {
                 Scaling with Honestly
               </h2>
               <Link to="/projects">
-                <button className="bg-[#E85102] text-[24px] font-medium text-[#FBFBFB] whitespace-nowrap px-4 py-2 rounded-full">
+                <Button
+                  size="hero"
+                  fontWeight="medium"
+                  icon={<ChevronRight className="w-3 h-3" />}
+                >
                   See our Solutions
-                </button>
+                </Button>
               </Link>
             </motion.div>
           </div>
