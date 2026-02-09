@@ -101,8 +101,59 @@ const Landing = () => {
 
   return (
     <div>
+      {/* Mobile hero layout (< sm) */}
+      <section className="sm:hidden">
+        <div className="flex flex-wrap w-full text-[#262424] items-baseline leading-none gap-x-2 mb-6">
+          <span className="font-nats text-[40px] font-normal tracking-[-0.02em]">
+            SINCERE
+          </span>
+          <span className="font-nats text-[40px] font-normal tracking-[-0.02em]">
+            STUDIO
+          </span>
+          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
+            IT'S
+          </span>
+          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
+            NOT
+          </span>
+          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
+            JUST
+          </span>
+          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
+            A
+          </span>
+          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
+            DESIGN
+          </span>
+          <span className="font-rajdhani text-[30px] tracking-[-0.02em]">
+            STUDIO
+          </span>
+        </div>
+        <img
+          src="/images/landing/hero1.png"
+          alt="hero-img1"
+          className="w-full"
+        />
+        <div className="mt-5">
+          <h2 className="font-medium text-[#444444] text-4xl mb-5">
+            We Creating Values & <br />
+            Scaling with Honestly
+          </h2>
+          <Link to="/projects">
+            <Button
+              size="hero"
+              fontWeight="medium"
+              icon={<ChevronRight className="w-3 h-3" />}
+            >
+              See our Solutions
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Desktop/tablet hero layout (>= sm) with scale + clipPath */}
       <section
-        className="relative overflow-hidden"
+        className="relative overflow-hidden hidden sm:block"
         style={{ height: 840 * heroScale }}
       >
         {/* Contenido que escala proporcionalmente */}
