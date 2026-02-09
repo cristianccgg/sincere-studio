@@ -115,7 +115,7 @@ const WorkAccordion = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col gap-4 mb-10">
+      <div className="flex flex-col gap-[24px] mb-10">
         {workItems.map((item) => (
           <Link
             to={item.link}

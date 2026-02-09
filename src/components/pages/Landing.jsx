@@ -673,14 +673,38 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <section className="lg:mt-30 mt-10  lg:py-[29px] py-5 xl:px-[37px] ">
-        <h3 className="lg:text-[36px] text-xl font-semibold text-[#403F3F] ">
-          Explore Our Work
-        </h3>
-        <h2 className="lg:text-[40px] text-2xl font-bold text-[#403F3F] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-15">
-          REAL PROJECTS, REAL RESULTS — <br />
-          SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
-        </h2>
+      <section className="lg:mt-30 mt-[75px]  lg:py-[29px] py-5 xl:px-[37px] ">
+        {/* Desktop: no animation on titles */}
+        <div className="hidden md:block">
+          <h3 className="lg:text-[36px] text-[20px] leading-[100%] font-semibold text-[#403F3F] ">
+            Explore Our Work
+          </h3>
+          <h2 className="lg:text-[40px] text-[24px] leading-[100%] font-bold text-[#403F3F] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-[24px]">
+            REAL PROJECTS, REAL RESULTS — <br />
+            SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
+          </h2>
+        </div>
+        {/* Mobile: titles enter from left */}
+        <motion.div
+          className="md:hidden"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
+          }}
+        >
+          <h3 className="lg:text-[36px] text-[20px] leading-[100%] font-semibold text-[#403F3F] ">
+            Explore Our Work
+          </h3>
+          <h2 className="lg:text-[40px] text-[24px] leading-[100%] font-bold text-[#403F3F] mt-5 xl:mb-22.5 lg:mb-17.5 md:mb-5 mb-[24px]">
+            REAL PROJECTS, REAL RESULTS — <br />
+            SEE HOW WE TURN IDEAS INTO DIGITAL EXPERIENCES.
+          </h2>
+        </motion.div>
         <WorkAccordion />
       </section>
 
