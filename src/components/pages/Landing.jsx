@@ -262,10 +262,11 @@ const Landing = () => {
         {(() => {
           // Dos tramos: lineal de 2xl a 883px, fijo de 883px a sm
           const threshold = 883 / 1728; // ~0.511
+          const smScale = 640 / 1728; // ~0.370
           const t =
             heroScale >= threshold
               ? Math.min(Math.max((1 - heroScale) / 0.5, 0), 1)
-              : 0.28;
+              : 0.28 + (0.4 - 0.28) * (1 - (heroScale - smScale) / (threshold - smScale));
           const v = 0.45 + t * 0.1; // 0.45 → 0.515 (borde vertical)
           const vr = v + 0.02; // radio vertical
           const vi = v - 0.02; // radio interior
