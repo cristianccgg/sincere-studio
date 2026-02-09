@@ -27,8 +27,8 @@ const cardSizes = {
   },
   mobile: {
     container: { width: "100%", height: "auto" },
-    card: { width: "100%", height: "auto", padding: 24, gap: 24 },
-    hover: { padding: 32, gap: 28 },
+    card: { width: "100%", height: "auto", padding: 12, gap: 24 },
+    hover: { padding: 12, gap: 24 },
   },
 };
 
@@ -102,7 +102,7 @@ const Landing = () => {
   return (
     <div>
       {/* Mobile hero layout (< sm) */}
-      <section className="sm:hidden">
+      <section className="sm:hidden mt-[3px]">
         <motion.div
           className="flex flex-col w-full text-[#262424] leading-[36px] mb-6"
           initial={{ opacity: 0, x: -100 }}
@@ -313,26 +313,160 @@ const Landing = () => {
       </section>
       <section
         ref={sectionRef}
-        className="lg:mt-30 mt-10 lg:py-[29px] py-5 xl:px-[37px]"
+        className="lg:mt-30 mt-[75px] lg:py-[29px] py-5 xl:px-[37px]"
         onMouseEnter={() => setSectionHovered(true)}
       >
+        {/* Desktop: animate on sectionEntered */}
         <motion.div
+          className="hidden md:block"
           initial={{ opacity: 0, y: -50 }}
           animate={
             sectionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
           }
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <h3 className="lg:text-[36px] text-xl font-semibold text-[#403F3F]">
+          <h3 className="lg:text-[36px] text-[20px] leading-[100%] font-semibold text-[#403F3F]">
             We make more than a design
           </h3>
-          <h2 className="lg:text-[40px] text-2xl font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-15">
+          <h2 className="lg:text-[40px] text-[24px] leading-[100%] font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-[28px]">
             EVERY SERVICE, EVERY SKILL - <br />
             ALIGNED FOR MAXIMUM IMPACT
           </h2>
         </motion.div>
+        {/* Mobile: title + first card enter together from left */}
         <motion.div
-          className="flex flex-col  md:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 md:gap-3 gap-15 items-center md:items-stretch justify-between"
+          className="md:hidden"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
+          }}
+        >
+          <h3 className="lg:text-[36px] text-[20px] leading-[100%] font-semibold text-[#403F3F]">
+            We make more than a design
+          </h3>
+          <h2 className="lg:text-[40px] text-[24px] leading-[100%] font-bold text-[#262424] mt-5 xl:mb-22.5 md:mb-5 mb-[28px]">
+            EVERY SERVICE, EVERY SKILL - <br />
+            ALIGNED FOR MAXIMUM IMPACT
+          </h2>
+          {/* First card enters with title */}
+          <Link to="/services" className="w-full">
+            <motion.div
+              className="cursor-pointer flex flex-col rounded-[20px] border w-full"
+              style={{
+                padding: sizes.card.padding,
+                gap: sizes.card.gap,
+                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+                borderColor: "#FBFBFB",
+              }}
+            >
+              <div className="flex items-center justify-between text-[#101010]">
+                <h3 className="text-[32px] leading-[100%] font-semibold">
+                  Digital Products
+                </h3>
+                <AnimatedArrowIcon />
+              </div>
+              <p className="font-rajdhani font-normal text-[20px] leading-[100%] tracking-[-0.01em] text-[#101010] flex-1">
+                We design and develop apps, templates, and interactive tools
+                that deliver real value to your users.
+              </p>
+              <img
+                src="/images/landing/we make more/digital-products.png"
+                alt="digital-products-img"
+                className="w-full h-[175px] object-cover rounded-[12px]"
+              />
+            </motion.div>
+          </Link>
+        </motion.div>
+        {/* Mobile: card 2 - enters from left on scroll */}
+        <motion.div
+          className="md:hidden mt-[28px]"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
+          }}
+        >
+          <Link to="/services" className="w-full">
+            <motion.div
+              className="cursor-pointer flex flex-col rounded-[20px] border w-full"
+              style={{
+                padding: sizes.card.padding,
+                gap: sizes.card.gap,
+                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+                borderColor: "#FBFBFB",
+              }}
+            >
+              <div className="flex items-center justify-between text-[#101010]">
+                <h3 className="text-[32px] leading-[100%] font-semibold">
+                  Web Design
+                </h3>
+                <AnimatedArrowIcon />
+              </div>
+              <p className="font-rajdhani font-normal text-[20px] leading-[100%] tracking-[-0.01em] text-[#101010] flex-1">
+                Modern, responsive websites with clean aesthetics and a
+                seamless user experience — tailored to your brand and goals.
+              </p>
+              <img
+                src="/images/landing/we make more/web-design.png"
+                alt="Web-design-img"
+                className="w-full h-[175px] object-cover rounded-[12px]"
+              />
+            </motion.div>
+          </Link>
+        </motion.div>
+        {/* Mobile: card 3 - enters from left on scroll */}
+        <motion.div
+          className="md:hidden mt-[28px]"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 100,
+            damping: 15,
+          }}
+        >
+          <Link to="/services" className="w-full">
+            <motion.div
+              className="cursor-pointer flex flex-col rounded-[20px] border w-full"
+              style={{
+                padding: sizes.card.padding,
+                gap: sizes.card.gap,
+                boxShadow: "0px 0px 6.3px 0px rgba(0,0,0,0.4)",
+                borderColor: "#FBFBFB",
+              }}
+            >
+              <div className="flex items-center justify-between text-[#101010]">
+                <h3 className="text-[32px] leading-[100%] font-semibold whitespace-nowrap">
+                  Marketing and Sales
+                </h3>
+                <AnimatedArrowIcon />
+              </div>
+              <p className="font-rajdhani font-normal text-[20px] leading-[100%] tracking-[-0.01em] text-[#101010] flex-1">
+                From SEO and social media to funnels and optimization — we help
+                you attract, convert, and grow your business.
+              </p>
+              <img
+                src="/images/landing/we make more/marketing-sales.png"
+                alt="Marketing-sales-img"
+                className="w-full h-[175px] object-cover rounded-[12px]"
+              />
+            </motion.div>
+          </Link>
+        </motion.div>
+        {/* Desktop: cards container animated together */}
+        <motion.div
+          className="hidden md:flex md:flex-row 2xl:gap-6 xl:gap-4 lg:gap-3 md:gap-3 items-center md:items-stretch justify-between"
           initial={{ opacity: 0, y: 80 }}
           animate={
             sectionEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }
@@ -388,18 +522,19 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                <h3 className="text-[32px] leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Digital Products
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal  text-lg 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010] flex-1">
+              <p className="font-rajdhani font-normal text-[20px] leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
                 We design and develop apps, templates, and interactive tools
                 that deliver real value to your users.
               </p>
               <img
                 src="/images/landing/we make more/digital-products.png"
                 alt="digital-products-img"
+                className="w-full md:h-auto h-[175px] object-cover rounded-[12px]"
               />
             </motion.div>
           </Link>
@@ -452,19 +587,20 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                <h3 className="text-[32px] leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Web Design
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] text-justify text-[#101010] flex-1">
+              <p className="font-rajdhani font-normal text-[20px] leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
                 Modern, responsive websites with clean <br /> aesthetics and a
-                seamless user experience <br /> — tailored to your brand and
-                goals.
+                seamless user experience <br className="hidden md:block" /> —
+                tailored to your brand and goals.
               </p>
               <img
                 src="/images/landing/we make more/web-design.png"
                 alt="Web-design-img"
+                className="w-full md:h-auto h-[175px] object-cover rounded-[12px]"
               />
             </motion.div>
           </Link>
@@ -517,18 +653,20 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-2xl 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
+                <h3 className="text-[32px] leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
                   Marketing and Sales
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-xl 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] text-justify text-[#101010] flex-1">
-                From SEO and social media to funnels and optimization — we help
-                you attract, convert, and grow your business.
+              <p className="font-rajdhani font-normal text-[20px] leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
+                From SEO and social media to funnels{" "}
+                <br className="md:hidden" /> and optimization — we help you
+                attract, convert, and grow your business.
               </p>
               <img
                 src="/images/landing/we make more/marketing-sales.png"
                 alt="Marketing-sales-img"
+                className="w-full md:h-auto h-[175px] object-cover rounded-[12px]"
               />
             </motion.div>
           </Link>
