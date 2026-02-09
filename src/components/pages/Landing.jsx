@@ -57,11 +57,28 @@ const useBreakpoint = () => {
   return breakpoint;
 };
 
+const useHeroScale = (designWidth = 1728) => {
+  const [scale, setScale] = useState(() =>
+    typeof window !== "undefined"
+      ? Math.min(window.innerWidth / designWidth, 1)
+      : 1,
+  );
+
+  useEffect(() => {
+    const update = () => setScale(Math.min(window.innerWidth / designWidth, 1));
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [designWidth]);
+
+  return scale;
+};
+
 const Landing = () => {
   const breakpoint = useBreakpoint();
   const sizes = cardSizes[breakpoint];
   const isMobile = breakpoint === "mobile";
   const needsStretch = isMobile || breakpoint === "lg";
+  const heroScale = useHeroScale();
 
   const [sectionHovered, setSectionHovered] = useState(false);
   const [visionHovered, setVisionHovered] = useState(false);
@@ -84,7 +101,115 @@ const Landing = () => {
 
   return (
     <div>
-      <section className="w-full mt-4">
+      <section
+        className="relative overflow-hidden"
+        style={{ height: 840 * heroScale }}
+      >
+        {/* Contenido que escala proporcionalmente */}
+        <div
+          className="flex flex-col relative z-10 origin-top-left"
+          style={{
+            width: 1055,
+            transform: `scale(${heroScale})`,
+          }}
+        >
+          <div className="tracking-[-2%] leading-none" style={{ width: 1013 }}>
+            <h1 className="font-nats flex justify-between items-baseline text-[128px]">
+              <span>SINCERE</span>
+              <span>STUDIO</span>
+              <span className="font-rajdhani text-[96px]">IT'S</span>
+            </h1>
+            <p className="font-rajdhani flex justify-between items-baseline text-[96px]">
+              <span>NOT</span>
+              <span>JUST</span>
+              <span>A</span>
+              <span>DESIGN</span>
+              <span>STUDIO</span>
+            </p>
+          </div>
+          <div className="flex items-end justify-between mt-10">
+            <img
+              src="/images/landing/hero1.png"
+              alt="hero-img1"
+              className="max-w-143.5"
+            />
+            <div className="flex flex-col justify-between items-end w-107 h-50.75">
+              <h2 className="font-medium text-[#444444] text-[48px] whitespace-nowrap">
+                We Creating Values & <br />
+                Scaling with Honestly
+              </h2>
+              <Link to="/projects">
+                <button className="bg-[#E85102] text-[24px] font-medium text-[#FBFBFB] whitespace-nowrap px-4 py-2 rounded-full">
+                  See our Solutions
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        {/* SVG para definir el clipPath — valores interpolados según heroScale */}
+        {(() => {
+          // Dos tramos: lineal de 2xl a 883px, fijo de 883px a sm
+          const threshold = 883 / 1728; // ~0.511
+          const t =
+            heroScale >= threshold
+              ? Math.min(Math.max((1 - heroScale) / 0.5, 0), 1)
+              : 0.28;
+          const v = 0.45 + t * 0.1; // 0.45 → 0.515 (borde vertical)
+          const vr = v + 0.02; // radio vertical
+          const vi = v - 0.02; // radio interior
+          const h = 0.0 + t * 0.1; // 0.00 → 0.10 (borde horizontal izq)
+          const hr = h + 0.02; // radio horizontal
+          return (
+            <svg width="0" height="0" className="absolute">
+              <defs>
+                <clipPath id="heroClip" clipPathUnits="objectBoundingBox">
+                  <path
+                    d={`
+                      M ${v.toFixed(3)} 0.02
+                      Q ${v.toFixed(3)} 0, ${vr.toFixed(3)} 0
+                      L 0.98 0
+                      Q 1 0, 1 0.02
+                      L 1 0.98
+                      Q 1 1, 0.98 1
+                      L ${vr.toFixed(3)} 1
+                      Q ${v.toFixed(3)} 1, ${v.toFixed(3)} 0.98
+                      L ${v.toFixed(3)} 0.75
+                      Q ${v.toFixed(3)} 0.73, ${vi.toFixed(3)} 0.73
+                      L ${hr.toFixed(3)} 0.73
+                      Q ${h.toFixed(3)} 0.73, ${h.toFixed(3)} 0.71
+                      L ${h.toFixed(3)} 0.34
+                      Q ${h.toFixed(3)} 0.32, ${hr.toFixed(3)} 0.32
+                      L ${vi.toFixed(3)} 0.32
+                      Q ${v.toFixed(3)} 0.32, ${v.toFixed(3)} 0.30
+                      Z
+                    `}
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          );
+        })()}
+        <motion.div
+          className="absolute bg-cover hidden sm:block top-0 right-0"
+          style={{
+            width: 1020 * heroScale,
+            height: 840 * heroScale,
+            backgroundImage: "url('/images/landing/hero2.png')",
+            backgroundPosition: "15% center",
+            clipPath: "url(#heroClip)",
+          }}
+          initial={{ opacity: 0, x: 100, y: -50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{
+            type: "spring",
+            mass: 1,
+            stiffness: 64.02,
+            damping: 12,
+            delay: 0.1,
+          }}
+        />
+      </section>
+      <section className="w-full mt-4 hidden">
         <div className="flex mx-auto relative">
           {/* Mobile/Tablet text */}
           <div className="flex flex-wrap w-full text-[#262424] items-baseline sm:hidden leading-none gap-x-2 mb-6">
@@ -113,6 +238,7 @@ const Landing = () => {
               STUDIO
             </span>
           </div>
+
           {/* Desktop text - scales proportionally based on 1728px, max at design size */}
           <motion.div
             className="hidden sm:flex flex-col justify-center lg:pr-8 xl:pr-0"
