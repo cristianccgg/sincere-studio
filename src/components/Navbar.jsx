@@ -34,24 +34,28 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex h-22.5 font-rajdhani items-center justify-between w-full lg:pl-[13.5px] lg:pr-[22.5px] relative z-50 bg-[#FBFBFB]">
-        <Link to="/" onClick={closeMenu} className="cursor-pointer select-none">
+      <div className="flex md:h-22.5 h-[64px]  font-rajdhani items-center justify-between w-full lg:pl-[13.5px] lg:pr-[22.5px] relative z-50 bg-[#FBFBFB]">
+        <Link
+          to="/"
+          onClick={closeMenu}
+          className="cursor-pointer select-none "
+        >
           <img
             src="/images/navbar/logo.png"
             alt="logo"
-            className="w-33 h-15 min-w-33 pointer-events-none"
+            className="w-[71px] h-[32px] md:w-33 md:h-15 md:min-w-33 pointer-events-none"
             draggable="false"
           />
         </Link>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden block cursor-pointer p-2 -mr-2"
+          className="md:hidden block cursor-pointer w-[28px]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X /> : <Menu />}
         </button>
 
         {/* Desktop navigation */}

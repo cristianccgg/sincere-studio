@@ -61,7 +61,6 @@ const TestimonialsCarousel = () => {
   const [lastX, setLastX] = useState(0);
   const [lastTime, setLastTime] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const animationRef = useRef(null);
 
   const handleMouseDown = (e) => {
@@ -132,15 +131,7 @@ const TestimonialsCarousel = () => {
   };
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
     return () => {
-      window.removeEventListener("resize", checkMobile);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -152,11 +143,15 @@ const TestimonialsCarousel = () => {
 
     const handleScroll = () => {
       if (scrollContainer) {
-        const firstCard = scrollContainer.querySelector(':scope > div:not(style)');
+        const firstCard = scrollContainer.querySelector(
+          ":scope > div:not(style)",
+        );
         if (firstCard) {
           const cardWidth = firstCard.offsetWidth + 24; // card width + gap
           const index = Math.round(scrollContainer.scrollLeft / cardWidth);
-          setCurrentIndex(Math.max(0, Math.min(index, testimonials.length - 1)));
+          setCurrentIndex(
+            Math.max(0, Math.min(index, testimonials.length - 1)),
+          );
         }
       }
     };
@@ -168,7 +163,7 @@ const TestimonialsCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full mx-auto px-4">
+    <div className="w-full mx-auto lg:px-4 -mr-5 lg:mr-0">
       {/* Scrollable Container */}
       <div
         ref={scrollContainerRef}
@@ -176,7 +171,7 @@ const TestimonialsCarousel = () => {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex overflow-x-auto gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
+        className="flex overflow-x-auto gap-2 lg:gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -192,32 +187,30 @@ const TestimonialsCarousel = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className={`p-6 md:p-8 shadow-containers drop-shadow-containers lg:p-10.5 md:min-w-[45vw] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] md:max-w-[45vw] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 md:gap-5 lg:gap-6 flex-shrink-0 h-fit select-none ${
-                  isMobile ? 'min-w-[280px] max-w-[280px]' : ''
-                }`}
+            className="pt-[36px] pl-[36px] pr-[34px] pb-[58.33px] shadow-containers drop-shadow-containers lg:p-10.5 min-w-[350px] max-w-[350px] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl border-dashed border border-[#8A38F5] flex flex-col gap-4 lg:gap-6 flex-shrink-0 h-fit select-none"
           >
             {/* Quote Marks */}
-            <div className="flex w-13.5 h-[33.67px] gap-1.5 md:gap-2 lg:gap-2.25">
+            <div className="flex h-[33.67px] gap-[9px] lg:gap-2.25">
               <img
                 src="/images/landing/testimonials/quote-sign.png"
                 alt="quote-sign-img"
-                className=""
+                className="w-[22.5px] h-[33.67px] lg:w-auto lg:h-auto"
               />
               <img
                 src="/images/landing/testimonials/quote-sign.png"
                 alt="quote-sign-img"
-                className=""
+                className="w-[22.5px] h-[33.67px] lg:w-auto lg:h-auto"
               />
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-sm md:text-base text-[#262424] lg:text-lg leading-relaxed">
+            <p className="font-rajdhani text-[16px] font-normal text-justify lg:leading-relaxed text-[#262424] lg:text-lg">
               {testimonial.text}
             </p>
 
             {/* Author Info */}
-            <div className="flex gap-2 md:gap-2.5">
-              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden flex-shrink-0">
+            <div className="flex gap-2 lg:gap-2.5">
+              <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full overflow-hidden flex-shrink-0">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
@@ -225,10 +218,10 @@ const TestimonialsCarousel = () => {
                 />
               </div>
               <div className="flex flex-col justify-between text-[#262424]">
-                <h2 className="text-xl md:text-2xl lg:text-[32px] font-medium leading-tight">
+                <h2 className="font-rajdhani text-[24px] font-medium leading-[100%] text-justify lg:text-[32px]">
                   {testimonial.name}
                 </h2>
-                <h3 className="text-base md:text-lg lg:text-[24px] font-medium text-[#262424]">
+                <h3 className="font-rajdhani text-[20px] font-medium leading-[100%] text-justify lg:text-[24px] text-[#262424]">
                   {testimonial.position}
                 </h3>
               </div>
@@ -236,7 +229,6 @@ const TestimonialsCarousel = () => {
           </div>
         ))}
       </div>
-
     </div>
   );
 };

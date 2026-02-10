@@ -834,7 +834,7 @@ const Landing = () => {
       >
         {/* Desktop titles */}
         <motion.div
-          className="hidden md:block"
+          className="hidden lg:block"
           initial={{ opacity: 0, y: -50 }}
           animate={
             testimonialsEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }
@@ -851,7 +851,7 @@ const Landing = () => {
         </motion.div>
         {/* Mobile titles */}
         <motion.div
-          className="md:hidden mb-[24px]"
+          className="lg:hidden mb-[24px]"
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
