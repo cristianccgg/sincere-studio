@@ -26,9 +26,33 @@ const profileScreenPairs = [
   [profileScreens[2], profileScreens[3]],
 ];
 
+const bannerScreens = [
+  { src: "/images/projects/mano/loweBanner/img1.png", alt: "Banner Screen 1" },
+  { src: "/images/projects/mano/loweBanner/img2.png", alt: "Banner Screen 2" },
+  { src: "/images/projects/mano/loweBanner/img3.png", alt: "Banner Screen 3" },
+  { src: "/images/projects/mano/loweBanner/img4.png", alt: "Banner Screen 4" },
+  { src: "/images/projects/mano/loweBanner/img5.png", alt: "Banner Screen 5" },
+];
+
+// Pares de imágenes del banner para sm
+const bannerScreenPairs = [
+  [bannerScreens[0], bannerScreens[1]],
+  [bannerScreens[2], bannerScreens[3]],
+  [bannerScreens[4]],
+];
+
+// Tríos de imágenes del banner para tablet (md)
+const bannerScreenTrios = [
+  [bannerScreens[0], bannerScreens[1], bannerScreens[2]],
+  [bannerScreens[3], bannerScreens[4]],
+];
+
 const Mano = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentPair, setCurrentPair] = useState(0);
+  const [currentBanner, setCurrentBanner] = useState(0);
+  const [currentBannerPair, setCurrentBannerPair] = useState(0);
+  const [currentBannerTrio, setCurrentBannerTrio] = useState(0);
   return (
     <div className="max-w-[1728px] mx-auto">
       <div className="flex flex-col gap-6 mt-[58px] max-w-[1242px] mx-auto">
@@ -282,33 +306,145 @@ const Mano = () => {
         </div>
       </section>
 
-      <section className="my-[90px] w-full flex xl:h-[800px] lg:py-15 py-5 items-center justify-center bg-[#111111] gap-10">
+      {/* Mobile Banner Carousel - 1 image */}
+      <section className="sm:hidden my-[90px] w-full bg-[#111111] py-10">
+        <div className="relative h-[500px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentBanner}
+              src={bannerScreens[currentBanner].src}
+              alt={bannerScreens[currentBanner].alt}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+              className="h-[85%] w-auto"
+            />
+          </AnimatePresence>
+        </div>
+        <div className="flex justify-center gap-2 pt-6">
+          {bannerScreens.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentBanner(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                currentBanner === index ? "bg-[#FFFFFF]" : "bg-[#555555]"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Small Banner Carousel - 2 images */}
+      <section className="hidden sm:block md:hidden my-[90px] w-full bg-[#111111] py-10">
+        <div className="relative h-[500px] flex items-center justify-center gap-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentBannerPair}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center justify-center gap-4 h-full"
+            >
+              {bannerScreenPairs[currentBannerPair].map((screen, idx) => (
+                <img
+                  key={idx}
+                  src={screen.src}
+                  alt={screen.alt}
+                  className="h-[85%] w-auto"
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="flex justify-center gap-2 pt-6">
+          {bannerScreenPairs.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentBannerPair(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                currentBannerPair === index ? "bg-[#FFFFFF]" : "bg-[#555555]"
+              }`}
+              aria-label={`Go to pair ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Tablet Banner Carousel - 3 images */}
+      <section className="hidden md:block lg:hidden my-[90px] w-full bg-[#111111] py-10">
+        <div className="relative h-[500px] flex items-center justify-center gap-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentBannerTrio}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center justify-center gap-4 h-full"
+            >
+              {bannerScreenTrios[currentBannerTrio].map((screen, idx) => (
+                <img
+                  key={idx}
+                  src={screen.src}
+                  alt={screen.alt}
+                  className="h-[85%] w-auto"
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="flex justify-center gap-2 pt-6">
+          {bannerScreenTrios.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentBannerTrio(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                currentBannerTrio === index ? "bg-[#FFFFFF]" : "bg-[#555555]"
+              }`}
+              aria-label={`Go to group ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Desktop Banner - all 5 images */}
+      <section className="hidden lg:flex my-[90px] w-full 2xl:h-[800px] xl:h-[650px] lg:h-[500px] 2xl:py-0 xl:py-10 lg:py-8 items-center justify-evenly bg-[#111111] gap-0">
         <div>
           <img
             src="/images/projects/mano/loweBanner/img1.png"
             alt="img1"
-            className="max-w-[304px] 2xl:h-[658px] md:h-[558px] h-100"
+            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
           />
         </div>
-        <div className="hidden md:block">
+        <div>
           <img
             src="/images/projects/mano/loweBanner/img2.png"
-            alt="img1"
-            className="max-w-[304px] 2xl:h-[658px] md:h-[558px] h-100"
+            alt="img2"
+            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
           />
         </div>
-        <div className="hidden lg:block">
+        <div>
           <img
             src="/images/projects/mano/loweBanner/img3.png"
-            alt="img1"
-            className="max-w-[304px] 2xl:h-[658px] md:h-[558px] h-100"
+            alt="img3"
+            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
           />
         </div>
-        <div className="hidden xl:block">
+        <div>
           <img
             src="/images/projects/mano/loweBanner/img4.png"
-            alt="img1"
-            className="max-w-[304px] 2xl:h-[658px] md:h-[558px] h-100"
+            alt="img4"
+            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
+          />
+        </div>
+        <div>
+          <img
+            src="/images/projects/mano/loweBanner/img5.png"
+            alt="img5"
+            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
           />
         </div>
       </section>
