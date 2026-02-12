@@ -829,7 +829,7 @@ const Landing = () => {
 
       <section
         ref={testimonialsRef}
-        className="lg:mt-30 mt-[75px] pb-5"
+        className="lg:mt-30 mt-[75px] pb-5 border"
         onMouseEnter={() => setTestimonialsHovered(true)}
       >
         {/* Desktop titles */}

@@ -180,7 +180,7 @@ const TestimonialsCarousel = () => {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex overflow-x-auto gap-2 lg:gap-6 pt-2 pb-4 pl-1 lg:pl-0 scroll-smooth cursor-grab active:cursor-grabbing"
+        className="flex overflow-x-auto gap-2 lg:gap-6 pt-2 pb-4 pl-[2px] lg:pl-0  scroll-smooth cursor-grab active:cursor-grabbing"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -198,7 +198,9 @@ const TestimonialsCarousel = () => {
             key={testimonial.id}
             className="pt-[36px] pl-[36px] pr-[34px] pb-[58.33px] lg:p-10.5 min-w-[350px] max-w-[350px] lg:min-w-[42vw] xl:min-w-[38vw] 2xl:min-w-[570px] lg:max-w-[42vw] xl:max-w-[38vw] 2xl:max-w-[570px] rounded-xl lg:border-dashed lg:border lg:border-[#8A38F5] flex flex-col gap-4 lg:gap-6 flex-shrink-0 h-fit select-none"
             style={{
-              boxShadow: isMobile ? "0px 0px 4px 0px rgba(0,0,0,0.25)" : undefined,
+              boxShadow: isMobile
+                ? "0px 0px 4px 0px rgba(0,0,0,0.25)"
+                : undefined,
             }}
           >
             {/* Quote Marks */}
@@ -264,9 +266,7 @@ const TestimonialsCarousel = () => {
                 }
               }}
               className={`h-2 rounded-full transition-all duration-300 ${
-                currentIndex === index
-                  ? "w-6 bg-[#8A38F5]"
-                  : "w-2 bg-[#D9D9D9]"
+                currentIndex === index ? "w-6 bg-[#8A38F5]" : "w-2 bg-[#D9D9D9]"
               }`}
             />
           ))}
