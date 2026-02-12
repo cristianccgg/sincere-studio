@@ -172,7 +172,7 @@ const TestimonialsCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full mx-auto lg:px-4 -mr-5 lg:mr-0">
+    <div className="w-full lg:px-4 -mr-5 lg:mr-0">
       {/* Scrollable Container */}
       <div
         ref={scrollContainerRef}
@@ -180,7 +180,7 @@ const TestimonialsCarousel = () => {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex overflow-x-auto gap-2 lg:gap-6 pb-4 pl-1 lg:pl-0 scroll-smooth cursor-grab active:cursor-grabbing"
+        className="flex overflow-x-auto gap-2 lg:gap-6 pt-2 pb-4 pl-1 lg:pl-0 scroll-smooth cursor-grab active:cursor-grabbing"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
