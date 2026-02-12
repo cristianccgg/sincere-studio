@@ -127,70 +127,72 @@ const Wedwish = () => {
             </div>
           </div>
         </div>
-        <section className="mt-10 xl:mt-[90px] w-full mx-auto">
-          <div
-            className="rounded-sm overflow-hidden h-[500px] sm:h-[600px] md:h-[820px] lg:h-[980px] xl:h-[1139px]"
-            style={{
-              background:
-                "radial-gradient(47.34% 71.78% at 50% 54.19%, #2A9FE2 45.67%, #17577C 100%)",
-            }}
-          >
-            {/* Fila 1 - con padding izquierdo */}
-            <div className="flex gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-[37px] pt-6 sm:pt-8 md:pt-14 lg:pt-16 xl:pt-[45px] ps-4 sm:ps-6 md:ps-8 lg:ps-10 xl:ps-[51.5px]">
-              <img
-                src="/images/projects/wedwish/what-we-did/Brands 1.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-              <img
-                src="/images/projects/wedwish/what-we-did/Brands 2.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-              <img
-                src="/images/projects/wedwish/what-we-did/Brands 3.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink"
-              />
-            </div>
-            {/* Fila 2 - sin padding, pegada al borde izquierdo */}
-            <div className="flex gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-[37px] pt-6 sm:pt-8 md:pt-10 xl:pt-[45px]">
-              <img
-                src="/images/projects/wedwish/what-we-did/Brands 5.png"
-                alt="img-cover-5"
-                className="w-[180px] h-[135px] sm:w-[200px] sm:h-[165px] md:w-[240px] md:h-[210px] lg:w-[280px] lg:h-[263px] xl:w-[318px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-              <img
-                src="/images/projects/wedwish/what-we-did/Brands 6.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-              <img
-                src="/images/projects/wedwish/what-we-did/Brands 7.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-            </div>
-            {/* Fila 3 - con padding izquierdo */}
-            <div className="flex gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-[37px] pt-6 sm:pt-8 md:pt-10 xl:pt-[45px] ps-4 sm:ps-6 md:ps-8 lg:ps-10 xl:ps-[51.5px]">
-              <img
-                src="/images/projects/wedwish/what-we-did/untitled folder/Brands 5.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-              <img
-                src="/images/projects/wedwish/what-we-did/untitled folder/Brands 6.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink-0"
-              />
-              <img
-                src="/images/projects/wedwish/what-we-did/untitled folder/Brands 7.png"
-                alt="img-cover"
-                className="w-[180px] h-[135px] sm:w-[220px] sm:h-[165px] md:w-[280px] md:h-[210px] lg:w-[350px] lg:h-[263px] xl:w-[421px] xl:h-[317px] object-cover flex-shrink"
-              />
-            </div>
+      </section>
+      <section className="mt-10 max-w-[1287px] xl:mt-[90px] w-full mx-auto">
+        {/* Outer wrapper: aspect-ratio preserves proportions, overflow-hidden clips */}
+        <div
+          className="rounded-sm overflow-hidden w-full"
+          style={{
+            aspectRatio: "1287 / 1139",
+            background:
+              "radial-gradient(47.34% 71.78% at 50% 54.19%, #2A9FE2 45.67%, #17577C 100%)",
+          }}
+        >
+          {/* Fila 1 - con padding izquierdo */}
+          <div className="flex gap-[2.875%] pt-[3.496%] ps-[4.002%]">
+            <img
+              src="/images/projects/wedwish/what-we-did/Brands 1.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink-0"
+            />
+            <img
+              src="/images/projects/wedwish/what-we-did/Brands 2.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink-0"
+            />
+            <img
+              src="/images/projects/wedwish/what-we-did/Brands 3.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink"
+            />
           </div>
-        </section>
+          {/* Fila 2 - sin padding, pegada al borde izquierdo */}
+          <div className="flex gap-[2.875%] pt-[3.496%]">
+            <img
+              src="/images/projects/wedwish/what-we-did/Brands 5.png"
+              alt="img-cover-5"
+              className="w-[24.71%] aspect-318/317 object-cover shrink-0"
+            />
+            <img
+              src="/images/projects/wedwish/what-we-did/Brands 6.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink-0"
+            />
+            <img
+              src="/images/projects/wedwish/what-we-did/Brands 7.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink-0"
+            />
+          </div>
+          {/* Fila 3 - con padding izquierdo */}
+          <div className="flex gap-[2.875%] pt-[3.496%] ps-[4.002%]">
+            <img
+              src="/images/projects/wedwish/what-we-did/untitled folder/Brands 5.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink-0"
+            />
+            <img
+              src="/images/projects/wedwish/what-we-did/untitled folder/Brands 6.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink-0"
+            />
+            <img
+              src="/images/projects/wedwish/what-we-did/untitled folder/Brands 7.png"
+              alt="img-cover"
+              className="w-[32.71%] aspect-421/317 object-cover shrink"
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
