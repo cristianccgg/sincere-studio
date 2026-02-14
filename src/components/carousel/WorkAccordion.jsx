@@ -8,6 +8,8 @@ const workItems = [
     id: 0,
     src: "/images/landing/our work/nano.png",
     alt: "nano-project",
+    name: "MANO",
+    description: "Fashion Brand App",
     text: "MANO - Fashion Brand App",
     link: "/projects/mano",
   },
@@ -15,6 +17,8 @@ const workItems = [
     id: 1,
     src: "/images/landing/our work/Cover Thumbnail 2.png",
     alt: "LShot-project",
+    name: "LShot",
+    description: "Professional Photography",
     text: "LShot - Screenshot Tool",
     link: "/projects/lshot",
   },
@@ -22,6 +26,8 @@ const workItems = [
     id: 2,
     src: "/images/landing/our work/Cover Thumbnail 3.png",
     alt: "The-Food-Co-Project",
+    name: "The Food Co",
+    description: "Restaurant",
     text: "The Food Co - Restaurant",
     link: "/projects/thefoodco",
   },
@@ -29,6 +35,8 @@ const workItems = [
     id: 3,
     src: "/images/landing/our work/Cover Thumbnail 4.png",
     alt: "Wedwish-project",
+    name: "Wedwish",
+    description: "Wedding App",
     text: "Wedwish - Wedding App",
     link: "/projects/wedwish",
   },
@@ -36,6 +44,8 @@ const workItems = [
     id: 4,
     src: "/images/landing/our work/Cover Thumbnail 5.png",
     alt: "MatchWise-project",
+    name: "MatchWise",
+    description: "Dating App",
     text: "MatchWise - Dating App",
     link: "/projects/matchwise",
   },
@@ -122,14 +132,23 @@ const WorkAccordion = () => {
             key={item.id}
             className="rounded-[20px] overflow-hidden w-full"
           >
-            <div className="relative w-full" style={{ height: "300px" }}>
+            <div className="relative w-full" style={{ height: "360px" }}>
               <img
                 src={item.src}
                 alt={item.alt}
                 className="w-full h-full object-cover"
               />
-              <div className="flex absolute text-[24px] text-[#FBFBFB] bottom-4 left-4 justify-between items-center w-[90%]">
-                <h3>{item.text}</h3>
+              <div
+                className="flex absolute h-[77px] text-[#FBFBFB] bottom-0 left-0 justify-between items-center w-full px-4 pb-4 pt-6 rounded-b-[20px]"
+                style={{
+                  background:
+                    "linear-gradient(2.62deg, rgba(0, 0, 0, 0.6) 2.08%, rgba(102, 102, 102, 0) 192.09%)",
+                }}
+              >
+                <div className="flex flex-col  font-rajdhani font-medium text-[20px]">
+                  <span>{item.name}</span>
+                  <span>{item.description}</span>
+                </div>
                 <motion.div
                   onMouseEnter={() => setHoveredIconIndex(item.id)}
                   onMouseLeave={() => setHoveredIconIndex(null)}
@@ -257,7 +276,13 @@ const WorkAccordion = () => {
         ))}
 
         {/* Text overlay with crossfade */}
-        <div className="flex absolute text-[24px] text-[#FBFBFB] bottom-4 left-4 justify-between items-center w-[90%]">
+        <div
+          className="flex absolute text-[24px] text-[#FBFBFB] bottom-0 left-0 justify-between items-center w-full px-4 pb-4 pt-6 rounded-b-[20px]"
+          style={{
+            background:
+              "linear-gradient(2.62deg, rgba(0, 0, 0, 0.6) 2.08%, rgba(102, 102, 102, 0) 192.09%)",
+          }}
+        >
           {workItems.map((item, index) => (
             <motion.h3
               key={item.id}
