@@ -275,18 +275,22 @@ const WorkAccordion = () => {
           />
         ))}
 
-        {/* Text overlay with crossfade */}
+        {/* Gradient overlay */}
         <div
-          className="flex absolute text-[24px] text-[#FBFBFB] bottom-0 left-0 justify-between items-center w-full px-4 pb-4 pt-6 rounded-b-[20px]"
+          className="absolute bottom-0 left-0 w-full rounded-b-[20px] z-10"
           style={{
+            height: "59.8%",
             background:
-              "linear-gradient(2.62deg, rgba(0, 0, 0, 0.6) 2.08%, rgba(102, 102, 102, 0) 192.09%)",
+              "linear-gradient(176.2deg, rgba(0, 0, 0, 0) 30.96%, #000000 96.9%)",
           }}
-        >
+        />
+
+        {/* Text overlay with crossfade */}
+        <div className="flex absolute text-[24px] text-[#FBFBFB] bottom-0 left-0 justify-between items-end w-full px-4 pb-4 rounded-b-[20px] z-20">
           {workItems.map((item, index) => (
             <motion.h3
               key={item.id}
-              className="absolute"
+              className="absolute bottom-4 left-4"
               initial={false}
               animate={{
                 opacity: activeSlot === index ? 1 : 0,
