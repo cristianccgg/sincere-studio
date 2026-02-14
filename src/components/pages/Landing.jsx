@@ -522,12 +522,12 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-[32px] leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                <h3 className="text-[32px] md:text-2xl leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Digital Products
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-[20px] leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
+              <p className="font-rajdhani font-normal text-[20px] md:text-lg leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
                 We design and develop apps, templates, and interactive tools
                 that deliver real value to your users.
               </p>
@@ -587,12 +587,12 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-[32px] leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
+                <h3 className="text-[32px] md:text-2xl leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold">
                   Web Design
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-[20px] leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
+              <p className="font-rajdhani font-normal text-[20px] md:text-lg leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm xl:text-nowrap tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
                 Modern, responsive websites with clean <br /> aesthetics and a
                 seamless user experience <br className="hidden md:block" /> —
                 tailored to your brand and goals.
@@ -653,12 +653,12 @@ const Landing = () => {
               }}
             >
               <div className="flex items-center justify-between text-[#101010]">
-                <h3 className="text-[32px] leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
+                <h3 className="text-[32px] md:text-2xl leading-[100%] 2xl:text-[40px] xl:text-3xl lg:text-xl font-semibold whitespace-nowrap">
                   Marketing and Sales
                 </h3>
                 <AnimatedArrowIcon />
               </div>
-              <p className="font-rajdhani font-normal text-[20px] leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
+              <p className="font-rajdhani font-normal text-[20px] md:text-lg leading-[100%] 2xl:text-[24px] xl:text-lg lg:text-sm tracking-[-0.01em] md:text-justify text-[#101010] flex-1">
                 From SEO and social media to funnels{" "}
                 <br className="md:hidden" /> and optimization — we help you
                 attract, convert, and grow your business.
