@@ -125,12 +125,12 @@ const WorkAccordion = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col gap-[24px] mb-10">
+      <div className="flex flex-col items-center gap-[24px] mb-10">
         {workItems.map((item) => (
           <Link
             to={item.link}
             key={item.id}
-            className="rounded-[20px] overflow-hidden w-full"
+            className="rounded-[20px] overflow-hidden w-full "
           >
             <div className="relative w-full" style={{ height: "360px" }}>
               <img
@@ -286,7 +286,7 @@ const WorkAccordion = () => {
         />
 
         {/* Text overlay with crossfade */}
-        <div className="flex absolute text-[24px] text-[#FBFBFB] bottom-0 left-0 justify-between items-end w-full px-4 pb-4 rounded-b-[20px] z-20">
+        <div className="flex absolute xl:text-[24px] lg:text-lg text-[#FBFBFB] bottom-0 left-0 justify-between items-end w-full px-4 pb-4 rounded-b-[20px] z-20">
           {workItems.map((item, index) => (
             <motion.h3
               key={item.id}
