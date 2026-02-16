@@ -16,7 +16,7 @@ import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 function App() {
   return (
-    <div className="max-w-[1728px] mx-auto md:pl-[45px] md:pr-[36px] px-5 font-rajdhani">
+    <div className="max-w-[1728px] mx-auto md:pl-[45px] md:pr-[36px] px-5 font-rajdhani overflow-x-hidden">
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
