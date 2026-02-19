@@ -25,16 +25,29 @@ const Contacts = () => {
     projectDetails: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const SHEET_WEBHOOK_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch(SHEET_WEBHOOK_URL, {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Submission error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -380,7 +393,8 @@ const Contacts = () => {
         <div className="flex justify-center">
           <motion.button
             type="submit"
-            className="inline-flex items-center justify-center font-rajdhani font-semibold text-[18px] md:text-[32px] bg-[#E85102] text-[#FBFBFB] rounded-[100px] cursor-pointer py-[10px] px-[20px] md:py-[16px] md:px-[32px] gap-[8px] md:gap-[10px] border-[3px] border-transparent"
+            disabled={isSubmitting}
+            className="inline-flex items-center justify-center font-rajdhani font-semibold text-[18px] md:text-[32px] bg-[#E85102] text-[#FBFBFB] rounded-[100px] cursor-pointer py-[10px] px-[20px] md:py-[16px] md:px-[32px] gap-[8px] md:gap-[10px] border-[3px] border-transparent disabled:opacity-60 disabled:cursor-not-allowed"
             onMouseEnter={() => setSubmitHovered(true)}
             onMouseLeave={() => setSubmitHovered(false)}
             animate={{
@@ -394,7 +408,7 @@ const Contacts = () => {
               duration: 0.3,
             }}
           >
-            Submit
+            {isSubmitting ? "Sending..." : "Submit"}
             <motion.img
               src={submitHovered ? "/images/contacts/send-icon1.png" : "/images/contacts/send-icon.png"}
               alt="send-icon"
