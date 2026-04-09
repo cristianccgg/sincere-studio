@@ -708,6 +708,90 @@ const Landing = () => {
         <WorkAccordion />
       </section>
 
+      <section className="bg-[#E85102] text-[#FBFBFB] py-[29px] px-[16.5px] -mx-5 md:mx-0 md:rounded-[20px]">
+        <h2 className="text-[20px] lg:text-[36px] font-semibold mb-[61px] md:mb-[35px]">
+          Industries
+        </h2>
+        <h3 className="text-[24px] xl:text-[40px] font-bold">
+          OUR INDUSTRY EXPERTISE HELPS US SOLVE THE RIGHT CHALLENGES{" "}
+          <br className="hidden md:block" /> AND DESIGN DIGITAL EXPERIENCES THAT
+          FIT YOUR BUSINESS
+        </h3>
+        <div className="lg:flex items-start gap-8 mt-[62px] md:mt-[64px]">
+          <div className="bg-[#FBFBFB26]  p-3 rounded-[10px]">
+            <h3 className="text-[24px] xl:text-[32px] xl:text-[32px] font-bold">
+              CONCRETE COMPANIES
+            </h3>
+            <p className="text-[20px] lg:text-[24px] font-medium mt-[22px] lg:mt-3">
+              We design conversion-focused websites with clear project
+              showcases, service details, and strong calls-to-action that turn
+              visitors ...
+            </p>
+            <div className="group inline-block">
+              <Link
+                to="/industries"
+                className="text-[24px] xl:text-[32px] cursor-pointer font-semibold mt-6 block"
+              >
+                More
+              </Link>
+              <div
+                className="bg-[#8A38F5] h-1 -mt-1.5 w-5 group-hover:w-full"
+                style={{
+                  transition: "width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                }}
+              ></div>
+            </div>
+          </div>
+          <div className="bg-[#FBFBFB26] p-3 rounded-[10px]">
+            <h3 className="text-[24px] xl:text-[32px] font-bold">
+              REAL ESTATE COMPANIES
+            </h3>
+            <p className="text-[20px] lg:text-[24px] font-medium mt-[22px] lg:mt-3">
+              Project developers need to establish credibility early — with
+              investors, buyers, partners, and stakeholders alike ...
+            </p>
+            <div className="group inline-block">
+              <Link
+                to="/industries"
+                className="text-[24px] xl:text-[32px] cursor-pointer font-semibold mt-6 block"
+              >
+                More
+              </Link>
+              <div
+                className="bg-[#8A38F5] h-1 -mt-1.5 w-5 group-hover:w-full"
+                style={{
+                  transition: "width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                }}
+              ></div>
+            </div>
+          </div>
+          <div className="bg-[#FBFBFB26] p-3 rounded-[10px]">
+            <h3 className="text-[24px] xl:text-[32px] font-bold">
+              LOGISTIC COMPANIES
+            </h3>
+            <p className="text-[20px] lg:text-[24px] font-medium mt-[22px] lg:mt-3">
+              Logistics companies operate in an industry where speed,
+              reliability, and operational clarity are essential. We help
+              logistics ...
+            </p>
+            <div className="group inline-block">
+              <Link
+                to="/industries"
+                className="text-[24px] xl:text-[32px] cursor-pointer font-semibold mt-6 block"
+              >
+                More
+              </Link>
+              <div
+                className="bg-[#8A38F5] h-1 -mt-1.5 w-5 group-hover:w-full"
+                style={{
+                  transition: "width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         ref={visionRef}
         className="lg:mt-30 mt-[75px] xl:max-h-[730px]  lg:py-[29px] py-5 xl:px-[37px] flex flex-col md:flex-row gap-10 justify-between"

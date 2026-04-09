@@ -29,13 +29,13 @@ const Footer = () => {
           Home
         </Link>
         <Link
-          to="/industries"
+          to="/services"
           className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
         >
           Services
         </Link>
         <Link
-          to="/services"
+          to="/industries"
           className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
         >
           Industries
