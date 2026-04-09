@@ -22,22 +22,46 @@ const Footer = () => {
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="lg:text-[32px] text-[24px] font-semibold">Company</h3>
-        <Link to="/" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link
+          to="/"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
           Home
         </Link>
-        <Link to="/services" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link
+          to="/industries"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
           Services
         </Link>
-        <Link to="/projects" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link
+          to="/services"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
+          Industries
+        </Link>
+        <Link
+          to="/projects"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
           Our Projects
         </Link>
-        <Link to="/about-us" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link
+          to="/about-us"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
           About Us
         </Link>
-        <Link to="/contacts" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link
+          to="/contacts"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
           Let's work
         </Link>
-        <Link to="/privacy-policy" className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors">
+        <Link
+          to="/privacy-policy"
+          className="lg:text-[24px] text-xl font-semibold cursor-pointer hover:text-[#8A38F5] transition-colors"
+        >
           Privacy Policy
         </Link>
       </div>

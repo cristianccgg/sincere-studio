@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import Landing from "./components/pages/Landing";
 import Services from "./components/pages/Services";
+import Industries from "./components/pages/Industries";
 import AboutUs from "./components/pages/AboutUs";
 import Contacts from "./components/pages/Contacts";
 import Projects from "./components/pages/Projects";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Landing />} />
             <Route path="services" element={<Services />} />
+            <Route path="industries" element={<Industries />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/mano" element={<Mano />} />
             <Route path="projects/lshot" element={<LShot />} />
