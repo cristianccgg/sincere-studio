@@ -708,7 +708,7 @@ const Landing = () => {
         <WorkAccordion />
       </section>
 
-      <section className="bg-[#E85102] text-[#FBFBFB] py-[29px] px-[16.5px] -mx-5 md:mx-0 md:rounded-[20px]">
+      <section className="bg-[#E85102] text-[#FBFBFB] mt-[65px] xl:mt-[120px] lg:px-8 py-[29px]  px-[16.5px] -mx-5 md:mx-0 md:rounded-[20px]">
         <h2 className="text-[20px] lg:text-[36px] font-semibold mb-[61px] md:mb-[35px]">
           Industries
         </h2>
@@ -717,9 +717,9 @@ const Landing = () => {
           <br className="hidden md:block" /> AND DESIGN DIGITAL EXPERIENCES THAT
           FIT YOUR BUSINESS
         </h3>
-        <div className="lg:flex items-start gap-8 mt-[62px] md:mt-[64px]">
-          <div className="bg-[#FBFBFB26]  p-3 rounded-[10px]">
-            <h3 className="text-[24px] xl:text-[32px] xl:text-[32px] font-bold">
+        <div className="flex flex-col lg:flex-row gap-8 mt-[62px] md:mt-[64px]">
+          <div className="bg-[#FBFBFB26] p-3 rounded-[10px] flex flex-col">
+            <h3 className="text-[24px] xl:text-[32px] font-bold">
               CONCRETE COMPANIES
             </h3>
             <p className="text-[20px] lg:text-[24px] font-medium mt-[22px] lg:mt-3">
@@ -727,7 +727,7 @@ const Landing = () => {
               showcases, service details, and strong calls-to-action that turn
               visitors ...
             </p>
-            <div className="group inline-block">
+            <div className="group inline-block mt-auto self-start">
               <Link
                 to="/industries"
                 className="text-[24px] xl:text-[32px] cursor-pointer font-semibold mt-6 block"
@@ -742,7 +742,7 @@ const Landing = () => {
               ></div>
             </div>
           </div>
-          <div className="bg-[#FBFBFB26] p-3 rounded-[10px]">
+          <div className="bg-[#FBFBFB26] p-3 rounded-[10px] flex flex-col">
             <h3 className="text-[24px] xl:text-[32px] font-bold">
               REAL ESTATE COMPANIES
             </h3>
@@ -750,7 +750,7 @@ const Landing = () => {
               Project developers need to establish credibility early — with
               investors, buyers, partners, and stakeholders alike ...
             </p>
-            <div className="group inline-block">
+            <div className="group inline-block mt-auto self-start">
               <Link
                 to="/industries"
                 className="text-[24px] xl:text-[32px] cursor-pointer font-semibold mt-6 block"
@@ -765,7 +765,7 @@ const Landing = () => {
               ></div>
             </div>
           </div>
-          <div className="bg-[#FBFBFB26] p-3 rounded-[10px]">
+          <div className="bg-[#FBFBFB26] p-3 rounded-[10px] flex flex-col">
             <h3 className="text-[24px] xl:text-[32px] font-bold">
               LOGISTIC COMPANIES
             </h3>
@@ -774,7 +774,7 @@ const Landing = () => {
               reliability, and operational clarity are essential. We help
               logistics ...
             </p>
-            <div className="group inline-block">
+            <div className="group inline-block mt-auto self-start">
               <Link
                 to="/industries"
                 className="text-[24px] xl:text-[32px] cursor-pointer font-semibold mt-6 block"
