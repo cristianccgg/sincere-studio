@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Industries = () => {
   const [expanded, setExpanded] = useState({ 0: false, 1: false, 2: false });
   const [hovered, setHovered] = useState({ 0: false, 1: false, 2: false });
-  const [heroHovered, setHeroHovered] = useState(false);
+  const [heroHovered, setHeroHovered] = useState(() => window.innerWidth < 768);
   const toggle = (i) => setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
 
   const overlayStyle = (i) => ({
