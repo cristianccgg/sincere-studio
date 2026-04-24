@@ -17,4 +17,5 @@ body {
   --font-nats: "NATS", sans-serif;
   --font-rajdhani: "Rajdhani", sans-serif;
   --shadow-containers: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  --breakpoint-3xl: 108rem;
 }

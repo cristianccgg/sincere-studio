@@ -411,42 +411,15 @@ const Mano = () => {
       </section>
 
       {/* Desktop Banner - all 5 images */}
-      <section className="hidden lg:flex my-[90px] w-full 2xl:h-[800px] xl:h-[650px] lg:h-[500px] 2xl:py-0 xl:py-10 lg:py-8 items-center justify-evenly bg-[#111111] gap-0">
-        <div>
+      <section className="hidden lg:flex my-[90px] w-full xl:py-10 lg:py-8 items-center justify-evenly bg-[#111111]">
+        {[1, 2, 3, 4, 5].map((n) => (
           <img
-            src="/images/projects/mano/loweBanner/img1.png"
-            alt="img1"
-            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
+            key={n}
+            src={`/images/projects/mano/loweBanner/img${n}.png`}
+            alt={`img${n}`}
+            className="2xl:h-125 xl:h-125 lg:h-95 w-auto 3xl:h-164.5"
           />
-        </div>
-        <div>
-          <img
-            src="/images/projects/mano/loweBanner/img2.png"
-            alt="img2"
-            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
-          />
-        </div>
-        <div>
-          <img
-            src="/images/projects/mano/loweBanner/img3.png"
-            alt="img3"
-            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
-          />
-        </div>
-        <div>
-          <img
-            src="/images/projects/mano/loweBanner/img4.png"
-            alt="img4"
-            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
-          />
-        </div>
-        <div>
-          <img
-            src="/images/projects/mano/loweBanner/img5.png"
-            alt="img5"
-            className="2xl:h-[658px] xl:h-[500px] lg:h-[380px] w-auto"
-          />
-        </div>
+        ))}
       </section>
     </div>
   );
